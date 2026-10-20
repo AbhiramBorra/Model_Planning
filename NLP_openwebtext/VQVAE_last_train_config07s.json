@@ -1,0 +1,65 @@
+{
+    "output_dir": "NLP_openwebtext/VQVAE_last256_output07s",
+    "save_interval": 20000,
+    "log_interval": 10,
+    "eval_interval": 1000,
+    "usage_log_interval": 1000,
+    
+    "T_max": 256,
+    "max_attention_window": 256,
+    
+    "batch_size": 256,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-5,
+    "weight_decay": 0.01,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "grad_clip": 1.0,
+    "warmup_iters": 100,
+    "max_iters": 10000,
+    "lr_decay_iters": 10000,
+    "min_lr": 5e-6,
+    "decay_lr": true,
+    
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "LM_compile": false,
+    "vqvae_compile": false,
+    
+    "wandb_flag": true,
+    "wandb_project_name": "vqvae-last-training",
+    "wandb_run_name": "vqvae_last_run07s",
+    "wandb_group": "vqvae_last",
+    "wandb_entity": "llm_analysis",
+    
+    "backend": "nccl",
+    "base_seed": 42,
+    
+    "llm_checkpoint_path": "NLP_openwebtext/LLMout/llm_train_8layers_8heads_512embd_64batchsize_256blocksize/ckpt.pt",
+    "dataset": "openwebtext",
+    
+    "vqvae_last_config": {
+        "input_dim": 512,
+        "hidden_dim": 2048,
+        "codebook_size": 64,
+        "beta": 0.25,
+        "codebook_reset_counter_multiplier": 12,
+        
+        "num_encoder_layers": 6,
+        "num_decoder_layers": 6,
+        "mlp_ratio": 4.0,
+        "use_residual": true,
+        "activation": "gelu",
+        "dropout": 0.1,
+        "layer_norm": true,
+        
+        "cosine_push_weight": 0.2,
+        "entropy_loss_weight": 0.2,
+        "entropy_temperature": 2.0,
+        "mask_prob": 0.05,
+        
+        "usage_tracking_window": 2000
+    },
+    
+    "gradient_checkpointing": false
+}

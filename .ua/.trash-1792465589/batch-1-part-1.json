@@ -1,0 +1,1344 @@
+{
+ "nodes": [
+  {
+   "id": "file:NLP_mi_calc_v6 2.py",
+   "type": "file",
+   "name": "NLP_mi_calc_v6 2.py",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "summary": "Distributed script that computes mutual information between per-block VQVAE3v2 codes and last-token VQVAE codes extracted from a GPT model's hidden states on OpenWebText-style NLP data, streaming counts into StreamingInfo.",
+   "tags": [
+    "entry-point",
+    "mutual-information",
+    "vqvae",
+    "distributed",
+    "nlp"
+   ],
+   "complexity": "complex",
+   "languageNotes": "Filename contains a space ('v6 2'), suggesting a duplicated copy of a script version; it cannot be imported as a Python module."
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:load_state_dict_remove_ddp_prefix",
+   "type": "function",
+   "name": "load_state_dict_remove_ddp_prefix",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    32,
+    139
+   ],
+   "summary": "Loads a checkpoint state dict into a model after stripping DDP 'module.' and torch.compile '_orig_mod.' prefixes, with diagnostic reporting of mismatched keys.",
+   "tags": [
+    "checkpoint",
+    "ddp",
+    "utility"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:build_vqvae3v2_from_config",
+   "type": "function",
+   "name": "build_vqvae3v2_from_config",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    142,
+    189
+   ],
+   "summary": "Constructs an Encoder3v2/Decoder3v2/VQVAE3v2 stack from a saved config dictionary for block-level hidden-state quantization.",
+   "tags": [
+    "factory",
+    "vqvae",
+    "model-loading"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:compute_vq3v2_index",
+   "type": "function",
+   "name": "compute_vq3v2_index",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    192,
+    205
+   ],
+   "summary": "Encodes hidden states through a VQVAE3v2 and returns the discrete codebook index for a single sample.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "inference"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:compute_vq3v2_index_batch",
+   "type": "function",
+   "name": "compute_vq3v2_index_batch",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    208,
+    237
+   ],
+   "summary": "Batched version of VQVAE3v2 code index computation over hidden-state tensors.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "batch-processing"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:get_batch",
+   "type": "function",
+   "name": "get_batch",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    240,
+    251
+   ],
+   "summary": "Samples a random batch of token windows from a memory-mapped binary dataset split and moves it to the device.",
+   "tags": [
+    "data-loading",
+    "utility",
+    "memmap"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:save_streaming_info_counts",
+   "type": "function",
+   "name": "save_streaming_info_counts",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    254,
+    295
+   ],
+   "summary": "Serializes StreamingInfo count tables and metadata to disk for later MI analysis.",
+   "tags": [
+    "serialization",
+    "mutual-information",
+    "checkpoint"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:collect_block_mi",
+   "type": "function",
+   "name": "collect_block_mi",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    298,
+    325
+   ],
+   "summary": "Computes mutual information values between each block's code variable and the last-token code from a StreamingInfo instance.",
+   "tags": [
+    "mutual-information",
+    "metrics",
+    "analysis"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:load_vqvae_last_token_model",
+   "type": "function",
+   "name": "load_vqvae_last_token_model",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    328,
+    412
+   ],
+   "summary": "Loads a VQVAELastToken model from a checkpoint folder, rebuilding it from saved config and stripping DDP prefixes.",
+   "tags": [
+    "model-loading",
+    "vqvae",
+    "checkpoint"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:sync_and_update_streaming_info",
+   "type": "function",
+   "name": "sync_and_update_streaming_info",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    417,
+    445
+   ],
+   "summary": "Gathers code samples from all distributed ranks and updates StreamingInfo counters on the master process.",
+   "tags": [
+    "distributed",
+    "mutual-information",
+    "synchronization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:calculate_and_report_metrics",
+   "type": "function",
+   "name": "calculate_and_report_metrics",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    448,
+    477
+   ],
+   "summary": "Computes current entropy and MI estimates from StreamingInfo and logs them.",
+   "tags": [
+    "metrics",
+    "logging",
+    "mutual-information"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_mi_calc_v6 2.py:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "NLP_mi_calc_v6 2.py",
+   "lineRange": [
+    480,
+    1016
+   ],
+   "summary": "Parses arguments, sets up DDP, loads the GPT and VQVAE models, iterates over data batches extracting hidden states and codes, and streams MI statistics with periodic checkpointing.",
+   "tags": [
+    "entry-point",
+    "orchestration",
+    "distributed",
+    "mutual-information"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "file:information_theory_utils.py",
+   "type": "file",
+   "name": "information_theory_utils.py",
+   "filePath": "information_theory_utils.py",
+   "summary": "Provides StreamingInfo, a stream-friendly count-table container for estimating entropy, joint/conditional entropy, mutual information and conditional MI over discrete variables, with plug-in and Paninski/BUB bias-corrected estimators and optional HDF5 sample storage.",
+   "tags": [
+    "utility",
+    "information-theory",
+    "mutual-information",
+    "statistics",
+    "core-library"
+   ],
+   "complexity": "complex",
+   "languageNotes": "Optional dependency pattern: h5py/numpy/scipy imported in a try/except with feature flags (HDF5_AVAILABLE, SCIPY_AVAILABLE)."
+  },
+  {
+   "id": "class:information_theory_utils.py:StreamingInfo",
+   "type": "class",
+   "name": "StreamingInfo",
+   "filePath": "information_theory_utils.py",
+   "lineRange": [
+    21,
+    857
+   ],
+   "summary": "Maintains Counter-based count tables for chosen variable combinations as samples stream in, exposing entropy, conditional entropy, mutual information and Paninski/BUB/BAG bias-corrected estimators, plus optional HDF5 sample flushing and reloading.",
+   "tags": [
+    "information-theory",
+    "streaming",
+    "statistics",
+    "data-model"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:information_theory_utils.py:test_independent_uniform",
+   "type": "function",
+   "name": "test_independent_uniform",
+   "filePath": "information_theory_utils.py",
+   "lineRange": [
+    872,
+    899
+   ],
+   "summary": "Sanity test checking that MI between independent uniform variables is near zero and entropies match log of alphabet size.",
+   "tags": [
+    "test",
+    "information-theory",
+    "sanity-check"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:information_theory_utils.py:test_copy_variable",
+   "type": "function",
+   "name": "test_copy_variable",
+   "filePath": "information_theory_utils.py",
+   "lineRange": [
+    902,
+    929
+   ],
+   "summary": "Sanity test checking that MI between a variable and its copy equals its entropy.",
+   "tags": [
+    "test",
+    "information-theory",
+    "sanity-check"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:information_theory_utils.py:test_three_variables",
+   "type": "function",
+   "name": "test_three_variables",
+   "filePath": "information_theory_utils.py",
+   "lineRange": [
+    932,
+    963
+   ],
+   "summary": "Sanity test for joint, conditional entropy and conditional MI across three related variables.",
+   "tags": [
+    "test",
+    "information-theory",
+    "sanity-check"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:information_theory_utils.py:test_no_samples",
+   "type": "function",
+   "name": "test_no_samples",
+   "filePath": "information_theory_utils.py",
+   "lineRange": [
+    966,
+    978
+   ],
+   "summary": "Checks that querying StreamingInfo with no samples raises or handles the empty case correctly.",
+   "tags": [
+    "test",
+    "information-theory",
+    "sanity-check"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:mi_calc_full_path.py",
+   "type": "file",
+   "name": "mi_calc_full_path.py",
+   "filePath": "mi_calc_full_path.py",
+   "summary": "Top-level script that runs a trained GPT on path-finding prompts, encodes hidden states with two-stage VQVAE1/VQVAE2 and a Path_VQVAE, and estimates mutual information between the resulting discrete codes across the full generated path.",
+   "tags": [
+    "entry-point",
+    "mutual-information",
+    "path-finding",
+    "vqvae",
+    "script"
+   ],
+   "complexity": "complex",
+   "languageNotes": "Written as a flat module-level script with wildcard imports (from minimal_VQVAEs import *), so most logic runs at import time rather than in functions."
+  },
+  {
+   "id": "function:mi_calc_full_path.py:sync_and_update_streaming_info",
+   "type": "function",
+   "name": "sync_and_update_streaming_info",
+   "filePath": "mi_calc_full_path.py",
+   "lineRange": [
+    521,
+    550
+   ],
+   "summary": "Gathers sampled code tuples from all DDP ranks and feeds them into the per-pair StreamingInfo trackers on the master process.",
+   "tags": [
+    "distributed",
+    "mutual-information",
+    "synchronization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:mi_calc_full_path.py:calculate_and_report_metrics",
+   "type": "function",
+   "name": "calculate_and_report_metrics",
+   "filePath": "mi_calc_full_path.py",
+   "lineRange": [
+    552,
+    587
+   ],
+   "summary": "Computes current entropy and mutual information estimates from the StreamingInfo trackers and logs them.",
+   "tags": [
+    "metrics",
+    "logging",
+    "mutual-information"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:mi_calc_full_path.py:create_plots_and_save",
+   "type": "function",
+   "name": "create_plots_and_save",
+   "filePath": "mi_calc_full_path.py",
+   "lineRange": [
+    589,
+    710
+   ],
+   "summary": "Generates matplotlib plots of mutual information results (e.g. MI vs. time offset / code pairs) and saves figures plus raw results to the output directory.",
+   "tags": [
+    "visualization",
+    "plotting",
+    "serialization"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:mi_calc_full_path_long2_61.py",
+   "type": "file",
+   "name": "mi_calc_full_path_long2_61.py",
+   "filePath": "mi_calc_full_path_long2_61.py",
+   "summary": "Variant of the full-path MI script using the single-model VQVAE61 encoder/decoder on GPT hidden states for long path-finding sequences, with time-step skipping and streaming MI estimation between codes.",
+   "tags": [
+    "entry-point",
+    "mutual-information",
+    "path-finding",
+    "vqvae",
+    "script"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:mi_calc_full_path_long2_61.py:sync_and_update_streaming_info",
+   "type": "function",
+   "name": "sync_and_update_streaming_info",
+   "filePath": "mi_calc_full_path_long2_61.py",
+   "lineRange": [
+    347,
+    376
+   ],
+   "summary": "Gathers sampled code tuples from all DDP ranks and feeds them into the per-pair StreamingInfo trackers on the master process.",
+   "tags": [
+    "distributed",
+    "mutual-information",
+    "synchronization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:mi_calc_full_path_long2_61.py:calculate_and_report_metrics",
+   "type": "function",
+   "name": "calculate_and_report_metrics",
+   "filePath": "mi_calc_full_path_long2_61.py",
+   "lineRange": [
+    378,
+    413
+   ],
+   "summary": "Computes current entropy and mutual information estimates from the StreamingInfo trackers and logs them.",
+   "tags": [
+    "metrics",
+    "logging",
+    "mutual-information"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:mi_calc_full_path_long2_61.py:create_plots_and_save",
+   "type": "function",
+   "name": "create_plots_and_save",
+   "filePath": "mi_calc_full_path_long2_61.py",
+   "lineRange": [
+    415,
+    536
+   ],
+   "summary": "Generates matplotlib plots of mutual information results (e.g. MI vs. time offset / code pairs) and saves figures plus raw results to the output directory.",
+   "tags": [
+    "visualization",
+    "plotting",
+    "serialization"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:mi_calc_minimal.py",
+   "type": "file",
+   "name": "mi_calc_minimal.py",
+   "filePath": "mi_calc_minimal.py",
+   "summary": "Script that loads a nanoLLM on a CFG dataset, encodes hidden states with two-stage VQVAE1/VQVAE2 and a VQVAE_single model, and estimates mutual information between their discrete codes with plots of the results.",
+   "tags": [
+    "entry-point",
+    "mutual-information",
+    "cfg",
+    "vqvae",
+    "script"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:mi_calc_minimal.py:sync_and_update_streaming_info",
+   "type": "function",
+   "name": "sync_and_update_streaming_info",
+   "filePath": "mi_calc_minimal.py",
+   "lineRange": [
+    465,
+    494
+   ],
+   "summary": "Gathers sampled code tuples from all DDP ranks and feeds them into the per-pair StreamingInfo trackers on the master process.",
+   "tags": [
+    "distributed",
+    "mutual-information",
+    "synchronization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:mi_calc_minimal.py:calculate_and_report_metrics",
+   "type": "function",
+   "name": "calculate_and_report_metrics",
+   "filePath": "mi_calc_minimal.py",
+   "lineRange": [
+    496,
+    531
+   ],
+   "summary": "Computes current entropy and mutual information estimates from the StreamingInfo trackers and logs them.",
+   "tags": [
+    "metrics",
+    "logging",
+    "mutual-information"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:mi_calc_minimal.py:create_plots_and_save",
+   "type": "function",
+   "name": "create_plots_and_save",
+   "filePath": "mi_calc_minimal.py",
+   "lineRange": [
+    533,
+    649
+   ],
+   "summary": "Generates matplotlib plots of mutual information results (e.g. MI vs. time offset / code pairs) and saves figures plus raw results to the output directory.",
+   "tags": [
+    "visualization",
+    "plotting",
+    "serialization"
+   ],
+   "complexity": "moderate"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "file:information_theory_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:load_state_dict_remove_ddp_prefix",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:load_state_dict_remove_ddp_prefix",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:build_vqvae3v2_from_config",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:build_vqvae3v2_from_config",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:compute_vq3v2_index",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:compute_vq3v2_index",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:compute_vq3v2_index_batch",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:compute_vq3v2_index_batch",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:get_batch",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:get_batch",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:save_streaming_info_counts",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:save_streaming_info_counts",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:collect_block_mi",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:collect_block_mi",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:load_vqvae_last_token_model",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:load_vqvae_last_token_model",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:sync_and_update_streaming_info",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:sync_and_update_streaming_info",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:calculate_and_report_metrics",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:calculate_and_report_metrics",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:main",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_mi_calc_v6 2.py",
+   "target": "function:NLP_mi_calc_v6 2.py:main",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:build_vqvae3v2_from_config",
+   "target": "class:minimal_VQVAEs.py:VQVAE3v2",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:build_vqvae3v2_from_config",
+   "target": "class:minimal_VQVAEs.py:Encoder3v2",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:build_vqvae3v2_from_config",
+   "target": "class:minimal_VQVAEs.py:Decoder3v2",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:load_vqvae_last_token_model",
+   "target": "class:minimal_VQVAEs.py:VQVAELastToken",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "class:model.py:GPT",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "class:model.py:GPTConfig",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "function:NLP_mi_calc_v6 2.py:build_vqvae3v2_from_config",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "function:NLP_mi_calc_v6 2.py:load_vqvae_last_token_model",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "function:NLP_mi_calc_v6 2.py:get_batch",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "function:NLP_mi_calc_v6 2.py:sync_and_update_streaming_info",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "function:NLP_mi_calc_v6 2.py:calculate_and_report_metrics",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "function:NLP_mi_calc_v6 2.py:save_streaming_info_counts",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:main",
+   "target": "function:NLP_mi_calc_v6 2.py:compute_vq3v2_index_batch",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_mi_calc_v6 2.py:load_vqvae_last_token_model",
+   "target": "function:NLP_mi_calc_v6 2.py:load_state_dict_remove_ddp_prefix",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "function:information_theory_utils.py:test_independent_uniform",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "function:information_theory_utils.py:test_independent_uniform",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:information_theory_utils.py:test_independent_uniform",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "function:information_theory_utils.py:test_copy_variable",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "function:information_theory_utils.py:test_copy_variable",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:information_theory_utils.py:test_copy_variable",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "function:information_theory_utils.py:test_three_variables",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "function:information_theory_utils.py:test_three_variables",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:information_theory_utils.py:test_three_variables",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "function:information_theory_utils.py:test_no_samples",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:information_theory_utils.py",
+   "target": "function:information_theory_utils.py:test_no_samples",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:information_theory_utils.py:test_no_samples",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "file:information_theory_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "file:path_finding_llm_utilities.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:mi_calc_full_path.py:sync_and_update_streaming_info",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:mi_calc_full_path.py:sync_and_update_streaming_info",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:mi_calc_full_path.py:calculate_and_report_metrics",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:mi_calc_full_path.py:calculate_and_report_metrics",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:mi_calc_full_path.py:create_plots_and_save",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:mi_calc_full_path.py:create_plots_and_save",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:mi_calc_full_path.py:sync_and_update_streaming_info",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:Encoder1",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:Decoder1",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:Encoder2",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:Decoder2",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:Path_Encoder",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:Path_Decoder",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE1",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE2",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:minimal_VQVAEs.py:Path_VQVAE",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:model.py:GPT",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "class:path_finding_llm_utilities.py:PathFindingDataset",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:vqvae_utils.py:path_finding_generate_with_hidden_states",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:vqvae_utils.py:get_logger",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path.py",
+   "target": "function:vqvae_utils.py:convert_left_to_right_padding",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "file:information_theory_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "file:path_finding_llm_utilities.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:mi_calc_full_path_long2_61.py:sync_and_update_streaming_info",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:mi_calc_full_path_long2_61.py:sync_and_update_streaming_info",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:mi_calc_full_path_long2_61.py:calculate_and_report_metrics",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:mi_calc_full_path_long2_61.py:calculate_and_report_metrics",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:mi_calc_full_path_long2_61.py:create_plots_and_save",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:mi_calc_full_path_long2_61.py:create_plots_and_save",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:mi_calc_full_path_long2_61.py:sync_and_update_streaming_info",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE61",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "class:minimal_VQVAEs.py:Encoder61",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "class:minimal_VQVAEs.py:Decoder61",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "class:model.py:GPT",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "class:path_finding_llm_utilities.py:PathFindingDataset",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:path_finding_llm_utilities.py:skip_time_steps",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:vqvae_utils.py:path_finding_generate_with_hidden_states",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_full_path_long2_61.py",
+   "target": "function:vqvae_utils.py:get_logger",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "file:information_theory_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:mi_calc_minimal.py:sync_and_update_streaming_info",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:mi_calc_minimal.py:sync_and_update_streaming_info",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:mi_calc_minimal.py:calculate_and_report_metrics",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:mi_calc_minimal.py:calculate_and_report_metrics",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:mi_calc_minimal.py:create_plots_and_save",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:mi_calc_minimal.py:create_plots_and_save",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:mi_calc_minimal.py:sync_and_update_streaming_info",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE_single",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE1",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE2",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "class:minimal_VQVAEs.py:Encoder1",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "class:minimal_VQVAEs.py:Encoder2",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:vqvae_utils.py:create_cfg_dataloader",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:vqvae_utils.py:get_logger",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "function:vqvae_utils.py:convert_left_to_right_padding",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:mi_calc_minimal.py",
+   "target": "class:vqvae_utils.py:nanoLLM",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  }
+ ]
+}

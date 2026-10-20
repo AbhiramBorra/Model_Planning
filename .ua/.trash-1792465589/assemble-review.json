@@ -1,0 +1,15 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 1,
+  "crossBatchEdgesAdded": 7,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "Fixed section contained only 1 correction (a dropped tested_by edge); no ID/complexity normalization was needed, all node types and complexity values valid.",
+    "All 83 importMap entries already have matching imports edges; no import gaps.",
+    "Added 7 configures edges (weight 0.6) from LLM config .py files to llm_train.py / path_finding_llm_train.py / NLP_llm_train.py per README.txt usage (mtl_* variants mapped to the same trainers, which contain MTL handling).",
+    "Dropped tested_by CFG_data_generation.py -> check_CGF_implementation.py restored as a related edge: check_CGF_implementation.py is a standalone sanity-check script, not a proper test file, so tested_by fails the script test/prod rule.",
+    "path_finding_llm_train.py line 42 imports evaluate_path_accuracy from path_finding_llm_evaluation, which does not exist in the project; no node created (likely missing file / broken import)."
+  ]
+}

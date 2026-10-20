@@ -1,0 +1,27 @@
+Found 14 batch files (12 logical batches, 2 multi-part):
+  batch-1-part-1.json: 30 nodes, 119 edges
+  batch-1-part-2.json: 44 nodes, 121 edges
+  batch-2.json: 31 nodes, 98 edges
+  batch-3-part-1.json: 7 nodes, 51 edges
+  batch-3-part-2.json: 23 nodes, 80 edges
+  batch-4.json: 13 nodes, 82 edges
+  batch-5.json: 9 nodes, 18 edges
+  batch-6.json: 3 nodes, 3 edges
+  batch-7.json: 7 nodes, 7 edges
+  batch-8.json: 9 nodes, 9 edges
+  batch-9.json: 14 nodes, 14 edges
+  batch-10.json: 3 nodes, 3 edges
+  batch-11.json: 3 nodes, 3 edges
+  batch-12.json: 41 nodes, 75 edges
+
+Input: 237 nodes, 683 edges
+
+Fixed (1 corrections):
+     1 × tested_by edges dropped (orphan endpoint or test↔test / prod↔prod pair)
+
+Output: 237 nodes, 682 edges
+
+Imports edge recovery:
+  Recovered 0 `imports` edges from importMap (83 entries scanned)
+
+Written to /Users/abhi/Desktop/Masters/ModelPlanning/.ua/intermediate/assembled-graph.json (264 KB)

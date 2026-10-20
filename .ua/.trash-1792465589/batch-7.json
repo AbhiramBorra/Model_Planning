@@ -1,0 +1,160 @@
+{
+ "nodes": [
+  {
+   "id": "config:PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+   "type": "config",
+   "name": "mtl_vqvae1_config_seed11.json",
+   "filePath": "PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+   "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 25000 iterations, and output to PF_15XL/mtl_vqvae1_out_seed11.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "path-finding",
+    "hyperparameters",
+    "mtp"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+   "type": "config",
+   "name": "mtl_vqvae2_config_seed11.json",
+   "filePath": "PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+   "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 15000 iterations, and output to PF_15XL/mtl_vqvae2_out_seed11.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "path-finding",
+    "hyperparameters",
+    "mtp"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+   "type": "config",
+   "name": "mtl_vqvae_single_config_seed11.json",
+   "filePath": "PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+   "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_15XL/mtl_vqvae_single_out_seed11.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "path-finding",
+    "hyperparameters",
+    "mtp"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+   "type": "config",
+   "name": "vqvae1_config_seed11.json",
+   "filePath": "PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+   "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 25000 iterations, and output to PF_15XL/vqvae1_out_seed11.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "path-finding",
+    "hyperparameters",
+    "ntp"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+   "type": "config",
+   "name": "vqvae2_config_seed11.json",
+   "filePath": "PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+   "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 15000 iterations, and output to PF_15XL/vqvae2_out_seed11.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "path-finding",
+    "hyperparameters",
+    "ntp"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+   "type": "config",
+   "name": "vqvae_path_config_seed11.json",
+   "filePath": "PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+   "summary": "Seed-11 training config for the path-level VQ-VAE on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2), encoding ground-truth paths from PF_15XL/samples with a 512-entry codebook transformer for 30000 iterations.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "path-finding",
+    "hyperparameters",
+    "seed-11"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+   "type": "config",
+   "name": "vqvae_single_config_seed11.json",
+   "filePath": "PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+   "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_15XL/vqvae_single_out_seed11.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "path-finding",
+    "hyperparameters",
+    "ntp"
+   ],
+   "complexity": "moderate"
+  }
+ ],
+ "edges": [
+  {
+   "source": "config:PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+   "target": "file:path_finding_vqvae1_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+   "target": "file:path_finding_vqvae2_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+   "target": "file:path_finding_vqvae_single_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+   "target": "file:path_finding_vqvae1_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+   "target": "file:path_finding_vqvae2_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+   "target": "file:path_vqvae_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+   "target": "file:path_finding_vqvae_single_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  }
+ ]
+}

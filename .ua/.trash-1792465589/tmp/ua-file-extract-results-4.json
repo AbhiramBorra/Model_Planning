@@ -1,0 +1,712 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "path_finding_llm_utilities.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 394,
+      "nonEmptyLines": 331,
+      "functions": [
+        {
+          "name": "custom_collate_fn",
+          "startLine": 285,
+          "endLine": 312,
+          "params": [
+            "batch"
+          ]
+        },
+        {
+          "name": "compute_loss",
+          "startLine": 314,
+          "endLine": 332,
+          "params": [
+            "logits",
+            "labels"
+          ]
+        },
+        {
+          "name": "crop_prompt_and_attention_mask",
+          "startLine": 334,
+          "endLine": 356,
+          "params": [
+            "prompt_ids",
+            "prompt_attention_mask"
+          ]
+        },
+        {
+          "name": "skip_time_steps",
+          "startLine": 359,
+          "endLine": 394,
+          "params": [
+            "prompt_ids",
+            "prompt_attention_mask",
+            "H",
+            "max_nodes"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PathFindingDataset",
+          "startLine": 9,
+          "endLine": 283,
+          "methods": [
+            "__init__",
+            "_build_vocab",
+            "tokenize_text",
+            "__len__",
+            "__getitem__"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PathFindingDataset",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "custom_collate_fn",
+          "line": 285,
+          "isDefault": false
+        },
+        {
+          "name": "compute_loss",
+          "line": 314,
+          "isDefault": false
+        },
+        {
+          "name": "crop_prompt_and_attention_mask",
+          "line": 334,
+          "isDefault": false
+        },
+        {
+          "name": "skip_time_steps",
+          "line": 359,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "time.time",
+          "lineNumber": 43
+        },
+        {
+          "caller": "__init__",
+          "callee": "open",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "json.loads",
+          "lineNumber": 45
+        },
+        {
+          "caller": "__init__",
+          "callee": "line.strip",
+          "lineNumber": 45
+        },
+        {
+          "caller": "__init__",
+          "callee": "print",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "time.time",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "print",
+          "lineNumber": 47
+        },
+        {
+          "caller": "__init__",
+          "callee": "len",
+          "lineNumber": 47
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._build_vocab",
+          "lineNumber": 50
+        },
+        {
+          "caller": "__init__",
+          "callee": "len",
+          "lineNumber": 54
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.vocab.items",
+          "lineNumber": 55
+        },
+        {
+          "caller": "__init__",
+          "callee": "print",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "range",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "str",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "vocab.update",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "set",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "edge.split",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "all_tokens.update",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "all_tokens.update",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "str",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "int",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "print",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "print",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "unexpected_tokens.append",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "len",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "sorted",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "int",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "x.isdigit",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "float",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_build_vocab",
+          "callee": "print",
+          "lineNumber": 118
+        },
+        {
+          "caller": "tokenize_text",
+          "callee": "text.split",
+          "lineNumber": 127
+        },
+        {
+          "caller": "tokenize_text",
+          "callee": "tokens.append",
+          "lineNumber": 131
+        },
+        {
+          "caller": "tokenize_text",
+          "callee": "print",
+          "lineNumber": 135
+        },
+        {
+          "caller": "__len__",
+          "callee": "len",
+          "lineNumber": 141
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "edge.split",
+          "lineNumber": 159
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 160
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "range",
+          "lineNumber": 162
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 163
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 165
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 166
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 167
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "edges[-1].split",
+          "lineNumber": 169
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 170
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "range",
+          "lineNumber": 172
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 173
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 175
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 176
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "prompt_ids.append",
+          "lineNumber": 177
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "len",
+          "lineNumber": 179
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "ValueError",
+          "lineNumber": 183
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "path_ids.append",
+          "lineNumber": 191
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "range",
+          "lineNumber": 193
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "path_ids.append",
+          "lineNumber": 194
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "print",
+          "lineNumber": 197
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "path_ids.append",
+          "lineNumber": 200
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "print",
+          "lineNumber": 202
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "len",
+          "lineNumber": 207
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "len",
+          "lineNumber": 211
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "len",
+          "lineNumber": 214
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "len",
+          "lineNumber": 220
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "len",
+          "lineNumber": 224
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "len",
+          "lineNumber": 233
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "path_ids.append",
+          "lineNumber": 256
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "print",
+          "lineNumber": 258
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "correct_path_ids.append",
+          "lineNumber": 259
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "path_ids.append",
+          "lineNumber": 266
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "print",
+          "lineNumber": 268
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "decoy_path_ids.append",
+          "lineNumber": 270
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "torch.tensor",
+          "lineNumber": 273
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "torch.tensor",
+          "lineNumber": 274
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "torch.tensor",
+          "lineNumber": 275
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "torch.tensor",
+          "lineNumber": 276
+        },
+        {
+          "caller": "__getitem__",
+          "callee": "torch.tensor",
+          "lineNumber": 277
+        },
+        {
+          "caller": "custom_collate_fn",
+          "callee": "torch.stack",
+          "lineNumber": 288
+        },
+        {
+          "caller": "custom_collate_fn",
+          "callee": "torch.stack",
+          "lineNumber": 289
+        },
+        {
+          "caller": "custom_collate_fn",
+          "callee": "torch.stack",
+          "lineNumber": 290
+        },
+        {
+          "caller": "custom_collate_fn",
+          "callee": "torch.stack",
+          "lineNumber": 291
+        },
+        {
+          "caller": "custom_collate_fn",
+          "callee": "torch.stack",
+          "lineNumber": 292
+        },
+        {
+          "caller": "compute_loss",
+          "callee": "logits.view",
+          "lineNumber": 326
+        },
+        {
+          "caller": "compute_loss",
+          "callee": "logits.size",
+          "lineNumber": 326
+        },
+        {
+          "caller": "compute_loss",
+          "callee": "labels.view",
+          "lineNumber": 327
+        },
+        {
+          "caller": "compute_loss",
+          "callee": "F.cross_entropy",
+          "lineNumber": 330
+        },
+        {
+          "caller": "crop_prompt_and_attention_mask",
+          "callee": "prompt_attention_mask.sum",
+          "lineNumber": 347
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "range",
+          "lineNumber": 367
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "filtered_prompt_ids.append",
+          "lineNumber": 374
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "filtered_attention_masks.append",
+          "lineNumber": 375
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "filtered_H.append",
+          "lineNumber": 376
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "max",
+          "lineNumber": 379
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "len",
+          "lineNumber": 379
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "torch.zeros",
+          "lineNumber": 382
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "torch.zeros",
+          "lineNumber": 383
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "torch.zeros",
+          "lineNumber": 384
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "enumerate",
+          "lineNumber": 386
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "zip",
+          "lineNumber": 386
+        },
+        {
+          "caller": "skip_time_steps",
+          "callee": "len",
+          "lineNumber": 387
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "path_finding_vqvae1_train.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 856,
+      "nonEmptyLines": 728,
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "path_finding_vqvae2_train.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 989,
+      "nonEmptyLines": 849,
+      "functions": [
+        {
+          "name": "normalize_first_stage",
+          "startLine": 372,
+          "endLine": 379,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "denormalize_first_stage",
+          "startLine": 381,
+          "endLine": 388,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "count_params",
+          "startLine": 477,
+          "endLine": 478,
+          "params": [
+            "model"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "normalize_first_stage",
+          "line": 372,
+          "isDefault": false
+        },
+        {
+          "name": "denormalize_first_stage",
+          "line": 381,
+          "isDefault": false
+        },
+        {
+          "name": "count_params",
+          "line": 477,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "normalize_first_stage",
+          "callee": "first_stage_normalization_values.view",
+          "lineNumber": 376
+        },
+        {
+          "caller": "denormalize_first_stage",
+          "callee": "first_stage_normalization_values.view",
+          "lineNumber": 385
+        },
+        {
+          "caller": "count_params",
+          "callee": "sum",
+          "lineNumber": 478
+        },
+        {
+          "caller": "count_params",
+          "callee": "p.numel",
+          "lineNumber": 478
+        },
+        {
+          "caller": "count_params",
+          "callee": "model.parameters",
+          "lineNumber": 478
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "path_finding_vqvae_single_train.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 754,
+      "nonEmptyLines": 637,
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "path_vqvae_train.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 681,
+      "nonEmptyLines": 579,
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

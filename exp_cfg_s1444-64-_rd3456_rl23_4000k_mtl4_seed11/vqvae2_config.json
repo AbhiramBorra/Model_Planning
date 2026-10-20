@@ -1,0 +1,84 @@
+{
+    "output_dir": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_out",
+    "save_logs_flag": true,
+    "print_logs": true,
+    "log_interval": 1,
+    "save_interval": 3000,
+    "plot_interval": -1,
+    "base_seed": 11,
+
+    "language_model_ckpt_folder_path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/LLMout/LLMtrain_CFG_GPT",
+
+    "first_stage_ckpt_path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_out",
+    "first_stage_model_compile": true,
+
+    "dataset_dir": "data/context_free_grammar/cfg_s1444-64-_rd3456_rl23_4000k",
+    "min_max_prefix_len": [8,24],
+    "split": "train",
+
+    "LM_compile": true,
+    "gradient_accumulation_steps": 1,
+    "batch_size": 32,
+    "init_from": "scratch",
+    "learning_rate": 0.0001,
+    "max_iters": 15000,
+    "weight_decay": 0.1,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "grad_clip": 1.0,
+    "decay_lr": true,
+    "warmup_iters": 100,
+    "lr_decay_iters": 10000,
+    "min_lr": 1e-4,
+
+    "vqvae2_config": {
+
+        "grow_beta": false,
+        "betainit": 0.25,
+        "betafinal": 1.0,
+        "warmup_iters_beta": 1000,
+        "codebook_size": 256,
+        "codebook_reset_counter_multiplier": 8,
+        "beta": 0.25,
+        "D": 512,
+        "cosine_push_weight": 0.1,
+        "entropy_loss_weight": 0.1,
+        "entropy_temperature": 4.0,
+        "mask_prob": 0.1,
+        "usage_tracking_window": 500,
+        "encoder_config": {
+            "n_head": 4,
+            "dropout": 0.1,
+            "bias": false,
+            "block_size": 1024,
+            "max_seq_len": 1024,
+            "is_decoder": false,
+            "use_flash": true,
+            "use_rotary": true,
+            "tied_encoder_proj": false
+        },
+        "encoder_num_layers": 12,
+        "decoder_config": {
+            "n_head": 4,
+            "dropout": 0.1,
+            "bias": false,
+            "block_size": 1024,
+            "max_seq_len": 1024,
+            "is_decoder": false,
+            "use_flash": true,
+            "use_rotary": true
+        },
+        "decoder_num_layers": 12
+    },
+    "vqvae2_compile": false,
+
+    "wandb_flag": true,
+    "wandb_project_name": "fullexp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11",
+    "wandb_run_name": "vqvae2_training_layer12_d512_c256_r10_lr1e-4_cp0.1_el0.1_et4.0_mtl4",
+    "wandb_group": "cfg_experiments",
+    "wandb_entity": "llm_analysis",
+
+    "device": "cuda",
+    "dtype": "bfloat16"
+    
+}

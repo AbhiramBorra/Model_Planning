@@ -1,0 +1,129 @@
+{
+    "output_dir": "NLP_openwebtext/VQVAE_layer_and_block_output_256",
+    "save_interval": 20000,
+    "log_interval": 10,
+    "eval_interval": 1000,
+    "usage_log_interval": 1000,
+    
+    "T_max": 256,
+    "max_attention_window": 256,
+    "delta_b": 16,
+    
+    "batch_size": 32,
+    "gradient_accumulation_steps": 1,
+    "learning_rate":5e-5,
+    "weight_decay": 0.01,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "grad_clip": 1.0,
+    "warmup_iters": 200,
+    "max_iters": 10000,
+    "lr_decay_iters": 10000,
+    "min_lr": 5e-6,
+    "decay_lr": true,
+    
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "LM_compile": false,
+    "vqvae_compile": false,
+    
+    "wandb_flag": true,
+    "wandb_project_name": "vqvae-layer-and-block-training",
+    "wandb_run_name": "VQVAE_layer_and_block_run_256",
+    "wandb_group": "vqvae_layer_and_block",
+    "wandb_entity": "llm_analysis",
+    
+    "backend": "nccl",
+    "base_seed": 42,
+    
+    "llm_checkpoint_path": "NLP_openwebtext/LLMout/llm_train_8layers_8heads_512embd_64batchsize_256blocksize/ckpt.pt",
+    "dataset": "openwebtext",
+    
+    "vqvae_layer_config": {
+        "T": 256,
+        "grow_beta": false,
+
+        "codebook_size": 1024,
+        "beta": 0.25,
+        "codebook_reset_counter_multiplier": 10,
+
+        "L": 1,
+        "d": 512,
+        "d2": 128,
+
+        "num_layers_layerwise_stage": 1,
+        "num_layers_aggregate_stage": 6,
+
+        "config_layerwise_stage": {
+            "n_head": 8,
+            "dropout": 0.1,
+            "bias": false,
+            "is_decoder": false,
+            "use_flash": true,
+            "use_rotary": true,
+            "tied_encoder_proj": false,
+            "max_seq_len": 256
+        },
+
+        "config_aggregate_stage": {
+            "n_head": 4,
+            "dropout": 0.1,
+            "bias": false,
+            "is_decoder": false,
+            "use_flash": true,
+            "use_rotary": true,
+            "tied_encoder_proj": false,
+            "max_seq_len": 256
+        },
+        
+        "cosine_push_weight": 0.2,
+        "entropy_loss_weight": 0.3,
+        "mask_prob": 0.1,
+        "entropy_temperature": 2,
+        "usage_tracking_window": 2000
+    },
+    
+    "vqvae_block_config": {
+        "T": 16,
+        "grow_beta": false,
+
+        "codebook_size": 1024,
+        "beta": 0.25,
+        "codebook_reset_counter_multiplier": 12,
+
+        "L": 1,
+        "d": 512,
+        "d2": 128,
+
+        "num_layers_layerwise_stage": 1,
+        "num_layers_aggregate_stage": 4,
+
+        "config_layerwise_stage": {
+            "n_head": 8,
+            "dropout": 0.1,
+            "bias": false,
+            "is_decoder": false,
+            "use_flash": true,
+            "use_rotary": true,
+            "tied_encoder_proj": false,
+            "max_seq_len": 16
+        },
+
+        "config_aggregate_stage": {
+            "n_head": 4,
+            "dropout": 0.1,
+            "bias": false,
+            "is_decoder": false,
+            "use_flash": true,
+            "use_rotary": true,
+            "tied_encoder_proj": false,
+            "max_seq_len": 16
+        },
+        
+        "cosine_push_weight": 0.2,
+        "entropy_loss_weight": 0.2,
+        "mask_prob": 0.1,
+        "entropy_temperature": 2,
+        "usage_tracking_window": 2000
+    }
+}

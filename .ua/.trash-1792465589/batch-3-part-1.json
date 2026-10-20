@@ -1,0 +1,476 @@
+{
+ "nodes": [
+  {
+   "id": "file:NLP_vqvae_last_train.py",
+   "type": "file",
+   "name": "NLP_vqvae_last_train.py",
+   "filePath": "NLP_vqvae_last_train.py",
+   "summary": "Training script that loads a GPT trained on OpenWebText, extracts last-token hidden states from memmapped text batches, and trains a VQVAELastToken model with cosine LR, NRMSE tracking, codebook-usage plots and optional wandb/DDP.",
+   "tags": [
+    "entry-point",
+    "training",
+    "vqvae",
+    "nlp",
+    "script"
+   ],
+   "complexity": "complex",
+   "lineRange": "Notebook-style `# %%` cell script driven by a JSON config."
+  },
+  {
+   "id": "function:NLP_vqvae_last_train.py:get_batch",
+   "type": "function",
+   "name": "get_batch",
+   "filePath": "NLP_vqvae_last_train.py",
+   "summary": "Samples random fixed-window token batches from train/val memmap binaries and moves them to device with pinned memory.",
+   "tags": [
+    "data-loading",
+    "batching",
+    "nlp"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    244,
+    259
+   ]
+  },
+  {
+   "id": "function:NLP_vqvae_last_train.py:get_lr",
+   "type": "function",
+   "name": "get_lr",
+   "filePath": "NLP_vqvae_last_train.py",
+   "summary": "Cosine-decay learning rate with linear warmup for the VQ-VAE optimizer.",
+   "tags": [
+    "scheduler",
+    "training"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    263,
+    277
+   ]
+  },
+  {
+   "id": "function:NLP_vqvae_last_train.py:process_hidden_states_for_vqvae_last",
+   "type": "function",
+   "name": "process_hidden_states_for_vqvae_last",
+   "filePath": "NLP_vqvae_last_train.py",
+   "summary": "Selects and normalizes the last-token hidden states from the LLM output for input to the VQ-VAE.",
+   "tags": [
+    "preprocessing",
+    "hidden-states",
+    "normalization"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    348,
+    364
+   ]
+  },
+  {
+   "id": "file:path_finding_vqvae61_train.py",
+   "type": "file",
+   "name": "path_finding_vqvae61_train.py",
+   "filePath": "path_finding_vqvae61_train.py",
+   "summary": "Training script for the VQVAE61 model on hidden states of a path-finding GPT: builds the PathFindingDataset loader, skips time steps, encodes multi-step hidden representations with Encoder61/Decoder61, and tracks masked NRMSE and codebook usage.",
+   "tags": [
+    "entry-point",
+    "training",
+    "vqvae",
+    "path-finding",
+    "script"
+   ],
+   "complexity": "complex",
+   "lineRange": "Notebook-style `# %%` cells with wildcard imports from minimal_VQVAEs and vqvae_utils."
+  },
+  {
+   "id": "function:path_finding_vqvae61_train.py:count_params",
+   "type": "function",
+   "name": "count_params",
+   "filePath": "path_finding_vqvae61_train.py",
+   "summary": "Returns the total number of parameters in a model.",
+   "tags": [
+    "utility",
+    "model-size"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    385,
+    386
+   ]
+  },
+  {
+   "id": "file:train_minimal_vqvae1.py",
+   "type": "file",
+   "name": "train_minimal_vqvae1.py",
+   "filePath": "train_minimal_vqvae1.py",
+   "summary": "Training script for the first-stage VQVAE1 on hidden states from a CFG-trained nanoLLM, using the CFG dataloader, beta/LR schedules, masked NRMSE metrics, checkpoint resume and optional wandb logging.",
+   "tags": [
+    "entry-point",
+    "training",
+    "vqvae",
+    "cfg",
+    "script"
+   ],
+   "complexity": "complex"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "file:path_finding_llm_utilities.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "function:NLP_vqvae_last_train.py:get_batch",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "function:NLP_vqvae_last_train.py:get_batch",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "function:NLP_vqvae_last_train.py:get_lr",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "function:NLP_vqvae_last_train.py:get_lr",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "function:NLP_vqvae_last_train.py:process_hidden_states_for_vqvae_last",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "function:NLP_vqvae_last_train.py:process_hidden_states_for_vqvae_last",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "class:model.py:GPT",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "class:model.py:GPTConfig",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "class:minimal_VQVAEs.py:VQVAELastToken",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "function:vqvae_utils.py:compute_masked_nrmse",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_last_train.py",
+   "target": "function:vqvae_utils.py:log_and_plot_usage_for_model",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:path_finding_vqvae61_train.py:count_params",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:path_finding_vqvae61_train.py:count_params",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "class:model.py:GPT",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "class:model.py:GPTConfig",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "class:minimal_VQVAEs.py:Encoder61",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "class:minimal_VQVAEs.py:Decoder61",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE61",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "class:path_finding_llm_utilities.py:PathFindingDataset",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:path_finding_llm_utilities.py:custom_collate_fn",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:path_finding_llm_utilities.py:skip_time_steps",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:vqvae_utils.py:get_logger",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:vqvae_utils.py:configure_optimizers",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:vqvae_utils.py:get_lr",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:vqvae_utils.py:get_beta",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:vqvae_utils.py:compute_masked_nrmse",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:vqvae_utils.py:compute_masked_nrmse_per_vector",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:vqvae_utils.py:compute_masked_nrmse_per_element",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_vqvae61_train.py",
+   "target": "function:vqvae_utils.py:convert_left_to_right_padding",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "class:vqvae_utils.py:nanoLLM",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:create_cfg_dataloader",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "class:minimal_VQVAEs.py:Encoder1",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "class:minimal_VQVAEs.py:Decoder1",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE1",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:get_logger",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:configure_optimizers",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:get_lr",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:get_beta",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:compute_masked_nrmse",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:compute_masked_nrmse_per_vector",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:compute_masked_nrmse_per_element",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:train_minimal_vqvae1.py",
+   "target": "function:vqvae_utils.py:convert_left_to_right_padding",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  }
+ ]
+}

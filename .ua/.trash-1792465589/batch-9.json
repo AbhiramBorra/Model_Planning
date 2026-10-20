@@ -1,0 +1,300 @@
+{
+ "nodes": [
+  {
+   "id": "config:data/path_finding/PF_15XL_config.json",
+   "type": "config",
+   "name": "PF_15XL_config.json",
+   "filePath": "data/path_finding/PF_15XL_config.json",
+   "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_15XL_config_mi.json",
+   "type": "config",
+   "name": "PF_15XL_config_mi.json",
+   "filePath": "data/path_finding/PF_15XL_config_mi.json",
+   "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'mi' mutual-information estimation split (16,000,000 samples, seed 64) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_15XL_config_train.json",
+   "type": "config",
+   "name": "PF_15XL_config_train.json",
+   "filePath": "data/path_finding/PF_15XL_config_train.json",
+   "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'train' main training split (16,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_15XL_config_train_small.json",
+   "type": "config",
+   "name": "PF_15XL_config_train_small.json",
+   "filePath": "data/path_finding/PF_15XL_config_train_small.json",
+   "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'train_small' small training split (1,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_15XL_config_train_vocab.json",
+   "type": "config",
+   "name": "PF_15XL_config_train_vocab.json",
+   "filePath": "data/path_finding/PF_15XL_config_train_vocab.json",
+   "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'trainvocab' vocabulary-building split (4,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_15XL_config_vqvae.json",
+   "type": "config",
+   "name": "PF_15XL_config_vqvae.json",
+   "filePath": "data/path_finding/PF_15XL_config_vqvae.json",
+   "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'vqvae' VQ-VAE training split (16,000,000 samples, seed 61) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_long1decoy_easier_config.json",
+   "type": "config",
+   "name": "PF_long1decoy_easier_config.json",
+   "filePath": "data/path_finding/PF_long1decoy_easier_config.json",
+   "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_long1decoy_easier_config_mi.json",
+   "type": "config",
+   "name": "PF_long1decoy_easier_config_mi.json",
+   "filePath": "data/path_finding/PF_long1decoy_easier_config_mi.json",
+   "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'mi' mutual-information estimation split (16,000,000 samples, seed 64) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_long1decoy_easier_config_observe.json",
+   "type": "config",
+   "name": "PF_long1decoy_easier_config_observe.json",
+   "filePath": "data/path_finding/PF_long1decoy_easier_config_observe.json",
+   "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'observe' tiny observation/inspection split (32 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_long1decoy_easier_config_train.json",
+   "type": "config",
+   "name": "PF_long1decoy_easier_config_train.json",
+   "filePath": "data/path_finding/PF_long1decoy_easier_config_train.json",
+   "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'train' main training split (16,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_long1decoy_easier_config_train_small.json",
+   "type": "config",
+   "name": "PF_long1decoy_easier_config_train_small.json",
+   "filePath": "data/path_finding/PF_long1decoy_easier_config_train_small.json",
+   "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'train_small' small training split (1,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+   "type": "config",
+   "name": "PF_long1decoy_easier_config_train_vocab.json",
+   "filePath": "data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+   "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'trainvocab' vocabulary-building split (4,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_long1decoy_easier_config_val.json",
+   "type": "config",
+   "name": "PF_long1decoy_easier_config_val.json",
+   "filePath": "data/path_finding/PF_long1decoy_easier_config_val.json",
+   "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "config:data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+   "type": "config",
+   "name": "PF_long1decoy_easier_config_vqvae.json",
+   "filePath": "data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+   "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'vqvae' VQ-VAE training split (16,000,000 samples, seed 61) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples.",
+   "tags": [
+    "configuration",
+    "dataset-generation",
+    "path-finding",
+    "data-pipeline"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "config:data/path_finding/PF_15XL_config.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_15XL_config_mi.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_15XL_config_train.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_15XL_config_train_small.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_15XL_config_train_vocab.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_15XL_config_vqvae.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_long1decoy_easier_config.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_long1decoy_easier_config_mi.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_long1decoy_easier_config_observe.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_long1decoy_easier_config_train.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_long1decoy_easier_config_train_small.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_long1decoy_easier_config_val.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  }
+ ]
+}

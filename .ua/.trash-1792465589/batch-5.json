@@ -1,0 +1,278 @@
+{
+ "nodes": [
+  {
+   "id": "file:data/context_free_grammar/CFG_data_generation.py",
+   "type": "file",
+   "name": "CFG_data_generation.py",
+   "filePath": "data/context_free_grammar/CFG_data_generation.py",
+   "summary": "Defines the synthetic hierarchical context-free grammar (CFG) class that generates random symbols and production rules, samples sequences in parallel, validates sequences with a fast parser, and writes the 4M-sequence training corpus plus meta.pkl to disk.",
+   "tags": [
+    "data-generation",
+    "context-free-grammar",
+    "entry-point",
+    "dataset",
+    "parallel-processing"
+   ],
+   "complexity": "complex",
+   "languageNotes": "Uses ProcessPoolExecutor for parallel sequence sampling and writes uint8 binary token files matching nanoGPT's .bin dataset format."
+  },
+  {
+   "id": "class:data/context_free_grammar/CFG_data_generation.py:CFG",
+   "type": "class",
+   "name": "CFG",
+   "filePath": "data/context_free_grammar/CFG_data_generation.py",
+   "summary": "Hierarchical CFG with configurable level sizes, rule degrees and rule lengths; generates terminal sequences (optionally with expansion history), validates them via slow and fast parsers, and batch-saves datasets.",
+   "tags": [
+    "data-model",
+    "context-free-grammar",
+    "generator",
+    "parser",
+    "validation"
+   ],
+   "complexity": "complex",
+   "lineRange": [
+    11,
+    429
+   ]
+  },
+  {
+   "id": "function:data/context_free_grammar/CFG_data_generation.py:plot_simple_tree",
+   "type": "function",
+   "name": "plot_simple_tree",
+   "filePath": "data/context_free_grammar/CFG_data_generation.py",
+   "summary": "Attempts to plot the derivation tree of a sequence from its expansion history (marked by the author as not working correctly).",
+   "tags": [
+    "visualization",
+    "utility",
+    "tree"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    432,
+    488
+   ]
+  },
+  {
+   "id": "function:data/context_free_grammar/CFG_data_generation.py:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "data/context_free_grammar/CFG_data_generation.py",
+   "summary": "Builds a CFG of size (1,4,4,4,64) with rule degrees 3-6 and lengths 2-3, generates 4M sequences in memory-bounded batches, and saves the dataset and meta.pkl (vocab size, dtype, symbols, rules).",
+   "tags": [
+    "entry-point",
+    "data-generation",
+    "dataset"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    490,
+    564
+   ]
+  },
+  {
+   "id": "file:data/context_free_grammar/CFG_full_sequence_data_generation.py",
+   "type": "file",
+   "name": "CFG_full_sequence_data_generation.py",
+   "filePath": "data/context_free_grammar/CFG_full_sequence_data_generation.py",
+   "summary": "Script that loads a pickled CFG instance, generates 4M full sequences in parallel, left-pads them with PAD and a BOS token to the longest length, and saves train/test binary files for full-sequence training.",
+   "tags": [
+    "data-generation",
+    "script",
+    "context-free-grammar",
+    "dataset",
+    "preprocessing"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:data/context_free_grammar/CFG_prefix_data_generation.py",
+   "type": "file",
+   "name": "CFG_prefix_data_generation.py",
+   "filePath": "data/context_free_grammar/CFG_prefix_data_generation.py",
+   "summary": "Script that loads a pickled CFG instance and generates 15M sequences clipped to random prefixes of length 8-24 (including BOS), left-padded, saving prefix train/test bins and a prefix_meta pickle with EOS token info.",
+   "tags": [
+    "data-generation",
+    "script",
+    "context-free-grammar",
+    "dataset",
+    "prefix-sampling"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:data/context_free_grammar/check_CGF_implementation.py",
+   "type": "file",
+   "name": "check_CGF_implementation.py",
+   "filePath": "data/context_free_grammar/check_CGF_implementation.py",
+   "summary": "Sanity-check script for the CFG class that builds grammars of various sizes, generates valid sequences, injects random permutations, and checks that the validator's accuracy matches the expected ratio.",
+   "tags": [
+    "test",
+    "validation",
+    "context-free-grammar",
+    "script"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:data/context_free_grammar/check_CGF_implementation.py:run_cfg_test",
+   "type": "function",
+   "name": "run_cfg_test",
+   "filePath": "data/context_free_grammar/check_CGF_implementation.py",
+   "summary": "Constructs a CFG of a given size, generates 100 valid sequences plus 10 permuted ones, and measures validator accuracy against the expected value.",
+   "tags": [
+    "test",
+    "validation",
+    "context-free-grammar"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    14,
+    99
+   ]
+  },
+  {
+   "id": "function:data/context_free_grammar/check_CGF_implementation.py:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "data/context_free_grammar/check_CGF_implementation.py",
+   "summary": "Runs run_cfg_test across several grammar sizes.",
+   "tags": [
+    "entry-point",
+    "test"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    101,
+    115
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:data/context_free_grammar/CFG_data_generation.py",
+   "target": "class:data/context_free_grammar/CFG_data_generation.py:CFG",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_data_generation.py",
+   "target": "class:data/context_free_grammar/CFG_data_generation.py:CFG",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_data_generation.py",
+   "target": "function:data/context_free_grammar/CFG_data_generation.py:plot_simple_tree",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_data_generation.py",
+   "target": "function:data/context_free_grammar/CFG_data_generation.py:plot_simple_tree",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_data_generation.py",
+   "target": "function:data/context_free_grammar/CFG_data_generation.py:main",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_data_generation.py",
+   "target": "function:data/context_free_grammar/CFG_data_generation.py:main",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/context_free_grammar/check_CGF_implementation.py",
+   "target": "function:data/context_free_grammar/check_CGF_implementation.py:run_cfg_test",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/context_free_grammar/check_CGF_implementation.py",
+   "target": "function:data/context_free_grammar/check_CGF_implementation.py:run_cfg_test",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/context_free_grammar/check_CGF_implementation.py",
+   "target": "function:data/context_free_grammar/check_CGF_implementation.py:main",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/context_free_grammar/check_CGF_implementation.py",
+   "target": "function:data/context_free_grammar/check_CGF_implementation.py:main",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_full_sequence_data_generation.py",
+   "target": "file:data/context_free_grammar/CFG_data_generation.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_prefix_data_generation.py",
+   "target": "file:data/context_free_grammar/CFG_data_generation.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:data/context_free_grammar/check_CGF_implementation.py",
+   "target": "file:data/context_free_grammar/CFG_data_generation.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_full_sequence_data_generation.py",
+   "target": "class:data/context_free_grammar/CFG_data_generation.py:CFG",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_prefix_data_generation.py",
+   "target": "class:data/context_free_grammar/CFG_data_generation.py:CFG",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:data/context_free_grammar/check_CGF_implementation.py",
+   "target": "class:data/context_free_grammar/CFG_data_generation.py:CFG",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:data/context_free_grammar/CFG_data_generation.py",
+   "target": "file:data/context_free_grammar/check_CGF_implementation.py",
+   "type": "tested_by",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "function:data/context_free_grammar/check_CGF_implementation.py:run_cfg_test",
+   "target": "class:data/context_free_grammar/CFG_data_generation.py:CFG",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+  "vqvae_block_config_path": "NLP_openwebtext/VQVAE_layer_and_block_output_256/config.used.json",
+  "vqvae_block_checkpoint_path": "NLP_openwebtext/VQVAE_layer_and_block_output_256/checkpoint_final.pt",
+  "vqvae_last_checkpoint_path": "NLP_openwebtext/VQVAE_last256_output07s/checkpoint_final.pt",
+  "vqvae_last_config_path": "NLP_openwebtext/VQVAE_last256_output07s/config.used.json",
+  "llm_checkpoint_path": "NLP_openwebtext/LLMout/llm_train_8layers_8heads_512embd_64batchsize_256blocksize/ckpt.pt",
+  "dataset": "openwebtext",
+  "sequence_length": 256,
+  "prompt_length": 240,
+  "max_new_tokens": 16,
+  "num_samples": 100000,
+  "num_sequences": 100000,
+  "batch_size": 32,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "num_layers_to_process": 7,
+  "delta_b": 16,
+  "output_file": "NLP_openwebtext/Block_MI_results/61/mi_results",
+  "save_count_data": true
+}

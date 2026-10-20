@@ -1,0 +1,72 @@
+{
+ "nodes": [
+  {
+   "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+   "type": "config",
+   "name": "vqvae1_config.json",
+   "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+   "summary": "Seed-11 config for training the two-stage layer-wise/aggregate VQ-VAE over all GPT layer representations on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_out.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "context-free-grammar",
+    "hyperparameters",
+    "mtp"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+   "type": "config",
+   "name": "vqvae2_config.json",
+   "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+   "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over GPT representations on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_out.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "context-free-grammar",
+    "hyperparameters",
+    "mtp"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+   "type": "config",
+   "name": "vqvae_single_config.json",
+   "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+   "summary": "Seed-11 config for training the single-representation VQ-VAE on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 64, 20000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_out.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "context-free-grammar",
+    "hyperparameters",
+    "mtp"
+   ],
+   "complexity": "moderate"
+  }
+ ],
+ "edges": [
+  {
+   "source": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+   "target": "file:train_minimal_vqvae1.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+   "target": "file:train_minimal_vqvae2.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+   "target": "file:train_minimal_vqvae_single.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  }
+ ]
+}

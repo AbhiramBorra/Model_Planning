@@ -1,0 +1,72 @@
+{
+ "nodes": [
+  {
+   "id": "config:NLP_openwebtext/VQVAE_last_train_config07s.json",
+   "type": "config",
+   "name": "VQVAE_last_train_config07s.json",
+   "filePath": "NLP_openwebtext/VQVAE_last_train_config07s.json",
+   "summary": "Training config for the last-layer VQ-VAE on OpenWebText: quantizes 512-d final hidden states of the 8-layer GPT checkpoint with a 64-entry codebook, 6-layer encoder/decoder, entropy and cosine-push losses, 10k iterations with W&B logging.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "nlp",
+    "openwebtext",
+    "hyperparameters"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:NLP_openwebtext/layer_and_block_config_256.json",
+   "type": "config",
+   "name": "layer_and_block_config_256.json",
+   "filePath": "NLP_openwebtext/layer_and_block_config_256.json",
+   "summary": "Training config for the layer-and-block VQ-VAE on OpenWebText (T=256, delta_b=16): a two-stage layer-wise/aggregate transformer VQ-VAE with a 1024-entry codebook over the 8-layer GPT's hidden states, plus optimizer, logging and W&B settings.",
+   "tags": [
+    "configuration",
+    "vqvae",
+    "nlp",
+    "openwebtext",
+    "hyperparameters"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "config:NLP_openwebtext/mi_calc_v6_config 2.json",
+   "type": "config",
+   "name": "mi_calc_v6_config 2.json",
+   "filePath": "NLP_openwebtext/mi_calc_v6_config 2.json",
+   "summary": "Mutual-information calculation config for the OpenWebText experiment: points to the trained block and last-layer VQ-VAE checkpoints and the GPT checkpoint, and sets prompt length 240, 16 generated tokens, 100k samples and the MI results output path.",
+   "tags": [
+    "configuration",
+    "mutual-information",
+    "nlp",
+    "openwebtext",
+    "evaluation"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "config:NLP_openwebtext/VQVAE_last_train_config07s.json",
+   "target": "file:NLP_vqvae_last_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:NLP_openwebtext/layer_and_block_config_256.json",
+   "target": "file:NLP_vqvae_layer_and_block_train.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "config:NLP_openwebtext/mi_calc_v6_config 2.json",
+   "target": "file:NLP_mi_calc_v6 2.py",
+   "type": "configures",
+   "direction": "forward",
+   "weight": 0.6
+  }
+ ]
+}

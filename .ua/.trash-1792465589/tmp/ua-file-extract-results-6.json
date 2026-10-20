@@ -1,0 +1,502 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "NLP_openwebtext/VQVAE_last_train_config07s.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 65,
+      "nonEmptyLines": 54,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "eval_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "usage_log_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "T_max",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "max_attention_window",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "vqvae_compile",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 31
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 33
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 35
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 36
+        },
+        {
+          "heading": "llm_checkpoint_path",
+          "level": 1,
+          "line": 38
+        },
+        {
+          "heading": "dataset",
+          "level": 1,
+          "line": 39
+        },
+        {
+          "heading": "vqvae_last_config",
+          "level": 1,
+          "line": 41
+        },
+        {
+          "heading": "gradient_checkpointing",
+          "level": 1,
+          "line": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 34
+      }
+    },
+    {
+      "path": "NLP_openwebtext/layer_and_block_config_256.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 129,
+      "nonEmptyLines": 109,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "eval_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "usage_log_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "T_max",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "max_attention_window",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "delta_b",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "vqvae_compile",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 31
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 33
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 34
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 36
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 37
+        },
+        {
+          "heading": "llm_checkpoint_path",
+          "level": 1,
+          "line": 39
+        },
+        {
+          "heading": "dataset",
+          "level": 1,
+          "line": 40
+        },
+        {
+          "heading": "vqvae_layer_config",
+          "level": 1,
+          "line": 42
+        },
+        {
+          "heading": "vqvae_block_config",
+          "level": 1,
+          "line": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 35
+      }
+    },
+    {
+      "path": "NLP_openwebtext/mi_calc_v6_config 2.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 20,
+      "sections": [
+        {
+          "heading": "vqvae_block_config_path",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "vqvae_block_checkpoint_path",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "vqvae_last_checkpoint_path",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "vqvae_last_config_path",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "llm_checkpoint_path",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "dataset",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "sequence_length",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "prompt_length",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_new_tokens",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "num_samples",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "num_sequences",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "num_layers_to_process",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "delta_b",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "output_file",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "save_count_data",
+          "level": 1,
+          "line": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 18
+      }
+    }
+  ]
+}

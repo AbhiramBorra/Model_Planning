@@ -1,0 +1,994 @@
+{
+  "scriptCompleted": true,
+  "entryPointCandidates": [
+    {
+      "id": "document:README.txt",
+      "score": 5,
+      "name": "README.txt",
+      "summary": "Top-level run guide listing the commands to generate CFG, OpenWebText and path-finding datasets, and the train-model / train-VQ-VAEs / compute-MI pipelines for CFG, PF-Short, PF-Long and OpenWebText experiments in NTP and MTP variants."
+    },
+    {
+      "id": "file:mi_calc_full_path.py",
+      "score": 3,
+      "name": "mi_calc_full_path.py",
+      "summary": "Top-level script that runs a trained GPT on path-finding prompts, encodes hidden states with two-stage VQVAE1/VQVAE2 and a Path_VQVAE, and estimates mutual information between the resulting discrete codes across the full generated path."
+    },
+    {
+      "id": "file:mi_calc_full_path_long2_61.py",
+      "score": 3,
+      "name": "mi_calc_full_path_long2_61.py",
+      "summary": "Variant of the full-path MI script using the single-model VQVAE61 encoder/decoder on GPT hidden states for long path-finding sequences, with time-step skipping and streaming MI estimation between codes."
+    },
+    {
+      "id": "file:path_finding_mi_calc.py",
+      "score": 3,
+      "name": "path_finding_mi_calc.py",
+      "summary": "Path-finding MI script that generates sequences from a GPT, quantizes hidden states with two-stage VQVAE1/VQVAE2 and a VQVAE_single model, and computes streaming mutual information between codes with metrics reporting and plots."
+    },
+    {
+      "id": "file:path_finding_mi_calc_61.py",
+      "score": 3,
+      "name": "path_finding_mi_calc_61.py",
+      "summary": "Path-finding MI script combining a VQVAE61 hidden-state quantizer with a VQVAE_single model on GPT generations, computing streaming entropy and mutual information between codes with time-step skipping and plotting."
+    }
+  ],
+  "fanInRanking": [
+    {
+      "id": "file:minimal_VQVAEs.py",
+      "fanIn": 16,
+      "name": "minimal_VQVAEs.py"
+    },
+    {
+      "id": "file:model.py",
+      "fanIn": 16,
+      "name": "model.py"
+    },
+    {
+      "id": "file:vqvae_utils.py",
+      "fanIn": 15,
+      "name": "vqvae_utils.py"
+    },
+    {
+      "id": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+      "fanIn": 15,
+      "name": "path_finding_generate_multi_cpu.py"
+    },
+    {
+      "id": "file:path_finding_llm_utilities.py",
+      "fanIn": 10,
+      "name": "path_finding_llm_utilities.py"
+    },
+    {
+      "id": "file:information_theory_utils.py",
+      "fanIn": 6,
+      "name": "information_theory_utils.py"
+    },
+    {
+      "id": "file:path_finding_llm_train.py",
+      "fanIn": 4,
+      "name": "path_finding_llm_train.py"
+    },
+    {
+      "id": "file:path_finding_vqvae1_train.py",
+      "fanIn": 4,
+      "name": "path_finding_vqvae1_train.py"
+    },
+    {
+      "id": "file:path_finding_vqvae2_train.py",
+      "fanIn": 4,
+      "name": "path_finding_vqvae2_train.py"
+    },
+    {
+      "id": "file:path_finding_vqvae_single_train.py",
+      "fanIn": 4,
+      "name": "path_finding_vqvae_single_train.py"
+    },
+    {
+      "id": "file:data/context_free_grammar/CFG_data_generation.py",
+      "fanIn": 4,
+      "name": "CFG_data_generation.py"
+    },
+    {
+      "id": "file:llm_train_utils.py",
+      "fanIn": 3,
+      "name": "llm_train_utils.py"
+    },
+    {
+      "id": "file:llm_train.py",
+      "fanIn": 2,
+      "name": "llm_train.py"
+    },
+    {
+      "id": "file:path_finding_vqvae61_train.py",
+      "fanIn": 2,
+      "name": "path_finding_vqvae61_train.py"
+    },
+    {
+      "id": "file:train_minimal_vqvae1.py",
+      "fanIn": 2,
+      "name": "train_minimal_vqvae1.py"
+    },
+    {
+      "id": "file:train_minimal_vqvae2.py",
+      "fanIn": 2,
+      "name": "train_minimal_vqvae2.py"
+    },
+    {
+      "id": "file:train_minimal_vqvae_single.py",
+      "fanIn": 2,
+      "name": "train_minimal_vqvae_single.py"
+    },
+    {
+      "id": "file:path_vqvae_train.py",
+      "fanIn": 2,
+      "name": "path_vqvae_train.py"
+    },
+    {
+      "id": "file:PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+      "fanIn": 2,
+      "name": "final_config_path_finding_GPT3small_128_longer_train.py"
+    },
+    {
+      "id": "file:PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "fanIn": 2,
+      "name": "final_config_path_finding_GPT3small_128_longer_train_seed11.py"
+    }
+  ],
+  "fanOutRanking": [
+    {
+      "id": "document:README.txt",
+      "fanOut": 9,
+      "name": "README.txt"
+    },
+    {
+      "id": "file:mi_calc_full_path.py",
+      "fanOut": 5,
+      "name": "mi_calc_full_path.py"
+    },
+    {
+      "id": "file:mi_calc_full_path_long2_61.py",
+      "fanOut": 5,
+      "name": "mi_calc_full_path_long2_61.py"
+    },
+    {
+      "id": "file:path_finding_mi_calc.py",
+      "fanOut": 5,
+      "name": "path_finding_mi_calc.py"
+    },
+    {
+      "id": "file:path_finding_mi_calc_61.py",
+      "fanOut": 5,
+      "name": "path_finding_mi_calc_61.py"
+    },
+    {
+      "id": "file:path_finding_vqvae61_train.py",
+      "fanOut": 4,
+      "name": "path_finding_vqvae61_train.py"
+    },
+    {
+      "id": "file:path_finding_vqvae1_train.py",
+      "fanOut": 4,
+      "name": "path_finding_vqvae1_train.py"
+    },
+    {
+      "id": "file:path_finding_vqvae2_train.py",
+      "fanOut": 4,
+      "name": "path_finding_vqvae2_train.py"
+    },
+    {
+      "id": "file:path_finding_vqvae_single_train.py",
+      "fanOut": 4,
+      "name": "path_finding_vqvae_single_train.py"
+    },
+    {
+      "id": "file:path_vqvae_train.py",
+      "fanOut": 4,
+      "name": "path_vqvae_train.py"
+    },
+    {
+      "id": "file:NLP_mi_calc_v6 2.py",
+      "fanOut": 3,
+      "name": "NLP_mi_calc_v6 2.py"
+    },
+    {
+      "id": "file:mi_calc_minimal.py",
+      "fanOut": 3,
+      "name": "mi_calc_minimal.py"
+    },
+    {
+      "id": "file:NLP_vqvae_layer_and_block_train.py",
+      "fanOut": 3,
+      "name": "NLP_vqvae_layer_and_block_train.py"
+    },
+    {
+      "id": "file:llm_train.py",
+      "fanOut": 3,
+      "name": "llm_train.py"
+    },
+    {
+      "id": "file:path_finding_llm_train.py",
+      "fanOut": 3,
+      "name": "path_finding_llm_train.py"
+    },
+    {
+      "id": "file:NLP_vqvae_last_train.py",
+      "fanOut": 3,
+      "name": "NLP_vqvae_last_train.py"
+    },
+    {
+      "id": "file:NLP_llm_train.py",
+      "fanOut": 2,
+      "name": "NLP_llm_train.py"
+    },
+    {
+      "id": "file:train_minimal_vqvae1.py",
+      "fanOut": 2,
+      "name": "train_minimal_vqvae1.py"
+    },
+    {
+      "id": "file:train_minimal_vqvae2.py",
+      "fanOut": 2,
+      "name": "train_minimal_vqvae2.py"
+    },
+    {
+      "id": "file:train_minimal_vqvae_single.py",
+      "fanOut": 2,
+      "name": "train_minimal_vqvae_single.py"
+    }
+  ],
+  "bfsTraversal": {
+    "startNode": "file:mi_calc_full_path.py",
+    "order": [
+      "file:mi_calc_full_path.py",
+      "file:information_theory_utils.py",
+      "file:minimal_VQVAEs.py",
+      "file:model.py",
+      "file:path_finding_llm_utilities.py",
+      "file:vqvae_utils.py",
+      "file:modules.py"
+    ],
+    "depthMap": {
+      "file:mi_calc_full_path.py": 0,
+      "file:information_theory_utils.py": 1,
+      "file:minimal_VQVAEs.py": 1,
+      "file:model.py": 1,
+      "file:path_finding_llm_utilities.py": 1,
+      "file:vqvae_utils.py": 1,
+      "file:modules.py": 2
+    },
+    "byDepth": {
+      "0": [
+        "file:mi_calc_full_path.py"
+      ],
+      "1": [
+        "file:information_theory_utils.py",
+        "file:minimal_VQVAEs.py",
+        "file:model.py",
+        "file:path_finding_llm_utilities.py",
+        "file:vqvae_utils.py"
+      ],
+      "2": [
+        "file:modules.py"
+      ]
+    }
+  },
+  "nonCodeFiles": {
+    "documentation": [
+      {
+        "id": "document:README.txt",
+        "name": "README.txt",
+        "type": "document",
+        "summary": "Top-level run guide listing the commands to generate CFG, OpenWebText and path-finding datasets, and the train-model / train-VQ-VAEs / compute-MI pipelines for CFG, PF-Short, PF-Long and OpenWebText experiments in NTP and MTP variants."
+      },
+      {
+        "id": "document:data/openwentext/readme.md",
+        "name": "readme.md",
+        "type": "document",
+        "summary": "Short note describing the OpenWebText binary outputs of prepare.py (about 9B train tokens and 4M val tokens from 8M documents) with references to GPT-2 and OpenWebText."
+      }
+    ],
+    "infrastructure": [],
+    "data": [],
+    "config": [
+      {
+        "id": "config:NLP_openwebtext/VQVAE_last_train_config07s.json",
+        "name": "VQVAE_last_train_config07s.json",
+        "type": "config",
+        "summary": "Training config for the last-layer VQ-VAE on OpenWebText: quantizes 512-d final hidden states of the 8-layer GPT checkpoint with a 64-entry codebook, 6-layer encoder/decoder, entropy and cosine-push losses, 10k iterations with W&B logging."
+      },
+      {
+        "id": "config:NLP_openwebtext/layer_and_block_config_256.json",
+        "name": "layer_and_block_config_256.json",
+        "type": "config",
+        "summary": "Training config for the layer-and-block VQ-VAE on OpenWebText (T=256, delta_b=16): a two-stage layer-wise/aggregate transformer VQ-VAE with a 1024-entry codebook over the 8-layer GPT's hidden states, plus optimizer, logging and W&B settings."
+      },
+      {
+        "id": "config:NLP_openwebtext/mi_calc_v6_config 2.json",
+        "name": "mi_calc_v6_config 2.json",
+        "type": "config",
+        "summary": "Mutual-information calculation config for the OpenWebText experiment: points to the trained block and last-layer VQ-VAE checkpoints and the GPT checkpoint, and sets prompt length 240, 16 generated tokens, 100k samples and the MI results output path."
+      },
+      {
+        "id": "config:PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+        "name": "mtl_vqvae1_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 25000 iterations, and output to PF_15XL/mtl_vqvae1_out_seed11."
+      },
+      {
+        "id": "config:PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+        "name": "mtl_vqvae2_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 15000 iterations, and output to PF_15XL/mtl_vqvae2_out_seed11."
+      },
+      {
+        "id": "config:PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+        "name": "mtl_vqvae_single_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_15XL/mtl_vqvae_single_out_seed11."
+      },
+      {
+        "id": "config:PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+        "name": "vqvae1_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 25000 iterations, and output to PF_15XL/vqvae1_out_seed11."
+      },
+      {
+        "id": "config:PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+        "name": "vqvae2_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 15000 iterations, and output to PF_15XL/vqvae2_out_seed11."
+      },
+      {
+        "id": "config:PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+        "name": "vqvae_path_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 training config for the path-level VQ-VAE on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2), encoding ground-truth paths from PF_15XL/samples with a 512-entry codebook transformer for 30000 iterations."
+      },
+      {
+        "id": "config:PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+        "name": "vqvae_single_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_15XL/vqvae_single_out_seed11."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json",
+        "name": "mtl_vqvae1_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 60000 iterations, and output to PF_long1decoy_easier/mtl_vqvae1_out_seed11."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json",
+        "name": "mtl_vqvae2_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 20000 iterations, and output to PF_long1decoy_easier/mtl_vqvae2_out_seed11."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json",
+        "name": "mtl_vqvae61_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the multi-position (61) VQ-VAE over LM layer hidden states for the long task on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 512, 60000 iterations, and output to PF_long1decoy_easier/mtl_vqvae61_out_seed11."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json",
+        "name": "mtl_vqvae_single_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_long1decoy_easier/mtl_vqvae_single_out_seed11."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json",
+        "name": "vqvae1_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 60000 iterations, and output to PF_long1decoy_easier/vqvae1_out_seed11."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json",
+        "name": "vqvae2_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 20000 iterations, and output to PF_long1decoy_easier/vqvae2_out_seed11."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json",
+        "name": "vqvae61_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the multi-position (61) VQ-VAE over LM layer hidden states for the long task on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 512, 60000 iterations, and output to PF_long1decoy_easier/vqvae61_out_seed11."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json",
+        "name": "vqvae_path_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 training config for the path-level VQ-VAE on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4), encoding ground-truth paths from PF_long1decoy_easier/samples with a 512-entry codebook transformer for 50000 iterations."
+      },
+      {
+        "id": "config:PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json",
+        "name": "vqvae_single_config_seed11.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_long1decoy_easier/vqvae_single_out_seed11."
+      },
+      {
+        "id": "config:data/path_finding/PF_15XL_config.json",
+        "name": "PF_15XL_config.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_15XL_config_mi.json",
+        "name": "PF_15XL_config_mi.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'mi' mutual-information estimation split (16,000,000 samples, seed 64) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_15XL_config_train.json",
+        "name": "PF_15XL_config_train.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'train' main training split (16,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_15XL_config_train_small.json",
+        "name": "PF_15XL_config_train_small.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'train_small' small training split (1,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_15XL_config_train_vocab.json",
+        "name": "PF_15XL_config_train_vocab.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'trainvocab' vocabulary-building split (4,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_15XL_config_vqvae.json",
+        "name": "PF_15XL_config_vqvae.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'vqvae' VQ-VAE training split (16,000,000 samples, seed 61) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_long1decoy_easier_config.json",
+        "name": "PF_long1decoy_easier_config.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_long1decoy_easier_config_mi.json",
+        "name": "PF_long1decoy_easier_config_mi.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'mi' mutual-information estimation split (16,000,000 samples, seed 64) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_long1decoy_easier_config_observe.json",
+        "name": "PF_long1decoy_easier_config_observe.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'observe' tiny observation/inspection split (32 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_long1decoy_easier_config_train.json",
+        "name": "PF_long1decoy_easier_config_train.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'train' main training split (16,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_long1decoy_easier_config_train_small.json",
+        "name": "PF_long1decoy_easier_config_train_small.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'train_small' small training split (1,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+        "name": "PF_long1decoy_easier_config_train_vocab.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'trainvocab' vocabulary-building split (4,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_long1decoy_easier_config_val.json",
+        "name": "PF_long1decoy_easier_config_val.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+      },
+      {
+        "id": "config:data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+        "name": "PF_long1decoy_easier_config_vqvae.json",
+        "type": "config",
+        "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'vqvae' VQ-VAE training split (16,000,000 samples, seed 61) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+      },
+      {
+        "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+        "name": "vqvae1_config.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the two-stage layer-wise/aggregate VQ-VAE over all GPT layer representations on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_out."
+      },
+      {
+        "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+        "name": "vqvae2_config.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over GPT representations on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_out."
+      },
+      {
+        "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+        "name": "vqvae_single_config.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the single-representation VQ-VAE on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 64, 20000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_out."
+      },
+      {
+        "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json",
+        "name": "vqvae1_config.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the two-stage layer-wise/aggregate VQ-VAE over all GPT layer representations on the CFG (cfg_s1444-64 dataset) experiment with the next-token-prediction (NTP) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_out."
+      },
+      {
+        "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json",
+        "name": "vqvae2_config.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over GPT representations on the CFG (cfg_s1444-64 dataset) experiment with the next-token-prediction (NTP) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_out."
+      },
+      {
+        "id": "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json",
+        "name": "vqvae_single_config.json",
+        "type": "config",
+        "summary": "Seed-11 config for training the single-representation VQ-VAE on the CFG (cfg_s1444-64 dataset) experiment with the next-token-prediction (NTP) GPT; codebook size 64, 20000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_out."
+      }
+    ]
+  },
+  "clusters": [],
+  "layers": {
+    "count": 8,
+    "list": [
+      {
+        "id": "layer:data-generation",
+        "name": "Dataset Generation",
+        "description": "Synthetic CFG and path-finding graph generators, OpenWebText tokenization, dataset inspection tools, and the PF_15XL / PF_long1decoy_easier dataset-generation JSON configs under data/."
+      },
+      {
+        "id": "layer:model-library",
+        "name": "Model Library",
+        "description": "Shared PyTorch model definitions: the rotary-attention GPT (model.py), its transformer building blocks (modules.py), and the many VQ-VAE variants in minimal_VQVAEs.py."
+      },
+      {
+        "id": "layer:shared-utilities",
+        "name": "Shared Utilities",
+        "description": "Cross-stage helpers for LR schedules and training metadata, VQ-VAE logging/optimizers, the JSONL path-finding dataset, and streaming entropy/MI count tables."
+      },
+      {
+        "id": "layer:llm-training",
+        "name": "LLM Training",
+        "description": "Training entry scripts for GPT models with next-token or multi-token loss on CFG, path-finding, and OpenWebText data."
+      },
+      {
+        "id": "layer:vqvae-training",
+        "name": "VQ-VAE Training",
+        "description": "Scripts that train single, two-stage, per-layer/block, last-token, 61-position and path VQ-VAEs on hidden states of frozen trained GPTs."
+      },
+      {
+        "id": "layer:mi-analysis",
+        "name": "MI Analysis",
+        "description": "Scripts that run trained GPTs, quantize their hidden states with trained VQ-VAEs, and compute mutual information between the learned codes and path/sequence targets."
+      },
+      {
+        "id": "layer:experiment-config",
+        "name": "Experiment Configs",
+        "description": "Per-experiment GPT and VQ-VAE/MI configuration files (Python and JSON) for the OpenWebText, PF-Short, PF-Long and CFG NTP/MTL seed-11 runs."
+      },
+      {
+        "id": "layer:documentation",
+        "name": "Documentation",
+        "description": "The top-level README run guide with pipeline commands and the OpenWebText output note."
+      }
+    ]
+  },
+  "nodeSummaryIndex": {
+    "file:NLP_mi_calc_v6 2.py": {
+      "name": "NLP_mi_calc_v6 2.py",
+      "type": "file",
+      "summary": "Distributed script that computes mutual information between per-block VQVAE3v2 codes and last-token VQVAE codes extracted from a GPT model's hidden states on OpenWebText-style NLP data, streaming counts into StreamingInfo."
+    },
+    "file:information_theory_utils.py": {
+      "name": "information_theory_utils.py",
+      "type": "file",
+      "summary": "Provides StreamingInfo, a stream-friendly count-table container for estimating entropy, joint/conditional entropy, mutual information and conditional MI over discrete variables, with plug-in and Paninski/BUB bias-corrected estimators and optional HDF5 sample storage."
+    },
+    "file:mi_calc_full_path.py": {
+      "name": "mi_calc_full_path.py",
+      "type": "file",
+      "summary": "Top-level script that runs a trained GPT on path-finding prompts, encodes hidden states with two-stage VQVAE1/VQVAE2 and a Path_VQVAE, and estimates mutual information between the resulting discrete codes across the full generated path."
+    },
+    "file:mi_calc_full_path_long2_61.py": {
+      "name": "mi_calc_full_path_long2_61.py",
+      "type": "file",
+      "summary": "Variant of the full-path MI script using the single-model VQVAE61 encoder/decoder on GPT hidden states for long path-finding sequences, with time-step skipping and streaming MI estimation between codes."
+    },
+    "file:mi_calc_minimal.py": {
+      "name": "mi_calc_minimal.py",
+      "type": "file",
+      "summary": "Script that loads a nanoLLM on a CFG dataset, encodes hidden states with two-stage VQVAE1/VQVAE2 and a VQVAE_single model, and estimates mutual information between their discrete codes with plots of the results."
+    },
+    "file:path_finding_mi_calc.py": {
+      "name": "path_finding_mi_calc.py",
+      "type": "file",
+      "summary": "Path-finding MI script that generates sequences from a GPT, quantizes hidden states with two-stage VQVAE1/VQVAE2 and a VQVAE_single model, and computes streaming mutual information between codes with metrics reporting and plots."
+    },
+    "file:path_finding_mi_calc_61.py": {
+      "name": "path_finding_mi_calc_61.py",
+      "type": "file",
+      "summary": "Path-finding MI script combining a VQVAE61 hidden-state quantizer with a VQVAE_single model on GPT generations, computing streaming entropy and mutual information between codes with time-step skipping and plotting."
+    },
+    "file:minimal_VQVAEs.py": {
+      "name": "minimal_VQVAEs.py",
+      "type": "file",
+      "summary": "Large model library defining many VQ-VAE variants (single, two-stage, layer/block, last-token, path, 3v2, 61) with transformer-based encoders/decoders, codebook usage tracking, cosine push and soft-entropy regularizers, and input normalization, used to quantize LLM hidden states."
+    },
+    "file:modules.py": {
+      "name": "modules.py",
+      "type": "file",
+      "summary": "Core transformer building blocks (LayerNorm, rotary positional embeddings, rotary self-attention with flash attention support, MLP, TransformerBlock) used by the VQ-VAE encoders/decoders, plus self-tests."
+    },
+    "file:NLP_llm_train.py": {
+      "name": "NLP_llm_train.py",
+      "type": "file",
+      "summary": "Script-style training loop for a GPT model on memmapped OpenWebText token bins, supporting DDP, mixed precision, gradient accumulation, cosine LR schedule and checkpointing."
+    },
+    "file:NLP_vqvae_layer_and_block_train.py": {
+      "name": "NLP_vqvae_layer_and_block_train.py",
+      "type": "file",
+      "summary": "Trains VQVAE3v2 models on hidden states of a frozen pretrained NLP GPT, either per layer or per block of layers, with cosine LR, masked NRMSE reconstruction metrics and codebook-usage logging/plots."
+    },
+    "file:llm_train.py": {
+      "name": "llm_train.py",
+      "type": "file",
+      "summary": "Main training script for GPT models on context-free-grammar sequences with next-token or multi-token (MTL) targets, DDP support, periodic CFG accuracy evaluation and metadata/checkpoint saving."
+    },
+    "file:llm_train_utils.py": {
+      "name": "llm_train_utils.py",
+      "type": "file",
+      "summary": "Shared training helpers: cosine LR schedule with warmup, human-readable training metadata export, parallel CFG validity evaluation of model completions, accuracy logging and CFG loading from dataset pickles."
+    },
+    "file:model.py": {
+      "name": "model.py",
+      "type": "file",
+      "summary": "GPT transformer implementation with rotary positional embeddings, optional attention masks, multi-token-prediction (mtl) heads/losses, generation with EOS handling, and hidden-state extraction APIs used by VQ-VAE and MI scripts."
+    },
+    "file:path_finding_llm_train.py": {
+      "name": "path_finding_llm_train.py",
+      "type": "file",
+      "summary": "Training script for GPT models on graph path-finding datasets via DataLoader/DistributedSampler, supporting NTP and multi-token targets, consistent validation loss and periodic path accuracy evaluation."
+    },
+    "file:NLP_vqvae_last_train.py": {
+      "name": "NLP_vqvae_last_train.py",
+      "type": "file",
+      "summary": "Training script that loads a GPT trained on OpenWebText, extracts last-token hidden states from memmapped text batches, and trains a VQVAELastToken model with cosine LR, NRMSE tracking, codebook-usage plots and optional wandb/DDP."
+    },
+    "file:path_finding_vqvae61_train.py": {
+      "name": "path_finding_vqvae61_train.py",
+      "type": "file",
+      "summary": "Training script for the VQVAE61 model on hidden states of a path-finding GPT: builds the PathFindingDataset loader, skips time steps, encodes multi-step hidden representations with Encoder61/Decoder61, and tracks masked NRMSE and codebook usage."
+    },
+    "file:train_minimal_vqvae1.py": {
+      "name": "train_minimal_vqvae1.py",
+      "type": "file",
+      "summary": "Training script for the first-stage VQVAE1 on hidden states from a CFG-trained nanoLLM, using the CFG dataloader, beta/LR schedules, masked NRMSE metrics, checkpoint resume and optional wandb logging."
+    },
+    "file:vqvae_utils.py": {
+      "name": "vqvae_utils.py",
+      "type": "file",
+      "summary": "Shared utility library for the VQ-VAE training and MI scripts: logging setup, optimizer/LR/beta schedules, masked NRMSE reconstruction metrics, a nanoLLM checkpoint-loading wrapper with hidden-state extraction, CFG memmap dataset/dataloader, padding conversions, and path-finding generation with hidden states."
+    },
+    "file:train_minimal_vqvae2.py": {
+      "name": "train_minimal_vqvae2.py",
+      "type": "file",
+      "summary": "Second-stage training script that loads a frozen pretrained VQVAE1 and trains VQVAE2 on its normalized first-stage representations of CFG nanoLLM hidden states, with checkpoint verification and padding conversions."
+    },
+    "file:train_minimal_vqvae_single.py": {
+      "name": "train_minimal_vqvae_single.py",
+      "type": "file",
+      "summary": "Training script for the single-stage VQVAE_single baseline on CFG nanoLLM hidden states, with configurable codebook size, beta warmup, codebook reset, masked NRMSE metrics and optional wandb."
+    },
+    "file:path_finding_llm_utilities.py": {
+      "name": "path_finding_llm_utilities.py",
+      "type": "file",
+      "summary": "Shared path-finding data utilities: a JSONL-backed PathFindingDataset that builds a vocabulary and tokenizes graph edges/paths with optional edge-loss masking, plus collate, masked loss, prompt cropping and time-step skipping helpers used by the LLM and VQ-VAE training scripts."
+    },
+    "file:path_finding_vqvae1_train.py": {
+      "name": "path_finding_vqvae1_train.py",
+      "type": "file",
+      "summary": "Distributed training script for the first-stage VQ-VAE (VQVAE1/Encoder1/Decoder1) on layer-wise hidden states of a frozen path-finding GPT, with normalization, beta/LR schedules, NRMSE metrics, wandb logging and checkpointing."
+    },
+    "file:path_finding_vqvae2_train.py": {
+      "name": "path_finding_vqvae2_train.py",
+      "type": "file",
+      "summary": "Training script for the second-stage VQ-VAE (VQVAE2/Encoder2/Decoder2) that quantizes outputs of a frozen first-stage VQVAE1 encoder over path-finding GPT hidden states, reporting stage and end-to-end reconstruction NRMSE with DDP and wandb support."
+    },
+    "file:path_finding_vqvae_single_train.py": {
+      "name": "path_finding_vqvae_single_train.py",
+      "type": "file",
+      "summary": "Training script for a single-stage VQVAE_single over hidden states gathered while a frozen path-finding GPT autoregressively generates paths, with LR/beta scheduling, NRMSE metrics, wandb and checkpointing."
+    },
+    "file:path_vqvae_train.py": {
+      "name": "path_vqvae_train.py",
+      "type": "file",
+      "summary": "Training script for Path_VQVAE (Path_Encoder/Path_Decoder) that learns discrete codes directly over path-finding token sequences, with scratch/resume init, LR/beta schedules, embedding similarity plots and checkpointing."
+    },
+    "file:data/context_free_grammar/CFG_data_generation.py": {
+      "name": "CFG_data_generation.py",
+      "type": "file",
+      "summary": "Defines the synthetic hierarchical context-free grammar (CFG) class that generates random symbols and production rules, samples sequences in parallel, validates sequences with a fast parser, and writes the 4M-sequence training corpus plus meta.pkl to disk."
+    },
+    "file:data/context_free_grammar/CFG_full_sequence_data_generation.py": {
+      "name": "CFG_full_sequence_data_generation.py",
+      "type": "file",
+      "summary": "Script that loads a pickled CFG instance, generates 4M full sequences in parallel, left-pads them with PAD and a BOS token to the longest length, and saves train/test binary files for full-sequence training."
+    },
+    "file:data/context_free_grammar/CFG_prefix_data_generation.py": {
+      "name": "CFG_prefix_data_generation.py",
+      "type": "file",
+      "summary": "Script that loads a pickled CFG instance and generates 15M sequences clipped to random prefixes of length 8-24 (including BOS), left-padded, saving prefix train/test bins and a prefix_meta pickle with EOS token info."
+    },
+    "file:data/context_free_grammar/check_CGF_implementation.py": {
+      "name": "check_CGF_implementation.py",
+      "type": "file",
+      "summary": "Sanity-check script for the CFG class that builds grammars of various sizes, generates valid sequences, injects random permutations, and checks that the validator's accuracy matches the expected ratio."
+    },
+    "config:NLP_openwebtext/VQVAE_last_train_config07s.json": {
+      "name": "VQVAE_last_train_config07s.json",
+      "type": "config",
+      "summary": "Training config for the last-layer VQ-VAE on OpenWebText: quantizes 512-d final hidden states of the 8-layer GPT checkpoint with a 64-entry codebook, 6-layer encoder/decoder, entropy and cosine-push losses, 10k iterations with W&B logging."
+    },
+    "config:NLP_openwebtext/layer_and_block_config_256.json": {
+      "name": "layer_and_block_config_256.json",
+      "type": "config",
+      "summary": "Training config for the layer-and-block VQ-VAE on OpenWebText (T=256, delta_b=16): a two-stage layer-wise/aggregate transformer VQ-VAE with a 1024-entry codebook over the 8-layer GPT's hidden states, plus optimizer, logging and W&B settings."
+    },
+    "config:NLP_openwebtext/mi_calc_v6_config 2.json": {
+      "name": "mi_calc_v6_config 2.json",
+      "type": "config",
+      "summary": "Mutual-information calculation config for the OpenWebText experiment: points to the trained block and last-layer VQ-VAE checkpoints and the GPT checkpoint, and sets prompt length 240, 16 generated tokens, 100k samples and the MI results output path."
+    },
+    "config:PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json": {
+      "name": "mtl_vqvae1_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 25000 iterations, and output to PF_15XL/mtl_vqvae1_out_seed11."
+    },
+    "config:PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json": {
+      "name": "mtl_vqvae2_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 15000 iterations, and output to PF_15XL/mtl_vqvae2_out_seed11."
+    },
+    "config:PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json": {
+      "name": "mtl_vqvae_single_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_15XL/mtl_vqvae_single_out_seed11."
+    },
+    "config:PF_15XL/seed11_configs/vqvae1_config_seed11.json": {
+      "name": "vqvae1_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 25000 iterations, and output to PF_15XL/vqvae1_out_seed11."
+    },
+    "config:PF_15XL/seed11_configs/vqvae2_config_seed11.json": {
+      "name": "vqvae2_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 15000 iterations, and output to PF_15XL/vqvae2_out_seed11."
+    },
+    "config:PF_15XL/seed11_configs/vqvae_path_config_seed11.json": {
+      "name": "vqvae_path_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 training config for the path-level VQ-VAE on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2), encoding ground-truth paths from PF_15XL/samples with a 512-entry codebook transformer for 30000 iterations."
+    },
+    "config:PF_15XL/seed11_configs/vqvae_single_config_seed11.json": {
+      "name": "vqvae_single_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Short (PF_15XL) path-finding task (2 paths, 2 decoys, path length 2) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_15XL/vqvae_single_out_seed11."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json": {
+      "name": "mtl_vqvae1_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 60000 iterations, and output to PF_long1decoy_easier/mtl_vqvae1_out_seed11."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json": {
+      "name": "mtl_vqvae2_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 256, 20000 iterations, and output to PF_long1decoy_easier/mtl_vqvae2_out_seed11."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json": {
+      "name": "mtl_vqvae61_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the multi-position (61) VQ-VAE over LM layer hidden states for the long task on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 512, 60000 iterations, and output to PF_long1decoy_easier/mtl_vqvae61_out_seed11."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json": {
+      "name": "mtl_vqvae_single_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the multi-token-prediction (MTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_long1decoy_easier/mtl_vqvae_single_out_seed11."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json": {
+      "name": "vqvae1_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the layer-wise/aggregate two-stage VQ-VAE over all LM layer hidden states on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 60000 iterations, and output to PF_long1decoy_easier/vqvae1_out_seed11."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json": {
+      "name": "vqvae2_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over LM representations on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 256, 20000 iterations, and output to PF_long1decoy_easier/vqvae2_out_seed11."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json": {
+      "name": "vqvae61_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the multi-position (61) VQ-VAE over LM layer hidden states for the long task on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 512, 60000 iterations, and output to PF_long1decoy_easier/vqvae61_out_seed11."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json": {
+      "name": "vqvae_path_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 training config for the path-level VQ-VAE on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4), encoding ground-truth paths from PF_long1decoy_easier/samples with a 512-entry codebook transformer for 50000 iterations."
+    },
+    "config:PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json": {
+      "name": "vqvae_single_config_seed11.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the single-representation VQ-VAE over one LM hidden state on the PF-Long (PF_long1decoy_easier) path-finding task (1 decoy, path length 4) using the next-token-prediction (NTP) GPT checkpoint; sets codebook size 128, 25000 iterations, and output to PF_long1decoy_easier/vqvae_single_out_seed11."
+    },
+    "config:data/path_finding/PF_15XL_config.json": {
+      "name": "PF_15XL_config.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+    },
+    "config:data/path_finding/PF_15XL_config_mi.json": {
+      "name": "PF_15XL_config_mi.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'mi' mutual-information estimation split (16,000,000 samples, seed 64) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+    },
+    "config:data/path_finding/PF_15XL_config_train.json": {
+      "name": "PF_15XL_config_train.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'train' main training split (16,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+    },
+    "config:data/path_finding/PF_15XL_config_train_small.json": {
+      "name": "PF_15XL_config_train_small.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'train_small' small training split (1,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+    },
+    "config:data/path_finding/PF_15XL_config_train_vocab.json": {
+      "name": "PF_15XL_config_train_vocab.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'trainvocab' vocabulary-building split (4,000 samples, seed 42) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+    },
+    "config:data/path_finding/PF_15XL_config_vqvae.json": {
+      "name": "PF_15XL_config_vqvae.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Short (PF_15XL) path-finding graphs, producing the 'vqvae' VQ-VAE training split (16,000,000 samples, seed 61) with up to 28 nodes, 2 paths, 2 decoy(s) and path length 2 into PF_15XL/samples."
+    },
+    "config:data/path_finding/PF_long1decoy_easier_config.json": {
+      "name": "PF_long1decoy_easier_config.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+    },
+    "config:data/path_finding/PF_long1decoy_easier_config_mi.json": {
+      "name": "PF_long1decoy_easier_config_mi.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'mi' mutual-information estimation split (16,000,000 samples, seed 64) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+    },
+    "config:data/path_finding/PF_long1decoy_easier_config_observe.json": {
+      "name": "PF_long1decoy_easier_config_observe.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'observe' tiny observation/inspection split (32 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+    },
+    "config:data/path_finding/PF_long1decoy_easier_config_train.json": {
+      "name": "PF_long1decoy_easier_config_train.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'train' main training split (16,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+    },
+    "config:data/path_finding/PF_long1decoy_easier_config_train_small.json": {
+      "name": "PF_long1decoy_easier_config_train_small.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'train_small' small training split (1,000,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+    },
+    "config:data/path_finding/PF_long1decoy_easier_config_train_vocab.json": {
+      "name": "PF_long1decoy_easier_config_train_vocab.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'trainvocab' vocabulary-building split (4,000 samples, seed 42) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+    },
+    "config:data/path_finding/PF_long1decoy_easier_config_val.json": {
+      "name": "PF_long1decoy_easier_config_val.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'val' validation split (32,768 samples, seed 1337) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+    },
+    "config:data/path_finding/PF_long1decoy_easier_config_vqvae.json": {
+      "name": "PF_long1decoy_easier_config_vqvae.json",
+      "type": "config",
+      "summary": "Dataset-generation config for the PF-Long (PF_long1decoy_easier) path-finding graphs, producing the 'vqvae' VQ-VAE training split (16,000,000 samples, seed 61) with up to 28 nodes, 2 paths, 1 decoy(s) and path length 4 into PF_long1decoy_easier/samples."
+    },
+    "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json": {
+      "name": "vqvae1_config.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the two-stage layer-wise/aggregate VQ-VAE over all GPT layer representations on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_out."
+    },
+    "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json": {
+      "name": "vqvae2_config.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over GPT representations on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_out."
+    },
+    "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json": {
+      "name": "vqvae_single_config.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the single-representation VQ-VAE on the CFG (cfg_s1444-64 dataset) experiment with the multi-token-prediction (MTP, mtl4) GPT; codebook size 64, 20000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_out."
+    },
+    "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json": {
+      "name": "vqvae1_config.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the two-stage layer-wise/aggregate VQ-VAE over all GPT layer representations on the CFG (cfg_s1444-64 dataset) experiment with the next-token-prediction (NTP) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_out."
+    },
+    "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json": {
+      "name": "vqvae2_config.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the encoder-decoder VQ-VAE over GPT representations on the CFG (cfg_s1444-64 dataset) experiment with the next-token-prediction (NTP) GPT; codebook size 256, 15000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_out."
+    },
+    "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json": {
+      "name": "vqvae_single_config.json",
+      "type": "config",
+      "summary": "Seed-11 config for training the single-representation VQ-VAE on the CFG (cfg_s1444-64 dataset) experiment with the next-token-prediction (NTP) GPT; codebook size 64, 20000 iterations, outputs to exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_out."
+    },
+    "file:NLP_openwebtext/configGPT3Xsmall.py": {
+      "name": "configGPT3Xsmall.py",
+      "type": "file",
+      "summary": "nanoGPT-style training config for the OpenWebText NLP experiment: an 8-layer, 8-head, 512-dim GPT with block size 256, a Chinchilla-derived 2.5B-token horizon, decaying LR schedule and wandb logging."
+    },
+    "file:PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py": {
+      "name": "final_config_path_finding_GPT3small_128_longer_train.py",
+      "type": "file",
+      "summary": "Training config for the short path-finding task (PF-15XL) with next-token loss: GPT3-small (12 layers, 768 dim), block size 128, 20B-token horizon and wandb logging."
+    },
+    "file:PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py": {
+      "name": "mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+      "type": "file",
+      "summary": "Multi-token-loss variant of the PF-15XL path-finding training config, enabling shared-heads MTL with mtl_length=2 over the last 2 transformer blocks."
+    },
+    "file:PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py": {
+      "name": "final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "type": "file",
+      "summary": "Seed-11 training config for the long path-finding task (PF-Long, one decoy) with next-token loss: GPT3-small, block size 128, 2000 iterations while keeping the LR schedule of the original long horizon."
+    },
+    "file:PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py": {
+      "name": "mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "type": "file",
+      "summary": "Multi-token-loss variant of the seed-11 PF-Long training config, enabling shared-heads MTL prediction of future tokens."
+    },
+    "document:README.txt": {
+      "name": "README.txt",
+      "type": "document",
+      "summary": "Top-level run guide listing the commands to generate CFG, OpenWebText and path-finding datasets, and the train-model / train-VQ-VAEs / compute-MI pipelines for CFG, PF-Short, PF-Long and OpenWebText experiments in NTP and MTP variants."
+    },
+    "file:data/context_free_grammar/peeking_dataset.py": {
+      "name": "peeking_dataset.py",
+      "type": "file",
+      "summary": "Debugging script that memory-maps a CFG binary dataset (e.g. train_prefixes8_24.bin), prints the first tokens, and optionally plots the distribution of sequence lengths."
+    },
+    "file:data/openwentext/prepare.py": {
+      "name": "prepare.py",
+      "type": "file",
+      "summary": "Downloads OpenWebText via HuggingFace datasets, splits off a small validation set, tokenizes with tiktoken GPT-2 BPE in parallel, and writes train.bin/val.bin uint16 token files."
+    },
+    "document:data/openwentext/readme.md": {
+      "name": "readme.md",
+      "type": "document",
+      "summary": "Short note describing the OpenWebText binary outputs of prepare.py (about 9B train tokens and 4M val tokens from 8M documents) with references to GPT-2 and OpenWebText."
+    },
+    "file:data/path_finding/path_finding_generate.py": {
+      "name": "path_finding_generate.py",
+      "type": "file",
+      "summary": "Single-process synthetic path-finding dataset generator: builds random tree-like graphs with correct and decoy paths from a JSON/YAML config, serialises them to JSONL records, and optionally runs block-size analysis and visualisation."
+    },
+    "file:data/path_finding/path_finding_generate_multi_cpu.py": {
+      "name": "path_finding_generate_multi_cpu.py",
+      "type": "file",
+      "summary": "Multi-process version of the path-finding dataset generator that splits graph generation across worker processes writing temp JSONL files, then merges them into the final train/val/test datasets; this is the generator referenced in the README."
+    },
+    "file:data/path_finding/visualize_saved_graphs.py": {
+      "name": "visualize_saved_graphs.py",
+      "type": "file",
+      "summary": "CLI tool that loads saved path-finding JSONL datasets, reconstructs Graph objects from records, and renders annotated images highlighting start, goal, correct and decoy paths."
+    },
+    "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py": {
+      "name": "llmconfig_CFG_GPT3small.py",
+      "type": "file",
+      "summary": "Seed-11 GPT3-small training config for the CFG experiment with multi-token loss (shared heads, mtl_length=4), block size 512, 200k iterations on the cfg_s1444-64-_rd3456_rl23_4000k dataset."
+    },
+    "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py": {
+      "name": "llmconfig_CFG_GPT3small.py",
+      "type": "file",
+      "summary": "Seed-11 GPT3-small training config for the CFG experiment with standard next-token loss on the cfg_s1444-64-_rd3456_rl23_4000k dataset."
+    }
+  },
+  "totalNodes": 83,
+  "totalEdges": 690
+}

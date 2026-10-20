@@ -1,0 +1,30 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'file:data/context_free_grammar/peeking_dataset.py' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 237,
+    "totalEdges": 690,
+    "totalLayers": 8,
+    "tourSteps": 13,
+    "nodeTypes": {
+      "file": 42,
+      "function": 110,
+      "class": 44,
+      "config": 39,
+      "document": 2
+    },
+    "edgeTypes": {
+      "imports": 72,
+      "contains": 154,
+      "exports": 154,
+      "calls": 194,
+      "depends_on": 53,
+      "inherits": 1,
+      "related": 6,
+      "configures": 46,
+      "documents": 10
+    }
+  }
+}

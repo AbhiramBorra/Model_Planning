@@ -1,0 +1,1083 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 14,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 14,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 14
+    }
+  },
+  "results": [
+    {
+      "path": "data/path_finding/PF_15XL_config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_mi.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_train.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_train_small.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_train_vocab.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_vqvae.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_mi.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_observe.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_train.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_train_small.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_val.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dataset_name",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "seed",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dataset_size",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "n_paths",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "n_decoy",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "min_path_len",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_path_len",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "branch_lambda",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_children",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "visualize",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    }
+  ]
+}

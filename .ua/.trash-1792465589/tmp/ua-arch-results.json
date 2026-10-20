@@ -1,0 +1,317 @@
+{
+  "scriptCompleted": true,
+  "commonPrefix": "",
+  "directoryGroups": {
+    "root": [
+      "file:NLP_mi_calc_v6 2.py",
+      "file:information_theory_utils.py",
+      "file:mi_calc_full_path.py",
+      "file:mi_calc_full_path_long2_61.py",
+      "file:mi_calc_minimal.py",
+      "file:path_finding_mi_calc.py",
+      "file:path_finding_mi_calc_61.py",
+      "file:minimal_VQVAEs.py",
+      "file:modules.py",
+      "file:NLP_llm_train.py",
+      "file:NLP_vqvae_layer_and_block_train.py",
+      "file:llm_train.py",
+      "file:llm_train_utils.py",
+      "file:model.py",
+      "file:path_finding_llm_train.py",
+      "file:NLP_vqvae_last_train.py",
+      "file:path_finding_vqvae61_train.py",
+      "file:train_minimal_vqvae1.py",
+      "file:vqvae_utils.py",
+      "file:train_minimal_vqvae2.py",
+      "file:train_minimal_vqvae_single.py",
+      "file:path_finding_llm_utilities.py",
+      "file:path_finding_vqvae1_train.py",
+      "file:path_finding_vqvae2_train.py",
+      "file:path_finding_vqvae_single_train.py",
+      "file:path_vqvae_train.py",
+      "document:README.txt"
+    ],
+    "data": [
+      "file:data/context_free_grammar/CFG_data_generation.py",
+      "file:data/context_free_grammar/CFG_full_sequence_data_generation.py",
+      "file:data/context_free_grammar/CFG_prefix_data_generation.py",
+      "file:data/context_free_grammar/check_CGF_implementation.py",
+      "config:data/path_finding/PF_15XL_config.json",
+      "config:data/path_finding/PF_15XL_config_mi.json",
+      "config:data/path_finding/PF_15XL_config_train.json",
+      "config:data/path_finding/PF_15XL_config_train_small.json",
+      "config:data/path_finding/PF_15XL_config_train_vocab.json",
+      "config:data/path_finding/PF_15XL_config_vqvae.json",
+      "config:data/path_finding/PF_long1decoy_easier_config.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_mi.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_observe.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train_small.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_val.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+      "file:data/context_free_grammar/peeking_dataset.py",
+      "file:data/openwentext/prepare.py",
+      "document:data/openwentext/readme.md",
+      "file:data/path_finding/path_finding_generate.py",
+      "file:data/path_finding/path_finding_generate_multi_cpu.py",
+      "file:data/path_finding/visualize_saved_graphs.py"
+    ],
+    "NLP_openwebtext": [
+      "config:NLP_openwebtext/VQVAE_last_train_config07s.json",
+      "config:NLP_openwebtext/layer_and_block_config_256.json",
+      "config:NLP_openwebtext/mi_calc_v6_config 2.json",
+      "file:NLP_openwebtext/configGPT3Xsmall.py"
+    ],
+    "PF_15XL": [
+      "config:PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "config:PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "config:PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+      "file:PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+      "file:PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py"
+    ],
+    "PF_long1decoy_easier": [
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json",
+      "file:PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "file:PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py"
+    ],
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11": [
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+      "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py"
+    ],
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11": [
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json",
+      "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py"
+    ]
+  },
+  "nodeTypeGroups": {
+    "file": [
+      "file:NLP_mi_calc_v6 2.py",
+      "file:information_theory_utils.py",
+      "file:mi_calc_full_path.py",
+      "file:mi_calc_full_path_long2_61.py",
+      "file:mi_calc_minimal.py",
+      "file:path_finding_mi_calc.py",
+      "file:path_finding_mi_calc_61.py",
+      "file:minimal_VQVAEs.py",
+      "file:modules.py",
+      "file:NLP_llm_train.py",
+      "file:NLP_vqvae_layer_and_block_train.py",
+      "file:llm_train.py",
+      "file:llm_train_utils.py",
+      "file:model.py",
+      "file:path_finding_llm_train.py",
+      "file:NLP_vqvae_last_train.py",
+      "file:path_finding_vqvae61_train.py",
+      "file:train_minimal_vqvae1.py",
+      "file:vqvae_utils.py",
+      "file:train_minimal_vqvae2.py",
+      "file:train_minimal_vqvae_single.py",
+      "file:path_finding_llm_utilities.py",
+      "file:path_finding_vqvae1_train.py",
+      "file:path_finding_vqvae2_train.py",
+      "file:path_finding_vqvae_single_train.py",
+      "file:path_vqvae_train.py",
+      "file:data/context_free_grammar/CFG_data_generation.py",
+      "file:data/context_free_grammar/CFG_full_sequence_data_generation.py",
+      "file:data/context_free_grammar/CFG_prefix_data_generation.py",
+      "file:data/context_free_grammar/check_CGF_implementation.py",
+      "file:NLP_openwebtext/configGPT3Xsmall.py",
+      "file:PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+      "file:PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+      "file:PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "file:PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "file:data/context_free_grammar/peeking_dataset.py",
+      "file:data/openwentext/prepare.py",
+      "file:data/path_finding/path_finding_generate.py",
+      "file:data/path_finding/path_finding_generate_multi_cpu.py",
+      "file:data/path_finding/visualize_saved_graphs.py",
+      "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+      "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py"
+    ],
+    "config": [
+      "config:NLP_openwebtext/VQVAE_last_train_config07s.json",
+      "config:NLP_openwebtext/layer_and_block_config_256.json",
+      "config:NLP_openwebtext/mi_calc_v6_config 2.json",
+      "config:PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "config:PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "config:PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json",
+      "config:data/path_finding/PF_15XL_config.json",
+      "config:data/path_finding/PF_15XL_config_mi.json",
+      "config:data/path_finding/PF_15XL_config_train.json",
+      "config:data/path_finding/PF_15XL_config_train_small.json",
+      "config:data/path_finding/PF_15XL_config_train_vocab.json",
+      "config:data/path_finding/PF_15XL_config_vqvae.json",
+      "config:data/path_finding/PF_long1decoy_easier_config.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_mi.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_observe.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train_small.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_val.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json"
+    ],
+    "document": [
+      "document:README.txt",
+      "document:data/openwentext/readme.md"
+    ]
+  },
+  "crossCategoryEdges": [
+    {
+      "fromType": "config",
+      "toType": "file",
+      "edgeType": "configures",
+      "count": 39
+    },
+    {
+      "fromType": "document",
+      "toType": "file",
+      "edgeType": "documents",
+      "count": 10
+    }
+  ],
+  "interGroupImports": [
+    {
+      "from": "root",
+      "to": "data",
+      "count": 1
+    }
+  ],
+  "intraGroupDensity": {
+    "root": {
+      "internalEdges": 67,
+      "totalEdges": 68,
+      "density": 0.985
+    },
+    "data": {
+      "internalEdges": 4,
+      "totalEdges": 5,
+      "density": 0.8
+    }
+  },
+  "patternMatches": {
+    "data": "data"
+  },
+  "deploymentTopology": {
+    "hasDockerfile": false,
+    "hasCompose": false,
+    "hasK8s": false,
+    "hasTerraform": false,
+    "hasCI": false,
+    "infraFiles": []
+  },
+  "dataPipeline": {
+    "schemaFiles": [],
+    "migrationFiles": [],
+    "dataModelFiles": [],
+    "apiHandlerFiles": []
+  },
+  "docCoverage": {
+    "groupsWithDocs": 2,
+    "totalGroups": 7,
+    "coverageRatio": 0.29,
+    "undocumentedGroups": [
+      "NLP_openwebtext",
+      "PF_15XL",
+      "PF_long1decoy_easier",
+      "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11",
+      "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11"
+    ]
+  },
+  "dependencyDirection": [
+    {
+      "dependent": "root",
+      "dependsOn": "data"
+    }
+  ],
+  "fileStats": {
+    "totalFileNodes": 83,
+    "filesPerGroup": {
+      "root": 27,
+      "data": 24,
+      "NLP_openwebtext": 4,
+      "PF_15XL": 9,
+      "PF_long1decoy_easier": 11,
+      "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11": 4,
+      "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11": 4
+    },
+    "nodeTypeCounts": {
+      "file": 42,
+      "config": 39,
+      "document": 2
+    }
+  },
+  "fileFanIn": {
+    "file:information_theory_utils.py": 6,
+    "file:minimal_VQVAEs.py": 16,
+    "file:model.py": 16,
+    "file:path_finding_llm_utilities.py": 10,
+    "file:vqvae_utils.py": 15,
+    "file:modules.py": 1,
+    "file:llm_train_utils.py": 3,
+    "file:data/context_free_grammar/CFG_data_generation.py": 4,
+    "file:data/path_finding/path_finding_generate.py": 1
+  },
+  "fileFanOut": {
+    "file:NLP_mi_calc_v6 2.py": 3,
+    "file:mi_calc_full_path.py": 5,
+    "file:mi_calc_full_path_long2_61.py": 5,
+    "file:mi_calc_minimal.py": 3,
+    "file:path_finding_mi_calc.py": 5,
+    "file:path_finding_mi_calc_61.py": 5,
+    "file:minimal_VQVAEs.py": 1,
+    "file:NLP_llm_train.py": 2,
+    "file:NLP_vqvae_layer_and_block_train.py": 3,
+    "file:llm_train.py": 3,
+    "file:path_finding_llm_train.py": 3,
+    "file:NLP_vqvae_last_train.py": 3,
+    "file:path_finding_vqvae61_train.py": 4,
+    "file:train_minimal_vqvae1.py": 2,
+    "file:train_minimal_vqvae2.py": 2,
+    "file:train_minimal_vqvae_single.py": 2,
+    "file:vqvae_utils.py": 1,
+    "file:path_finding_vqvae1_train.py": 4,
+    "file:path_finding_vqvae2_train.py": 4,
+    "file:path_finding_vqvae_single_train.py": 4,
+    "file:path_vqvae_train.py": 4,
+    "file:data/context_free_grammar/CFG_full_sequence_data_generation.py": 1,
+    "file:data/context_free_grammar/CFG_prefix_data_generation.py": 1,
+    "file:data/context_free_grammar/check_CGF_implementation.py": 1,
+    "file:data/path_finding/visualize_saved_graphs.py": 1
+  }
+}

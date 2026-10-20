@@ -1,0 +1,3379 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 13,
+  "filesSkipped": [
+    "README.txt"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 13,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 12,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "NLP_openwebtext/configGPT3Xsmall.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 42,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 39,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 43,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 41,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 45,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "data/context_free_grammar/peeking_dataset.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 105,
+      "nonEmptyLines": 82,
+      "callGraph": [
+        {
+          "caller": "analyze_chunk",
+          "callee": "chunk_lengths.append",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "data/openwentext/prepare.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 69,
+      "callGraph": [
+        {
+          "caller": "process",
+          "callee": "enc.encode_ordinary",
+          "lineNumber": 45
+        },
+        {
+          "caller": "process",
+          "callee": "ids.append",
+          "lineNumber": 46
+        },
+        {
+          "caller": "process",
+          "callee": "len",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "data/openwentext/readme.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 15,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "openwebtext dataset",
+          "level": 2,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "data/path_finding/path_finding_generate.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 481,
+      "nonEmptyLines": 404,
+      "functions": [
+        {
+          "name": "import_visualization_functions",
+          "startLine": 68,
+          "endLine": 75,
+          "params": []
+        },
+        {
+          "name": "run_block_size_analysis",
+          "startLine": 81,
+          "endLine": 149,
+          "params": [
+            "out_dir",
+            "dataset_name"
+          ]
+        },
+        {
+          "name": "sample_path",
+          "startLine": 206,
+          "endLine": 211,
+          "params": [
+            "pool",
+            "length",
+            "rng"
+          ]
+        },
+        {
+          "name": "build_graph",
+          "startLine": 213,
+          "endLine": 339,
+          "params": [
+            "cfg",
+            "graph_idx"
+          ]
+        },
+        {
+          "name": "load_cfg",
+          "startLine": 345,
+          "endLine": 349,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "write_dataset",
+          "startLine": 355,
+          "endLine": 361,
+          "params": [
+            "records",
+            "out_dir",
+            "dataset_name"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 367,
+          "endLine": 478,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Graph",
+          "startLine": 155,
+          "endLine": 200,
+          "methods": [
+            "__init__",
+            "new_node",
+            "add_edge",
+            "edges",
+            "to_networkx"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "import_visualization_functions",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "run_block_size_analysis",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "Graph",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "sample_path",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "build_graph",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "load_cfg",
+          "line": 345,
+          "isDefault": false
+        },
+        {
+          "name": "write_dataset",
+          "line": 355,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 367,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "import_visualization_functions",
+          "callee": "print",
+          "lineNumber": 74
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 89
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "pathlib.Path",
+          "lineNumber": 98
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "analysis_script.exists",
+          "lineNumber": 100
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 101
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "str",
+          "lineNumber": 107
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "str",
+          "lineNumber": 108
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 114
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "' '.join",
+          "lineNumber": 114
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "subprocess.run",
+          "lineNumber": 115
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "str",
+          "lineNumber": 115
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 118
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 119
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "result.stdout.strip().split",
+          "lineNumber": 123
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "result.stdout.strip",
+          "lineNumber": 123
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "enumerate",
+          "lineNumber": 126
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 132
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 133
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "line.strip",
+          "lineNumber": 135
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "line.startswith",
+          "lineNumber": 135
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 136
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 140
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 142
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 144
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 147
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "traceback.print_exc",
+          "lineNumber": 149
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 166
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 166
+        },
+        {
+          "caller": "new_node",
+          "callee": "set",
+          "lineNumber": 174
+        },
+        {
+          "caller": "add_edge",
+          "callee": "self.adj[u].add",
+          "lineNumber": 181
+        },
+        {
+          "caller": "add_edge",
+          "callee": "self.adj[v].add",
+          "lineNumber": 182
+        },
+        {
+          "caller": "edges",
+          "callee": "set",
+          "lineNumber": 185
+        },
+        {
+          "caller": "edges",
+          "callee": "self.adj.items",
+          "lineNumber": 186
+        },
+        {
+          "caller": "edges",
+          "callee": "seen.add",
+          "lineNumber": 189
+        },
+        {
+          "caller": "edges",
+          "callee": "list",
+          "lineNumber": 190
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "RuntimeError",
+          "lineNumber": 196
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "nx.Graph",
+          "lineNumber": 197
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "g.add_nodes_from",
+          "lineNumber": 198
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "self.adj.keys",
+          "lineNumber": 198
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "g.add_edges_from",
+          "lineNumber": 199
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "self.edges",
+          "lineNumber": 199
+        },
+        {
+          "caller": "sample_path",
+          "callee": "rng.sample",
+          "lineNumber": 208
+        },
+        {
+          "caller": "sample_path",
+          "callee": "pool.remove",
+          "lineNumber": 210
+        },
+        {
+          "caller": "build_graph",
+          "callee": "random.Random",
+          "lineNumber": 220
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 220
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 221
+        },
+        {
+          "caller": "build_graph",
+          "callee": "rng.seed",
+          "lineNumber": 222
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 225
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 226
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 227
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 227
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 228
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 232
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 233
+        },
+        {
+          "caller": "build_graph",
+          "callee": "len",
+          "lineNumber": 234
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 236
+        },
+        {
+          "caller": "build_graph",
+          "callee": "Graph",
+          "lineNumber": 248
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 251
+        },
+        {
+          "caller": "build_graph",
+          "callee": "rng.randint",
+          "lineNumber": 252
+        },
+        {
+          "caller": "build_graph",
+          "callee": "correct_lengths.append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.new_node",
+          "lineNumber": 254
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 254
+        },
+        {
+          "caller": "build_graph",
+          "callee": "trunks.append",
+          "lineNumber": 256
+        },
+        {
+          "caller": "build_graph",
+          "callee": "correct_paths.append",
+          "lineNumber": 257
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 259
+        },
+        {
+          "caller": "build_graph",
+          "callee": "len",
+          "lineNumber": 261
+        },
+        {
+          "caller": "build_graph",
+          "callee": "rng.choice",
+          "lineNumber": 264
+        },
+        {
+          "caller": "build_graph",
+          "callee": "rng.randint",
+          "lineNumber": 266
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.new_node",
+          "lineNumber": 267
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 267
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.new_node",
+          "lineNumber": 268
+        },
+        {
+          "caller": "build_graph",
+          "callee": "decoy_end_nodes.append",
+          "lineNumber": 269
+        },
+        {
+          "caller": "build_graph",
+          "callee": "trunks.append",
+          "lineNumber": 272
+        },
+        {
+          "caller": "build_graph",
+          "callee": "decoy_paths.append",
+          "lineNumber": 273
+        },
+        {
+          "caller": "build_graph",
+          "callee": "zip",
+          "lineNumber": 276
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.add_edge",
+          "lineNumber": 277
+        },
+        {
+          "caller": "build_graph",
+          "callee": "set",
+          "lineNumber": 282
+        },
+        {
+          "caller": "build_graph",
+          "callee": "set",
+          "lineNumber": 285
+        },
+        {
+          "caller": "build_graph",
+          "callee": "unique_trunk_nodes.add",
+          "lineNumber": 286
+        },
+        {
+          "caller": "poisson_int",
+          "callee": "int",
+          "lineNumber": 295
+        },
+        {
+          "caller": "poisson_int",
+          "callee": "np.random.poisson",
+          "lineNumber": 295
+        },
+        {
+          "caller": "poisson_int",
+          "callee": "math.exp",
+          "lineNumber": 297
+        },
+        {
+          "caller": "poisson_int",
+          "callee": "rng.random",
+          "lineNumber": 301
+        },
+        {
+          "caller": "build_graph",
+          "callee": "queue.pop",
+          "lineNumber": 305
+        },
+        {
+          "caller": "build_graph",
+          "callee": "max",
+          "lineNumber": 312
+        },
+        {
+          "caller": "build_graph",
+          "callee": "branching_children_count.get",
+          "lineNumber": 313
+        },
+        {
+          "caller": "build_graph",
+          "callee": "branching_children_count.get",
+          "lineNumber": 319
+        },
+        {
+          "caller": "build_graph",
+          "callee": "min",
+          "lineNumber": 325
+        },
+        {
+          "caller": "build_graph",
+          "callee": "poisson_int",
+          "lineNumber": 325
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 327
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.new_node",
+          "lineNumber": 328
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.add_edge",
+          "lineNumber": 329
+        },
+        {
+          "caller": "build_graph",
+          "callee": "queue.append",
+          "lineNumber": 330
+        },
+        {
+          "caller": "build_graph",
+          "callee": "len",
+          "lineNumber": 336
+        },
+        {
+          "caller": "load_cfg",
+          "callee": "open",
+          "lineNumber": 346
+        },
+        {
+          "caller": "load_cfg",
+          "callee": "path.suffix.lower",
+          "lineNumber": 347
+        },
+        {
+          "caller": "load_cfg",
+          "callee": "yaml.safe_load",
+          "lineNumber": 348
+        },
+        {
+          "caller": "load_cfg",
+          "callee": "json.load",
+          "lineNumber": 349
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "out_path.open",
+          "lineNumber": 357
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "json.dump",
+          "lineNumber": 359
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "f.write",
+          "lineNumber": 360
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "print",
+          "lineNumber": 361
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "len",
+          "lineNumber": 361
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 368
+        },
+        {
+          "caller": "main",
+          "callee": "textwrap.dedent",
+          "lineNumber": 370
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 377
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 378
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 379
+        },
+        {
+          "caller": "main",
+          "callee": "ap.parse_args",
+          "lineNumber": 380
+        },
+        {
+          "caller": "main",
+          "callee": "load_cfg",
+          "lineNumber": 382
+        },
+        {
+          "caller": "main",
+          "callee": "pathlib.Path",
+          "lineNumber": 382
+        },
+        {
+          "caller": "main",
+          "callee": "pathlib.Path",
+          "lineNumber": 384
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 384
+        },
+        {
+          "caller": "main",
+          "callee": "out_dir.mkdir",
+          "lineNumber": 385
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 386
+        },
+        {
+          "caller": "main",
+          "callee": "config_path.open",
+          "lineNumber": 390
+        },
+        {
+          "caller": "main",
+          "callee": "json.dump",
+          "lineNumber": 391
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 392
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 394
+        },
+        {
+          "caller": "main",
+          "callee": "bool",
+          "lineNumber": 395
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 395
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 396
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 399
+        },
+        {
+          "caller": "main",
+          "callee": "random.Random",
+          "lineNumber": 401
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 404
+        },
+        {
+          "caller": "main",
+          "callee": "build_graph",
+          "lineNumber": 406
+        },
+        {
+          "caller": "main",
+          "callee": "bundle[\"graph\"].adj.keys",
+          "lineNumber": 410
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 411
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 412
+        },
+        {
+          "caller": "main",
+          "callee": "ValueError",
+          "lineNumber": 413
+        },
+        {
+          "caller": "main",
+          "callee": "rng.sample",
+          "lineNumber": 414
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 414
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 414
+        },
+        {
+          "caller": "main",
+          "callee": "zip",
+          "lineNumber": 415
+        },
+        {
+          "caller": "main",
+          "callee": "bundle[\"graph\"].edges",
+          "lineNumber": 418
+        },
+        {
+          "caller": "main",
+          "callee": "random.shuffle",
+          "lineNumber": 419
+        },
+        {
+          "caller": "remap_path",
+          "callee": "str",
+          "lineNumber": 423
+        },
+        {
+          "caller": "main",
+          "callee": "remap_path",
+          "lineNumber": 425
+        },
+        {
+          "caller": "main",
+          "callee": "remap_path",
+          "lineNumber": 426
+        },
+        {
+          "caller": "main",
+          "callee": "records.append",
+          "lineNumber": 436
+        },
+        {
+          "caller": "main",
+          "callee": "write_dataset",
+          "lineNumber": 438
+        },
+        {
+          "caller": "main",
+          "callee": "dataset_name.lower",
+          "lineNumber": 441
+        },
+        {
+          "caller": "main",
+          "callee": "run_block_size_analysis",
+          "lineNumber": 442
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 446
+        },
+        {
+          "caller": "main",
+          "callee": "import_visualization_functions",
+          "lineNumber": 447
+        },
+        {
+          "caller": "main",
+          "callee": "all",
+          "lineNumber": 449
+        },
+        {
+          "caller": "main",
+          "callee": "viz_dir.mkdir",
+          "lineNumber": 453
+        },
+        {
+          "caller": "main",
+          "callee": "load_dataset",
+          "lineNumber": 457
+        },
+        {
+          "caller": "main",
+          "callee": "min",
+          "lineNumber": 458
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 458
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 460
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 462
+        },
+        {
+          "caller": "main",
+          "callee": "reconstruct_graph_from_record",
+          "lineNumber": 464
+        },
+        {
+          "caller": "main",
+          "callee": "dataset_name.lower",
+          "lineNumber": 467
+        },
+        {
+          "caller": "main",
+          "callee": "enhanced_visualise_graph",
+          "lineNumber": 468
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 470
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 471
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 474
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 476
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 478
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "data/path_finding/path_finding_generate_multi_cpu.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 703,
+      "nonEmptyLines": 585,
+      "functions": [
+        {
+          "name": "import_visualization_functions",
+          "startLine": 72,
+          "endLine": 79,
+          "params": []
+        },
+        {
+          "name": "run_block_size_analysis",
+          "startLine": 85,
+          "endLine": 153,
+          "params": [
+            "out_dir",
+            "dataset_name"
+          ]
+        },
+        {
+          "name": "sample_path",
+          "startLine": 210,
+          "endLine": 215,
+          "params": [
+            "pool",
+            "length",
+            "rng"
+          ]
+        },
+        {
+          "name": "generate_single_graph_record",
+          "startLine": 217,
+          "endLine": 257,
+          "params": [
+            "cfg",
+            "graph_idx"
+          ]
+        },
+        {
+          "name": "build_graph",
+          "startLine": 260,
+          "endLine": 386,
+          "params": [
+            "cfg",
+            "graph_idx"
+          ]
+        },
+        {
+          "name": "load_cfg",
+          "startLine": 392,
+          "endLine": 396,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "write_dataset",
+          "startLine": 402,
+          "endLine": 409,
+          "params": [
+            "records",
+            "out_dir",
+            "dataset_name"
+          ]
+        },
+        {
+          "name": "append_records_to_dataset",
+          "startLine": 412,
+          "endLine": 418,
+          "params": [
+            "records",
+            "out_dir",
+            "dataset_name"
+          ]
+        },
+        {
+          "name": "init_dataset_file",
+          "startLine": 421,
+          "endLine": 426,
+          "params": [
+            "out_dir",
+            "dataset_name"
+          ]
+        },
+        {
+          "name": "worker_process",
+          "startLine": 432,
+          "endLine": 452,
+          "params": [
+            "cfg",
+            "start_idx",
+            "end_idx",
+            "worker_id",
+            "temp_dir"
+          ]
+        },
+        {
+          "name": "merge_worker_files",
+          "startLine": 455,
+          "endLine": 498,
+          "params": [
+            "temp_files",
+            "out_dir",
+            "dataset_name",
+            "total_samples"
+          ]
+        },
+        {
+          "name": "get_optimal_worker_count",
+          "startLine": 501,
+          "endLine": 507,
+          "params": []
+        },
+        {
+          "name": "main",
+          "startLine": 513,
+          "endLine": 700,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Graph",
+          "startLine": 159,
+          "endLine": 204,
+          "methods": [
+            "__init__",
+            "new_node",
+            "add_edge",
+            "edges",
+            "to_networkx"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "import_visualization_functions",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "run_block_size_analysis",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "Graph",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "sample_path",
+          "line": 210,
+          "isDefault": false
+        },
+        {
+          "name": "generate_single_graph_record",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "build_graph",
+          "line": 260,
+          "isDefault": false
+        },
+        {
+          "name": "load_cfg",
+          "line": 392,
+          "isDefault": false
+        },
+        {
+          "name": "write_dataset",
+          "line": 402,
+          "isDefault": false
+        },
+        {
+          "name": "append_records_to_dataset",
+          "line": 412,
+          "isDefault": false
+        },
+        {
+          "name": "init_dataset_file",
+          "line": 421,
+          "isDefault": false
+        },
+        {
+          "name": "worker_process",
+          "line": 432,
+          "isDefault": false
+        },
+        {
+          "name": "merge_worker_files",
+          "line": 455,
+          "isDefault": false
+        },
+        {
+          "name": "get_optimal_worker_count",
+          "line": 501,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 513,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "import_visualization_functions",
+          "callee": "print",
+          "lineNumber": 78
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 93
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "pathlib.Path",
+          "lineNumber": 102
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "analysis_script.exists",
+          "lineNumber": 104
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 105
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "str",
+          "lineNumber": 111
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "str",
+          "lineNumber": 112
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 118
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "' '.join",
+          "lineNumber": 118
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "subprocess.run",
+          "lineNumber": 119
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "str",
+          "lineNumber": 119
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 122
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 123
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "result.stdout.strip().split",
+          "lineNumber": 127
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "result.stdout.strip",
+          "lineNumber": 127
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "enumerate",
+          "lineNumber": 130
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 136
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 137
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "line.strip",
+          "lineNumber": 139
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "line.startswith",
+          "lineNumber": 139
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 140
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 144
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 146
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 148
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "print",
+          "lineNumber": 151
+        },
+        {
+          "caller": "run_block_size_analysis",
+          "callee": "traceback.print_exc",
+          "lineNumber": 153
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 170
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 170
+        },
+        {
+          "caller": "new_node",
+          "callee": "set",
+          "lineNumber": 178
+        },
+        {
+          "caller": "add_edge",
+          "callee": "self.adj[u].add",
+          "lineNumber": 185
+        },
+        {
+          "caller": "add_edge",
+          "callee": "self.adj[v].add",
+          "lineNumber": 186
+        },
+        {
+          "caller": "edges",
+          "callee": "set",
+          "lineNumber": 189
+        },
+        {
+          "caller": "edges",
+          "callee": "self.adj.items",
+          "lineNumber": 190
+        },
+        {
+          "caller": "edges",
+          "callee": "seen.add",
+          "lineNumber": 193
+        },
+        {
+          "caller": "edges",
+          "callee": "list",
+          "lineNumber": 194
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "RuntimeError",
+          "lineNumber": 200
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "nx.Graph",
+          "lineNumber": 201
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "g.add_nodes_from",
+          "lineNumber": 202
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "self.adj.keys",
+          "lineNumber": 202
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "g.add_edges_from",
+          "lineNumber": 203
+        },
+        {
+          "caller": "to_networkx",
+          "callee": "self.edges",
+          "lineNumber": 203
+        },
+        {
+          "caller": "sample_path",
+          "callee": "rng.sample",
+          "lineNumber": 212
+        },
+        {
+          "caller": "sample_path",
+          "callee": "pool.remove",
+          "lineNumber": 214
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "build_graph",
+          "lineNumber": 220
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "random.Random",
+          "lineNumber": 225
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "cfg.get",
+          "lineNumber": 225
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "cfg.get",
+          "lineNumber": 226
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "rng.seed",
+          "lineNumber": 228
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "bundle[\"graph\"].adj.keys",
+          "lineNumber": 231
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "cfg.get",
+          "lineNumber": 232
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "len",
+          "lineNumber": 233
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "ValueError",
+          "lineNumber": 234
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "rng.sample",
+          "lineNumber": 235
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "range",
+          "lineNumber": 235
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "len",
+          "lineNumber": 235
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "zip",
+          "lineNumber": 236
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "bundle[\"graph\"].edges",
+          "lineNumber": 239
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "rng.shuffle",
+          "lineNumber": 240
+        },
+        {
+          "caller": "remap_path",
+          "callee": "str",
+          "lineNumber": 244
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "remap_path",
+          "lineNumber": 246
+        },
+        {
+          "caller": "generate_single_graph_record",
+          "callee": "remap_path",
+          "lineNumber": 247
+        },
+        {
+          "caller": "build_graph",
+          "callee": "random.Random",
+          "lineNumber": 267
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 267
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 268
+        },
+        {
+          "caller": "build_graph",
+          "callee": "rng.seed",
+          "lineNumber": 269
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 272
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 273
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 274
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 274
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 275
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 279
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 280
+        },
+        {
+          "caller": "build_graph",
+          "callee": "len",
+          "lineNumber": 281
+        },
+        {
+          "caller": "build_graph",
+          "callee": "cfg.get",
+          "lineNumber": 283
+        },
+        {
+          "caller": "build_graph",
+          "callee": "Graph",
+          "lineNumber": 295
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 298
+        },
+        {
+          "caller": "build_graph",
+          "callee": "rng.randint",
+          "lineNumber": 299
+        },
+        {
+          "caller": "build_graph",
+          "callee": "correct_lengths.append",
+          "lineNumber": 300
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.new_node",
+          "lineNumber": 301
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 301
+        },
+        {
+          "caller": "build_graph",
+          "callee": "trunks.append",
+          "lineNumber": 303
+        },
+        {
+          "caller": "build_graph",
+          "callee": "correct_paths.append",
+          "lineNumber": 304
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 306
+        },
+        {
+          "caller": "build_graph",
+          "callee": "len",
+          "lineNumber": 308
+        },
+        {
+          "caller": "build_graph",
+          "callee": "rng.choice",
+          "lineNumber": 311
+        },
+        {
+          "caller": "build_graph",
+          "callee": "rng.randint",
+          "lineNumber": 313
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.new_node",
+          "lineNumber": 314
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 314
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.new_node",
+          "lineNumber": 315
+        },
+        {
+          "caller": "build_graph",
+          "callee": "decoy_end_nodes.append",
+          "lineNumber": 316
+        },
+        {
+          "caller": "build_graph",
+          "callee": "trunks.append",
+          "lineNumber": 319
+        },
+        {
+          "caller": "build_graph",
+          "callee": "decoy_paths.append",
+          "lineNumber": 320
+        },
+        {
+          "caller": "build_graph",
+          "callee": "zip",
+          "lineNumber": 323
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.add_edge",
+          "lineNumber": 324
+        },
+        {
+          "caller": "build_graph",
+          "callee": "set",
+          "lineNumber": 329
+        },
+        {
+          "caller": "build_graph",
+          "callee": "set",
+          "lineNumber": 332
+        },
+        {
+          "caller": "build_graph",
+          "callee": "unique_trunk_nodes.add",
+          "lineNumber": 333
+        },
+        {
+          "caller": "poisson_int",
+          "callee": "int",
+          "lineNumber": 342
+        },
+        {
+          "caller": "poisson_int",
+          "callee": "np.random.poisson",
+          "lineNumber": 342
+        },
+        {
+          "caller": "poisson_int",
+          "callee": "math.exp",
+          "lineNumber": 344
+        },
+        {
+          "caller": "poisson_int",
+          "callee": "rng.random",
+          "lineNumber": 348
+        },
+        {
+          "caller": "build_graph",
+          "callee": "queue.pop",
+          "lineNumber": 352
+        },
+        {
+          "caller": "build_graph",
+          "callee": "max",
+          "lineNumber": 359
+        },
+        {
+          "caller": "build_graph",
+          "callee": "branching_children_count.get",
+          "lineNumber": 360
+        },
+        {
+          "caller": "build_graph",
+          "callee": "branching_children_count.get",
+          "lineNumber": 366
+        },
+        {
+          "caller": "build_graph",
+          "callee": "min",
+          "lineNumber": 372
+        },
+        {
+          "caller": "build_graph",
+          "callee": "poisson_int",
+          "lineNumber": 372
+        },
+        {
+          "caller": "build_graph",
+          "callee": "range",
+          "lineNumber": 374
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.new_node",
+          "lineNumber": 375
+        },
+        {
+          "caller": "build_graph",
+          "callee": "g_obj.add_edge",
+          "lineNumber": 376
+        },
+        {
+          "caller": "build_graph",
+          "callee": "queue.append",
+          "lineNumber": 377
+        },
+        {
+          "caller": "build_graph",
+          "callee": "len",
+          "lineNumber": 383
+        },
+        {
+          "caller": "load_cfg",
+          "callee": "open",
+          "lineNumber": 393
+        },
+        {
+          "caller": "load_cfg",
+          "callee": "path.suffix.lower",
+          "lineNumber": 394
+        },
+        {
+          "caller": "load_cfg",
+          "callee": "yaml.safe_load",
+          "lineNumber": 395
+        },
+        {
+          "caller": "load_cfg",
+          "callee": "json.load",
+          "lineNumber": 396
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "out_path.open",
+          "lineNumber": 405
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "json.dump",
+          "lineNumber": 407
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "f.write",
+          "lineNumber": 408
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "print",
+          "lineNumber": 409
+        },
+        {
+          "caller": "write_dataset",
+          "callee": "len",
+          "lineNumber": 409
+        },
+        {
+          "caller": "append_records_to_dataset",
+          "callee": "out_path.open",
+          "lineNumber": 415
+        },
+        {
+          "caller": "append_records_to_dataset",
+          "callee": "json.dump",
+          "lineNumber": 417
+        },
+        {
+          "caller": "append_records_to_dataset",
+          "callee": "f.write",
+          "lineNumber": 418
+        },
+        {
+          "caller": "init_dataset_file",
+          "callee": "out_path.open",
+          "lineNumber": 425
+        },
+        {
+          "caller": "worker_process",
+          "callee": "temp_file.open",
+          "lineNumber": 436
+        },
+        {
+          "caller": "worker_process",
+          "callee": "range",
+          "lineNumber": 437
+        },
+        {
+          "caller": "worker_process",
+          "callee": "generate_single_graph_record",
+          "lineNumber": 439
+        },
+        {
+          "caller": "worker_process",
+          "callee": "json.dump",
+          "lineNumber": 440
+        },
+        {
+          "caller": "worker_process",
+          "callee": "f.write",
+          "lineNumber": 441
+        },
+        {
+          "caller": "worker_process",
+          "callee": "print",
+          "lineNumber": 445
+        },
+        {
+          "caller": "worker_process",
+          "callee": "print",
+          "lineNumber": 448
+        },
+        {
+          "caller": "worker_process",
+          "callee": "print",
+          "lineNumber": 451
+        },
+        {
+          "caller": "worker_process",
+          "callee": "str",
+          "lineNumber": 452
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 459
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "len",
+          "lineNumber": 459
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "out_path.open",
+          "lineNumber": 462
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "enumerate",
+          "lineNumber": 464
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "pathlib.Path",
+          "lineNumber": 465
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 466
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "len",
+          "lineNumber": 466
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "temp_path.exists",
+          "lineNumber": 468
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "temp_path.open",
+          "lineNumber": 470
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "line.strip",
+          "lineNumber": 473
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "out_f.write",
+          "lineNumber": 474
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 477
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "temp_path.unlink",
+          "lineNumber": 480
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 481
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 484
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 487
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 489
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 492
+        },
+        {
+          "caller": "merge_worker_files",
+          "callee": "print",
+          "lineNumber": 497
+        },
+        {
+          "caller": "get_optimal_worker_count",
+          "callee": "mp.cpu_count",
+          "lineNumber": 503
+        },
+        {
+          "caller": "get_optimal_worker_count",
+          "callee": "max",
+          "lineNumber": 505
+        },
+        {
+          "caller": "get_optimal_worker_count",
+          "callee": "print",
+          "lineNumber": 506
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 514
+        },
+        {
+          "caller": "main",
+          "callee": "textwrap.dedent",
+          "lineNumber": 516
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 523
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 524
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 525
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 526
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 527
+        },
+        {
+          "caller": "main",
+          "callee": "ap.add_argument",
+          "lineNumber": 528
+        },
+        {
+          "caller": "main",
+          "callee": "ap.parse_args",
+          "lineNumber": 529
+        },
+        {
+          "caller": "main",
+          "callee": "load_cfg",
+          "lineNumber": 531
+        },
+        {
+          "caller": "main",
+          "callee": "pathlib.Path",
+          "lineNumber": 531
+        },
+        {
+          "caller": "main",
+          "callee": "pathlib.Path",
+          "lineNumber": 533
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 533
+        },
+        {
+          "caller": "main",
+          "callee": "out_dir.mkdir",
+          "lineNumber": 534
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 535
+        },
+        {
+          "caller": "main",
+          "callee": "config_path.open",
+          "lineNumber": 539
+        },
+        {
+          "caller": "main",
+          "callee": "json.dump",
+          "lineNumber": 540
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 541
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 543
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 547
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 550
+        },
+        {
+          "caller": "main",
+          "callee": "bool",
+          "lineNumber": 552
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 552
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.get",
+          "lineNumber": 553
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 558
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 561
+        },
+        {
+          "caller": "main",
+          "callee": "get_optimal_worker_count",
+          "lineNumber": 563
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 566
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 567
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 571
+        },
+        {
+          "caller": "main",
+          "callee": "init_dataset_file",
+          "lineNumber": 572
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 577
+        },
+        {
+          "caller": "main",
+          "callee": "generate_single_graph_record",
+          "lineNumber": 578
+        },
+        {
+          "caller": "main",
+          "callee": "batch_records.append",
+          "lineNumber": 579
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 582
+        },
+        {
+          "caller": "main",
+          "callee": "append_records_to_dataset",
+          "lineNumber": 583
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 584
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 584
+        },
+        {
+          "caller": "main",
+          "callee": "batch_records.clear",
+          "lineNumber": 585
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 590
+        },
+        {
+          "caller": "main",
+          "callee": "temp_dir.mkdir",
+          "lineNumber": 594
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 603
+        },
+        {
+          "caller": "main",
+          "callee": "work_chunks.append",
+          "lineNumber": 607
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 610
+        },
+        {
+          "caller": "main",
+          "callee": "mp.Pool",
+          "lineNumber": 613
+        },
+        {
+          "caller": "main",
+          "callee": "pool.apply_async",
+          "lineNumber": 617
+        },
+        {
+          "caller": "main",
+          "callee": "worker_results.append",
+          "lineNumber": 621
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 625
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 625
+        },
+        {
+          "caller": "main",
+          "callee": "enumerate",
+          "lineNumber": 626
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 628
+        },
+        {
+          "caller": "main",
+          "callee": "result.get",
+          "lineNumber": 629
+        },
+        {
+          "caller": "main",
+          "callee": "temp_files.append",
+          "lineNumber": 630
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 631
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 633
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 636
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 639
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 639
+        },
+        {
+          "caller": "main",
+          "callee": "merge_worker_files",
+          "lineNumber": 642
+        },
+        {
+          "caller": "main",
+          "callee": "temp_dir.rmdir",
+          "lineNumber": 646
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 648
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 650
+        },
+        {
+          "caller": "main",
+          "callee": "dataset_name.lower",
+          "lineNumber": 653
+        },
+        {
+          "caller": "main",
+          "callee": "run_block_size_analysis",
+          "lineNumber": 654
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 658
+        },
+        {
+          "caller": "main",
+          "callee": "import_visualization_functions",
+          "lineNumber": 659
+        },
+        {
+          "caller": "main",
+          "callee": "all",
+          "lineNumber": 661
+        },
+        {
+          "caller": "main",
+          "callee": "viz_dir.mkdir",
+          "lineNumber": 665
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 671
+        },
+        {
+          "caller": "main",
+          "callee": "dataset_file.open",
+          "lineNumber": 672
+        },
+        {
+          "caller": "main",
+          "callee": "enumerate",
+          "lineNumber": 673
+        },
+        {
+          "caller": "main",
+          "callee": "line.strip",
+          "lineNumber": 676
+        },
+        {
+          "caller": "main",
+          "callee": "sample_records.append",
+          "lineNumber": 677
+        },
+        {
+          "caller": "main",
+          "callee": "json.loads",
+          "lineNumber": 677
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 679
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 680
+        },
+        {
+          "caller": "main",
+          "callee": "enumerate",
+          "lineNumber": 682
+        },
+        {
+          "caller": "main",
+          "callee": "reconstruct_graph_from_record",
+          "lineNumber": 683
+        },
+        {
+          "caller": "main",
+          "callee": "dataset_name.lower",
+          "lineNumber": 686
+        },
+        {
+          "caller": "main",
+          "callee": "enhanced_visualise_graph",
+          "lineNumber": 687
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 688
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 690
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 691
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 694
+        },
+        {
+          "caller": "main",
+          "callee": "traceback.print_exc",
+          "lineNumber": 696
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 698
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 700
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "data/path_finding/visualize_saved_graphs.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 402,
+      "nonEmptyLines": 326,
+      "functions": [
+        {
+          "name": "load_dataset",
+          "startLine": 50,
+          "endLine": 62,
+          "params": [
+            "data_dir",
+            "file_name"
+          ]
+        },
+        {
+          "name": "reconstruct_graph_from_record",
+          "startLine": 65,
+          "endLine": 113,
+          "params": [
+            "record"
+          ]
+        },
+        {
+          "name": "enhanced_visualise_graph",
+          "startLine": 116,
+          "endLine": 275,
+          "params": [
+            "bundle",
+            "out_dir",
+            "idx",
+            "dataset_name"
+          ]
+        },
+        {
+          "name": "visualize_graphs",
+          "startLine": 278,
+          "endLine": 336,
+          "params": [
+            "data_dir",
+            "file_name",
+            "start_idx",
+            "end_idx",
+            "indices"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 339,
+          "endLine": 398,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "load_dataset",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "reconstruct_graph_from_record",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "enhanced_visualise_graph",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "visualize_graphs",
+          "line": 278,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 339,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "load_dataset",
+          "callee": "dataset_path.exists",
+          "lineNumber": 53
+        },
+        {
+          "caller": "load_dataset",
+          "callee": "FileNotFoundError",
+          "lineNumber": 54
+        },
+        {
+          "caller": "load_dataset",
+          "callee": "open",
+          "lineNumber": 57
+        },
+        {
+          "caller": "load_dataset",
+          "callee": "line.strip",
+          "lineNumber": 59
+        },
+        {
+          "caller": "load_dataset",
+          "callee": "records.append",
+          "lineNumber": 60
+        },
+        {
+          "caller": "load_dataset",
+          "callee": "json.loads",
+          "lineNumber": 60
+        },
+        {
+          "caller": "load_dataset",
+          "callee": "line.strip",
+          "lineNumber": 60
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "map",
+          "lineNumber": 71
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "edge_str.split",
+          "lineNumber": 71
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "edges.append",
+          "lineNumber": 72
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "max",
+          "lineNumber": 73
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "Graph",
+          "lineNumber": 76
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "set",
+          "lineNumber": 83
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "set",
+          "lineNumber": 85
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "graph.add_edge",
+          "lineNumber": 89
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "correct_paths_int.append",
+          "lineNumber": 94
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "int",
+          "lineNumber": 94
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "decoy_paths_int.append",
+          "lineNumber": 99
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "int",
+          "lineNumber": 99
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "int",
+          "lineNumber": 104
+        },
+        {
+          "caller": "reconstruct_graph_from_record",
+          "callee": "int",
+          "lineNumber": 105
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "print",
+          "lineNumber": 119
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "bundle[\"graph\"].to_networkx",
+          "lineNumber": 122
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "bundle.get",
+          "lineNumber": 125
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "set",
+          "lineNumber": 128
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 131
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "decoy_endpoints.add",
+          "lineNumber": 132
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "g_nx.nodes",
+          "lineNumber": 135
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "node_colors.append",
+          "lineNumber": 137
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "node_colors.append",
+          "lineNumber": 139
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "node_colors.append",
+          "lineNumber": 141
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "node_colors.append",
+          "lineNumber": 143
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "enumerate",
+          "lineNumber": 154
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "set",
+          "lineNumber": 155
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "range",
+          "lineNumber": 156
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 156
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "path_edges.add",
+          "lineNumber": 159
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "min",
+          "lineNumber": 159
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "max",
+          "lineNumber": 159
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "path_edge_sets.append",
+          "lineNumber": 160
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "enumerate",
+          "lineNumber": 164
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "set",
+          "lineNumber": 165
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "range",
+          "lineNumber": 166
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 166
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "path_edges.add",
+          "lineNumber": 169
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "min",
+          "lineNumber": 169
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "max",
+          "lineNumber": 169
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "decoy_edge_sets.append",
+          "lineNumber": 170
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "list",
+          "lineNumber": 173
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "g_nx.edges",
+          "lineNumber": 173
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "min",
+          "lineNumber": 182
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "max",
+          "lineNumber": 182
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "enumerate",
+          "lineNumber": 186
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "enumerate",
+          "lineNumber": 193
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "solution_edges.append",
+          "lineNumber": 200
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "decoy_edges.append",
+          "lineNumber": 203
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "regular_edges.append",
+          "lineNumber": 206
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "nx.spring_layout",
+          "lineNumber": 208
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.figure",
+          "lineNumber": 209
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "nx.draw_networkx_edges",
+          "lineNumber": 213
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 218
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "nx.draw_networkx_edges",
+          "lineNumber": 219
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 224
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "nx.draw_networkx_edges",
+          "lineNumber": 225
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "nx.draw_networkx_nodes",
+          "lineNumber": 229
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "nx.draw_networkx_labels",
+          "lineNumber": 232
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "legend_elements.append",
+          "lineNumber": 236
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.Line2D",
+          "lineNumber": 236
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "legend_elements.append",
+          "lineNumber": 238
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.Line2D",
+          "lineNumber": 238
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "legend_elements.append",
+          "lineNumber": 242
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.Line2D",
+          "lineNumber": 242
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "enumerate",
+          "lineNumber": 246
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 247
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "' → '.join",
+          "lineNumber": 248
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "map",
+          "lineNumber": 248
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "legend_elements.append",
+          "lineNumber": 249
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.Line2D",
+          "lineNumber": 249
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "enumerate",
+          "lineNumber": 253
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 254
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "' → '.join",
+          "lineNumber": 255
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "map",
+          "lineNumber": 255
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "legend_elements.append",
+          "lineNumber": 256
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.Line2D",
+          "lineNumber": 256
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "legend_elements.append",
+          "lineNumber": 259
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.Line2D",
+          "lineNumber": 259
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.legend",
+          "lineNumber": 262
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "g_nx.number_of_nodes",
+          "lineNumber": 264
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 264
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "title_parts.append",
+          "lineNumber": 266
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 266
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "title_parts.append",
+          "lineNumber": 268
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "len",
+          "lineNumber": 268
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.title",
+          "lineNumber": 270
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "', '.join",
+          "lineNumber": 270
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.axis",
+          "lineNumber": 271
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.savefig",
+          "lineNumber": 274
+        },
+        {
+          "caller": "enhanced_visualise_graph",
+          "callee": "plt.close",
+          "lineNumber": 275
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 280
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "pathlib.Path",
+          "lineNumber": 283
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "load_dataset",
+          "lineNumber": 286
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 287
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 287
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 292
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 294
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "indices.sort",
+          "lineNumber": 296
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 297
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 302
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "min",
+          "lineNumber": 304
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 304
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "max",
+          "lineNumber": 305
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 308
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 311
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "list",
+          "lineNumber": 312
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "range",
+          "lineNumber": 312
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "viz_dir.mkdir",
+          "lineNumber": 316
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "reconstruct_graph_from_record",
+          "lineNumber": 321
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 323
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "bundle.get",
+          "lineNumber": 323
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "bundle.get",
+          "lineNumber": 323
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 324
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 324
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "bundle['graph'].edges",
+          "lineNumber": 324
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 326
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "enhanced_visualise_graph",
+          "lineNumber": 329
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 331
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 333
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 333
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 334
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "print",
+          "lineNumber": 336
+        },
+        {
+          "caller": "visualize_graphs",
+          "callee": "len",
+          "lineNumber": 336
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 340
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 343
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_mutually_exclusive_group",
+          "lineNumber": 351
+        },
+        {
+          "caller": "main",
+          "callee": "range_group.add_argument",
+          "lineNumber": 352
+        },
+        {
+          "caller": "main",
+          "callee": "range_group.add_argument",
+          "lineNumber": 358
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 364
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 370
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 377
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 384
+        },
+        {
+          "caller": "main",
+          "callee": "pathlib.Path",
+          "lineNumber": 386
+        },
+        {
+          "caller": "main",
+          "callee": "data_dir.exists",
+          "lineNumber": 387
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 388
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 389
+        },
+        {
+          "caller": "main",
+          "callee": "visualize_graphs",
+          "lineNumber": 393
+        },
+        {
+          "caller": "main",
+          "callee": "visualize_graphs",
+          "lineNumber": 395
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 397
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 398
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 37,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 33,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

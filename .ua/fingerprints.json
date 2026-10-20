@@ -1,0 +1,6188 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "",
+  "generatedAt": "2026-10-20T04:04:33.128Z",
+  "files": {
+    "NLP_llm_train.py": {
+      "filePath": "NLP_llm_train.py",
+      "contentHash": "aa70c421e83cc21846ac8ece2df1d7fb91f4cfc881b8f6a0341c84aeabad6115",
+      "functions": [
+        {
+          "name": "get_batch",
+          "params": [
+            "split"
+          ],
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "estimate_loss",
+          "params": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPTConfig",
+            "GPT"
+          ]
+        },
+        {
+          "source": "llm_train_utils",
+          "specifiers": [
+            "get_lr",
+            "save_training_metadata"
+          ]
+        }
+      ],
+      "exports": [
+        "get_batch",
+        "estimate_loss"
+      ],
+      "totalLines": 344,
+      "hasStructuralAnalysis": true
+    },
+    "NLP_mi_calc_v6 2.py": {
+      "filePath": "NLP_mi_calc_v6 2.py",
+      "contentHash": "2617884366f6e6b2856024ff7fe40a3241be112a8fdd8abb505b821783934dcc",
+      "functions": [
+        {
+          "name": "load_state_dict_remove_ddp_prefix",
+          "params": [
+            "model",
+            "state_dict"
+          ],
+          "returnType": "Tuple[Any, Any]",
+          "exported": true,
+          "lineCount": 108
+        },
+        {
+          "name": "build_vqvae3v2_from_config",
+          "params": [
+            "cfg",
+            "state_dict"
+          ],
+          "returnType": "Tuple[VQVAE3v2, Dict[str, int]]",
+          "exported": true,
+          "lineCount": 48
+        },
+        {
+          "name": "compute_vq3v2_index",
+          "params": [
+            "model",
+            "x",
+            "padding_mask"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "compute_vq3v2_index_batch",
+          "params": [
+            "model",
+            "x",
+            "padding_mask"
+          ],
+          "returnType": "torch.Tensor",
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "get_batch",
+          "params": [
+            "data_dir",
+            "meta_dtype",
+            "seq_len",
+            "batch_size",
+            "device",
+            "split"
+          ],
+          "returnType": "torch.Tensor",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "save_streaming_info_counts",
+          "params": [
+            "smi",
+            "output_dir",
+            "suffix"
+          ],
+          "returnType": "Tuple[Optional[str], Optional[str]]",
+          "exported": true,
+          "lineCount": 42
+        },
+        {
+          "name": "collect_block_mi",
+          "params": [
+            "smi",
+            "token_variables",
+            "max_layer",
+            "num_blocks",
+            "delta_b"
+          ],
+          "returnType": "Dict[str, Dict[str, Dict[str, Dict[str, float]]]]",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "load_vqvae_last_token_model",
+          "params": [
+            "checkpoint_path",
+            "config_path",
+            "device"
+          ],
+          "returnType": "Tuple[VQVAELastToken, Dict[str, Any]]",
+          "exported": true,
+          "lineCount": 85
+        },
+        {
+          "name": "sync_and_update_streaming_info",
+          "params": [
+            "local_samples",
+            "smi_dict",
+            "processed_samples_count",
+            "ddp",
+            "ddp_world_size",
+            "master_process"
+          ],
+          "exported": true,
+          "lineCount": 29
+        },
+        {
+          "name": "calculate_and_report_metrics",
+          "params": [
+            "smi",
+            "token_variables",
+            "max_layers_used",
+            "num_blocks",
+            "delta_b",
+            "processed_samples_count",
+            "batch_idx",
+            "total_batches",
+            "logger",
+            "master_process"
+          ],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 537
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "Counter",
+            "defaultdict"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Dict",
+            "Any",
+            "Tuple",
+            "Optional"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "dist"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "Encoder3v2",
+            "Decoder3v2",
+            "VQVAE3v2",
+            "VQVAELastToken"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPTConfig",
+            "GPT"
+          ]
+        },
+        {
+          "source": "information_theory_utils",
+          "specifiers": [
+            "StreamingInfo"
+          ]
+        }
+      ],
+      "exports": [
+        "load_state_dict_remove_ddp_prefix",
+        "build_vqvae3v2_from_config",
+        "compute_vq3v2_index",
+        "compute_vq3v2_index_batch",
+        "get_batch",
+        "save_streaming_info_counts",
+        "collect_block_mi",
+        "load_vqvae_last_token_model",
+        "sync_and_update_streaming_info",
+        "calculate_and_report_metrics",
+        "main"
+      ],
+      "totalLines": 1021,
+      "hasStructuralAnalysis": true
+    },
+    "NLP_openwebtext/VQVAE_last_train_config07s.json": {
+      "filePath": "NLP_openwebtext/VQVAE_last_train_config07s.json",
+      "contentHash": "b74ba1562f681bf8b1343b0b132c84c948df0d77a058ae4723599254727f1b57",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 66,
+      "hasStructuralAnalysis": false
+    },
+    "NLP_openwebtext/configGPT3Xsmall.py": {
+      "filePath": "NLP_openwebtext/configGPT3Xsmall.py",
+      "contentHash": "3d252cf09000666d3e8bc630696f272e69767bee283a04d00ad380a61a278452",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 51,
+      "hasStructuralAnalysis": true
+    },
+    "NLP_openwebtext/layer_and_block_config_256.json": {
+      "filePath": "NLP_openwebtext/layer_and_block_config_256.json",
+      "contentHash": "42e452e111654e6d88df02f45cd0629ad049ba8429dc7dc242dfac5af4facd8a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 130,
+      "hasStructuralAnalysis": false
+    },
+    "NLP_openwebtext/mi_calc_v6_config 2.json": {
+      "filePath": "NLP_openwebtext/mi_calc_v6_config 2.json",
+      "contentHash": "f5747b8c4b32c4d883b34a628f690aa3af1d6740e336485e489b50ce166553c6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": false
+    },
+    "NLP_vqvae_last_train.py": {
+      "filePath": "NLP_vqvae_last_train.py",
+      "contentHash": "8f5b13201d2215e7c5fd400178ee1c7386f8d636cd9c33cc5a34c6d02a84abde",
+      "functions": [
+        {
+          "name": "get_batch",
+          "params": [
+            "split"
+          ],
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "get_lr",
+          "params": [
+            "iter_num"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "process_hidden_states_for_vqvae_last",
+          "params": [
+            "hidden_states"
+          ],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "shutil",
+          "specifiers": [
+            "shutil"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.nn.functional",
+          "specifiers": [
+            "F"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "copy",
+          "specifiers": [
+            "copy"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "VQVAELastToken"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPTConfig",
+            "GPT"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "log_and_plot_usage_for_model",
+            "compute_masked_nrmse"
+          ]
+        }
+      ],
+      "exports": [
+        "get_batch",
+        "get_lr",
+        "process_hidden_states_for_vqvae_last"
+      ],
+      "totalLines": 664,
+      "hasStructuralAnalysis": true
+    },
+    "NLP_vqvae_layer_and_block_train.py": {
+      "filePath": "NLP_vqvae_layer_and_block_train.py",
+      "contentHash": "2f831008d43e93b2207958cb5969845604f723bfffe948a78f0455df39ed4aec",
+      "functions": [
+        {
+          "name": "get_batch",
+          "params": [
+            "split"
+          ],
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "get_lr",
+          "params": [
+            "iter_num"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "process_hidden_states_for_vqvae3v2_layer",
+          "params": [
+            "hidden_states"
+          ],
+          "exported": true,
+          "lineCount": 26
+        },
+        {
+          "name": "process_hidden_states_for_vqvae3v2_block",
+          "params": [
+            "hidden_states",
+            "delta_b"
+          ],
+          "exported": true,
+          "lineCount": 44
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "shutil",
+          "specifiers": [
+            "shutil"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.nn.functional",
+          "specifiers": [
+            "F"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "copy",
+          "specifiers": [
+            "copy"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "VQVAE3v2",
+            "Encoder3v2",
+            "Decoder3v2"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPTConfig",
+            "GPT"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "log_and_plot_usage_for_model",
+            "compute_masked_nrmse"
+          ]
+        }
+      ],
+      "exports": [
+        "get_batch",
+        "get_lr",
+        "process_hidden_states_for_vqvae3v2_layer",
+        "process_hidden_states_for_vqvae3v2_block"
+      ],
+      "totalLines": 1010,
+      "hasStructuralAnalysis": true
+    },
+    "PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py": {
+      "filePath": "PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+      "contentHash": "46717adb29c944aa8ebc5e16f9bf77969c57b05d33794bbf64838005a9becd10",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 53,
+      "hasStructuralAnalysis": true
+    },
+    "PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py": {
+      "filePath": "PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+      "contentHash": "37883c35e513f7937d57b766835815fe474a5d2caa89f1d1919741c7b4b826b7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json": {
+      "filePath": "PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "contentHash": "c32afb60314b1e09d65da87a2a64c3b7683e1f0eb37ad296db993cb9e9387f40",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 77,
+      "hasStructuralAnalysis": false
+    },
+    "PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json": {
+      "filePath": "PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "contentHash": "43e66705015997806a0f423208c27e6e399845c6d87b3bafcee35f52530f51b4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 85,
+      "hasStructuralAnalysis": false
+    },
+    "PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json": {
+      "filePath": "PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "contentHash": "3726bfb6ac6f7fa09afbcb80db3e1a4904affbbcffef62d7eb621bc88acf811f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 59,
+      "hasStructuralAnalysis": false
+    },
+    "PF_15XL/seed11_configs/vqvae1_config_seed11.json": {
+      "filePath": "PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+      "contentHash": "465c171e330f0393e3e5b464857b5e709f05f5402fe194e0011eea080b981a91",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 77,
+      "hasStructuralAnalysis": false
+    },
+    "PF_15XL/seed11_configs/vqvae2_config_seed11.json": {
+      "filePath": "PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+      "contentHash": "7ebd76fcb868981e9cb1e174b71bac440227b965f61d3abc25ee97d64a82efc6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 85,
+      "hasStructuralAnalysis": false
+    },
+    "PF_15XL/seed11_configs/vqvae_path_config_seed11.json": {
+      "filePath": "PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+      "contentHash": "6e3fbb61eec68a681c2f0cb126972ecb4e6c8d07e5c93db75e1ca14a574bd689",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 64,
+      "hasStructuralAnalysis": false
+    },
+    "PF_15XL/seed11_configs/vqvae_single_config_seed11.json": {
+      "filePath": "PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+      "contentHash": "fe7f3fdd72d10af59262ff66fded0e18b5506e7e9455324f3e9428fc2059e18f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 59,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "contentHash": "07bf0bc134f7ee5efeb5085b4f78cf14e9163f17a4f2fccce366d35b299730a1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "contentHash": "a4a2e772da26130c2434347b5a6069271ac9642f49b5333b420ebf6c2d3c33a1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "contentHash": "38b19007ab851ca3e4743c5fb809b403aa0539386ed221bbd7a58998646237ad",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 79,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "contentHash": "c80caf42775fd1a94687b264965a2092fdd362661afe899626fa0fe5cee1e825",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 80,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json",
+      "contentHash": "e300bf356f0f5ce747b0aebe8a27e86f06d20f9bbff874b2c436aadb4d1590fc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 81,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "contentHash": "7c58d11437de147a9ea58866e827b59a705f7b8a289e8cb20dadcf7f7a137ca6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json",
+      "contentHash": "2a36f829bdc2ec095eee89b51885083cf5c23a8adc34c1de413635c4c6e49b5f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 79,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json",
+      "contentHash": "ff98158b889d0c9ca0eaaf39fa03f762927af632f558d49af6ae693acfc9c17e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 80,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json",
+      "contentHash": "f9ce3f74226941b1866bc2b176afe45e5a961eb819dd21f118a566481ccfcc1e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 81,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json",
+      "contentHash": "709ad927acbffda9923ff3113f249b8415c20f189454705b6438b14e6bcbaf4e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 60,
+      "hasStructuralAnalysis": false
+    },
+    "PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json": {
+      "filePath": "PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json",
+      "contentHash": "dc2b1f70c064291f0e59acab6fcd141e3e6e964553bedb9bd41f90f2c7eb1497",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": false
+    },
+    "README.txt": {
+      "filePath": "README.txt",
+      "contentHash": "2e3b852ed5727fe86a818e83191d28d5878b9bc1ecf076259c6b8a92fe155961",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 73,
+      "hasStructuralAnalysis": false
+    },
+    "data/context_free_grammar/CFG_data_generation.py": {
+      "filePath": "data/context_free_grammar/CFG_data_generation.py",
+      "contentHash": "e451a5d5ca2aeb6216e482122abb2dc3703a447922a22a8728f0068a84ef6862",
+      "functions": [
+        {
+          "name": "plot_simple_tree",
+          "params": [
+            "expansion_history"
+          ],
+          "exported": true,
+          "lineCount": 57
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 75
+        }
+      ],
+      "classes": [
+        {
+          "name": "CFG",
+          "methods": [
+            "__init__",
+            "_generate_symbols",
+            "_generate_rules",
+            "generate_sequence",
+            "_expand_symbol",
+            "_generate_single_sequence",
+            "generate_multiple_sequences_parallel",
+            "is_valid_sequence_slow",
+            "_prepare_fast_parser",
+            "is_valid_sequence",
+            "new_is_valid_sequence_slow",
+            "generate_and_save_in_batches"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 419
+        }
+      ],
+      "imports": [
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "concurrent.futures",
+          "specifiers": [
+            "ProcessPoolExecutor",
+            "as_completed",
+            "ThreadPoolExecutor"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "mmap",
+          "specifiers": [
+            "mmap"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        }
+      ],
+      "exports": [
+        "CFG",
+        "plot_simple_tree",
+        "main"
+      ],
+      "totalLines": 568,
+      "hasStructuralAnalysis": true
+    },
+    "data/context_free_grammar/CFG_full_sequence_data_generation.py": {
+      "filePath": "data/context_free_grammar/CFG_full_sequence_data_generation.py",
+      "contentHash": "a17feb7433964e85f9938d18a7d1ab79869192522e6ecf6dd26833382411ea88",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "concurrent.futures",
+          "specifiers": [
+            "ProcessPoolExecutor",
+            "as_completed",
+            "ThreadPoolExecutor"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "CFG_data_generation",
+          "specifiers": [
+            "CFG"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "mmap",
+          "specifiers": [
+            "mmap"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 92,
+      "hasStructuralAnalysis": true
+    },
+    "data/context_free_grammar/CFG_prefix_data_generation.py": {
+      "filePath": "data/context_free_grammar/CFG_prefix_data_generation.py",
+      "contentHash": "fefae94d3b5076de7df06773a0e79426f439ccd525dc74f777d45d9d3db782a0",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "concurrent.futures",
+          "specifiers": [
+            "ProcessPoolExecutor",
+            "as_completed",
+            "ThreadPoolExecutor"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "CFG_data_generation",
+          "specifiers": [
+            "CFG"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "mmap",
+          "specifiers": [
+            "mmap"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 129,
+      "hasStructuralAnalysis": true
+    },
+    "data/context_free_grammar/check_CGF_implementation.py": {
+      "filePath": "data/context_free_grammar/check_CGF_implementation.py",
+      "contentHash": "e8fd4a5cb74513702f92f2d03277d960c01dcb79be6ee44646781091935cfa9c",
+      "functions": [
+        {
+          "name": "run_cfg_test",
+          "params": [
+            "size",
+            "name"
+          ],
+          "exported": true,
+          "lineCount": 86
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "concurrent.futures",
+          "specifiers": [
+            "ThreadPoolExecutor"
+          ]
+        },
+        {
+          "source": "CFG_data_generation",
+          "specifiers": [
+            "CFG"
+          ]
+        }
+      ],
+      "exports": [
+        "run_cfg_test",
+        "main"
+      ],
+      "totalLines": 118,
+      "hasStructuralAnalysis": true
+    },
+    "data/context_free_grammar/peeking_dataset.py": {
+      "filePath": "data/context_free_grammar/peeking_dataset.py",
+      "contentHash": "20cd082cc4bbb40440dcbaf6c6e7e314afef2cf59d3eb0f3f6e98139e7992ac1",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "pathlib",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 106,
+      "hasStructuralAnalysis": true
+    },
+    "data/openwentext/prepare.py": {
+      "filePath": "data/openwentext/prepare.py",
+      "contentHash": "b44ecb6ddf10ea5e1fa848c3bd0f83b05a6977e0e0a9e5bc96bf3010bf5e5475",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "tiktoken",
+          "specifiers": [
+            "tiktoken"
+          ]
+        },
+        {
+          "source": "datasets",
+          "specifiers": [
+            "load_dataset"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 83,
+      "hasStructuralAnalysis": true
+    },
+    "data/openwentext/readme.md": {
+      "filePath": "data/openwentext/readme.md",
+      "contentHash": "e1f86c0641994478162be888a1f120eee2777b758ac2682f9508c8835414d192",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_15XL_config.json": {
+      "filePath": "data/path_finding/PF_15XL_config.json",
+      "contentHash": "781b9bb8e5421a4e48ccd20875b2f21c4e0564d1e6fc3ad7326cbb95ab08bc80",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_15XL_config_mi.json": {
+      "filePath": "data/path_finding/PF_15XL_config_mi.json",
+      "contentHash": "32125b574d62d21f345f86f7d556d67c7cf99f5c74856b74e7e63f5db7bf0c52",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_15XL_config_train.json": {
+      "filePath": "data/path_finding/PF_15XL_config_train.json",
+      "contentHash": "62e6dfe09d0960c80f7051d98b120ffb938b6c23d6ea4bb0b0ff0bd61cb75518",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_15XL_config_train_small.json": {
+      "filePath": "data/path_finding/PF_15XL_config_train_small.json",
+      "contentHash": "d501dd99cc84d89e5c953410c84ab7a282cf28349350f17871ae62c33e759868",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_15XL_config_train_vocab.json": {
+      "filePath": "data/path_finding/PF_15XL_config_train_vocab.json",
+      "contentHash": "456937f1343539e42c446e54712e3ab60b7e642c033045d93c2b7947680ee69c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_15XL_config_vqvae.json": {
+      "filePath": "data/path_finding/PF_15XL_config_vqvae.json",
+      "contentHash": "ce214529024793ca95ec8c16b341d5a7c271814081e018990b8b10ebb19cac61",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_long1decoy_easier_config.json": {
+      "filePath": "data/path_finding/PF_long1decoy_easier_config.json",
+      "contentHash": "9daa53c07b41b5d64ffb96653d6dd114f2711e35e20c407ab59b52eb3bc0ff6c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_long1decoy_easier_config_mi.json": {
+      "filePath": "data/path_finding/PF_long1decoy_easier_config_mi.json",
+      "contentHash": "8cfdf29f3e8855da1da273b53fd6918b32e7ef2572843d2519554cd6ea0b03a6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_long1decoy_easier_config_observe.json": {
+      "filePath": "data/path_finding/PF_long1decoy_easier_config_observe.json",
+      "contentHash": "fbcf39bbe4ef328ce1c9d082db02b33b391ed7024d7422a778ead0fec999748e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_long1decoy_easier_config_train.json": {
+      "filePath": "data/path_finding/PF_long1decoy_easier_config_train.json",
+      "contentHash": "3bb2e9fcf8fa5e4aaeb9a779b7981bac22b5cca2c37a227b8d174713f0f5ad8d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_long1decoy_easier_config_train_small.json": {
+      "filePath": "data/path_finding/PF_long1decoy_easier_config_train_small.json",
+      "contentHash": "7b31096030663e86335a891949156ea15707dd7c91f1f0434da31f18e88b2154",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_long1decoy_easier_config_train_vocab.json": {
+      "filePath": "data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+      "contentHash": "45eb0ad5724dc723ae38692c6d69f09b71a78b47c96c8ec2b954690f011ea3f2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_long1decoy_easier_config_val.json": {
+      "filePath": "data/path_finding/PF_long1decoy_easier_config_val.json",
+      "contentHash": "9daa53c07b41b5d64ffb96653d6dd114f2711e35e20c407ab59b52eb3bc0ff6c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/PF_long1decoy_easier_config_vqvae.json": {
+      "filePath": "data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+      "contentHash": "338c10f5ba2ed502303041fd2b47a354730c1146bc15db170727d163b2b3eee2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": false
+    },
+    "data/path_finding/path_finding_generate.py": {
+      "filePath": "data/path_finding/path_finding_generate.py",
+      "contentHash": "3cdb6dc4cb869471a242173e273168cd8d9f04098c35a4a67c1445737128fab5",
+      "functions": [
+        {
+          "name": "import_visualization_functions",
+          "params": [],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "run_block_size_analysis",
+          "params": [
+            "out_dir",
+            "dataset_name"
+          ],
+          "exported": true,
+          "lineCount": 69
+        },
+        {
+          "name": "sample_path",
+          "params": [
+            "pool",
+            "length",
+            "rng"
+          ],
+          "returnType": "List[int]",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "build_graph",
+          "params": [
+            "cfg",
+            "graph_idx"
+          ],
+          "returnType": "Dict",
+          "exported": true,
+          "lineCount": 127
+        },
+        {
+          "name": "load_cfg",
+          "params": [
+            "path"
+          ],
+          "returnType": "Dict",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "write_dataset",
+          "params": [
+            "records",
+            "out_dir",
+            "dataset_name"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 112
+        }
+      ],
+      "classes": [
+        {
+          "name": "Graph",
+          "methods": [
+            "__init__",
+            "new_node",
+            "add_edge",
+            "edges",
+            "to_networkx"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "pathlib",
+          "specifiers": [
+            "pathlib"
+          ]
+        },
+        {
+          "source": "textwrap",
+          "specifiers": [
+            "textwrap"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Dict",
+            "List"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        }
+      ],
+      "exports": [
+        "import_visualization_functions",
+        "run_block_size_analysis",
+        "Graph",
+        "sample_path",
+        "build_graph",
+        "load_cfg",
+        "write_dataset",
+        "main"
+      ],
+      "totalLines": 481,
+      "hasStructuralAnalysis": true
+    },
+    "data/path_finding/path_finding_generate_multi_cpu.py": {
+      "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+      "contentHash": "55b81784a7247a7a30e402e584002d80fa093a557170da502a063c6a2957f511",
+      "functions": [
+        {
+          "name": "import_visualization_functions",
+          "params": [],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "run_block_size_analysis",
+          "params": [
+            "out_dir",
+            "dataset_name"
+          ],
+          "exported": true,
+          "lineCount": 69
+        },
+        {
+          "name": "sample_path",
+          "params": [
+            "pool",
+            "length",
+            "rng"
+          ],
+          "returnType": "List[int]",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "generate_single_graph_record",
+          "params": [
+            "cfg",
+            "graph_idx"
+          ],
+          "returnType": "Dict",
+          "exported": true,
+          "lineCount": 41
+        },
+        {
+          "name": "build_graph",
+          "params": [
+            "cfg",
+            "graph_idx"
+          ],
+          "returnType": "Dict",
+          "exported": true,
+          "lineCount": 127
+        },
+        {
+          "name": "load_cfg",
+          "params": [
+            "path"
+          ],
+          "returnType": "Dict",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "write_dataset",
+          "params": [
+            "records",
+            "out_dir",
+            "dataset_name"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "append_records_to_dataset",
+          "params": [
+            "records",
+            "out_dir",
+            "dataset_name"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "init_dataset_file",
+          "params": [
+            "out_dir",
+            "dataset_name"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "worker_process",
+          "params": [
+            "cfg",
+            "start_idx",
+            "end_idx",
+            "worker_id",
+            "temp_dir"
+          ],
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "merge_worker_files",
+          "params": [
+            "temp_files",
+            "out_dir",
+            "dataset_name",
+            "total_samples"
+          ],
+          "exported": true,
+          "lineCount": 44
+        },
+        {
+          "name": "get_optimal_worker_count",
+          "params": [],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 188
+        }
+      ],
+      "classes": [
+        {
+          "name": "Graph",
+          "methods": [
+            "__init__",
+            "new_node",
+            "add_edge",
+            "edges",
+            "to_networkx"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "pathlib",
+          "specifiers": [
+            "pathlib"
+          ]
+        },
+        {
+          "source": "textwrap",
+          "specifiers": [
+            "textwrap"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Dict",
+            "List"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "multiprocessing",
+          "specifiers": [
+            "mp"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "threading",
+          "specifiers": [
+            "threading"
+          ]
+        },
+        {
+          "source": "queue",
+          "specifiers": [
+            "Queue"
+          ]
+        }
+      ],
+      "exports": [
+        "import_visualization_functions",
+        "run_block_size_analysis",
+        "Graph",
+        "sample_path",
+        "generate_single_graph_record",
+        "build_graph",
+        "load_cfg",
+        "write_dataset",
+        "append_records_to_dataset",
+        "init_dataset_file",
+        "worker_process",
+        "merge_worker_files",
+        "get_optimal_worker_count",
+        "main"
+      ],
+      "totalLines": 703,
+      "hasStructuralAnalysis": true
+    },
+    "data/path_finding/visualize_saved_graphs.py": {
+      "filePath": "data/path_finding/visualize_saved_graphs.py",
+      "contentHash": "ccf3f32b8b9164495600aa4a897ce6e670232314ed94d8ec9d82d3bc7febb7f3",
+      "functions": [
+        {
+          "name": "load_dataset",
+          "params": [
+            "data_dir",
+            "file_name"
+          ],
+          "returnType": "List[Dict]",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "reconstruct_graph_from_record",
+          "params": [
+            "record"
+          ],
+          "returnType": "Dict",
+          "exported": true,
+          "lineCount": 49
+        },
+        {
+          "name": "enhanced_visualise_graph",
+          "params": [
+            "bundle",
+            "out_dir",
+            "idx",
+            "dataset_name"
+          ],
+          "exported": true,
+          "lineCount": 160
+        },
+        {
+          "name": "visualize_graphs",
+          "params": [
+            "data_dir",
+            "file_name",
+            "start_idx",
+            "end_idx",
+            "indices"
+          ],
+          "exported": true,
+          "lineCount": 59
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 60
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "pathlib",
+          "specifiers": [
+            "pathlib"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Dict",
+            "List"
+          ]
+        },
+        {
+          "source": "path_finding_generate",
+          "specifiers": [
+            "Graph"
+          ]
+        }
+      ],
+      "exports": [
+        "load_dataset",
+        "reconstruct_graph_from_record",
+        "enhanced_visualise_graph",
+        "visualize_graphs",
+        "main"
+      ],
+      "totalLines": 402,
+      "hasStructuralAnalysis": true
+    },
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py": {
+      "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+      "contentHash": "ee5ce00cfda8cbfe0dc7b8d177ba1258837c12efb54c1130260dd560506b2233",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 43,
+      "hasStructuralAnalysis": true
+    },
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json": {
+      "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+      "contentHash": "36de35b79907ae1ba1a8ec699ffd6bfd7ad726eaa9a3e98b1a1afa2feb07cce0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 76,
+      "hasStructuralAnalysis": false
+    },
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json": {
+      "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+      "contentHash": "5ae0c9bddd71f00a59e4ed1cc01929a89d8ed7b899f24e9185d260ea5469ba67",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 85,
+      "hasStructuralAnalysis": false
+    },
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json": {
+      "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+      "contentHash": "cef0ff500ac17faf4866f8ca1a2a22d0ca4b838f0f86f82173aaa7ed890ba944",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py": {
+      "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py",
+      "contentHash": "c2e8b9454aba005bde81c07152cc216aa86ff078467383e12e5e21291a9c6d9e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json": {
+      "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json",
+      "contentHash": "adc4ca4a8c06128dd0bf866c6bde89b44cfa6d12ad30beaa89d162415eb4834e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 76,
+      "hasStructuralAnalysis": false
+    },
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json": {
+      "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json",
+      "contentHash": "7bfeb8f2f95231e0875991a164f87a854b538a6734e7ad336b8e34572a5a7605",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 85,
+      "hasStructuralAnalysis": false
+    },
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json": {
+      "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json",
+      "contentHash": "2872c8065c80dd9618e07bd1f1f44d82de969d279257832c8368c0b47cf16a1b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "information_theory_utils.py": {
+      "filePath": "information_theory_utils.py",
+      "contentHash": "20f7637c32b5e77c747dee6c5a8190c4c95a0615b80f7a13bb4dd578477867af",
+      "functions": [
+        {
+          "name": "approx_equal",
+          "params": [
+            "a",
+            "b",
+            "tol"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "test_independent_uniform",
+          "params": [],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "test_copy_variable",
+          "params": [],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "test_three_variables",
+          "params": [],
+          "exported": true,
+          "lineCount": 32
+        },
+        {
+          "name": "test_no_samples",
+          "params": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [
+        {
+          "name": "StreamingInfo",
+          "methods": [
+            "__init__",
+            "_setup_file_storage",
+            "_canon",
+            "_log",
+            "_entropy_from_counts",
+            "_entropy_from_counts_paninski",
+            "_get_counts",
+            "_check_no_samples",
+            "update",
+            "update_batch",
+            "flush_to_file",
+            "close_file",
+            "get_file_sample_count",
+            "load_samples_from_file",
+            "__del__",
+            "entropy",
+            "entropy_paninski",
+            "joint_entropy_paninski",
+            "conditional_entropy",
+            "conditional_entropy_paninski",
+            "mutual_information",
+            "conditional_mutual_information",
+            "conditional_mutual_information_paninski",
+            "mutual_information_paninski",
+            "__repr__",
+            "_compute_paninski_entropy",
+            "_bub_entropy_estimator",
+            "_bag_entropy_estimator"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 837
+        }
+      ],
+      "imports": [
+        {
+          "source": "collections",
+          "specifiers": [
+            "Counter"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "itertools",
+          "specifiers": [
+            "combinations"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Sequence",
+            "Tuple",
+            "Iterable",
+            "Dict",
+            "Any",
+            "Optional",
+            "Union",
+            "List"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        }
+      ],
+      "exports": [
+        "StreamingInfo",
+        "approx_equal",
+        "test_independent_uniform",
+        "test_copy_variable",
+        "test_three_variables",
+        "test_no_samples"
+      ],
+      "totalLines": 988,
+      "hasStructuralAnalysis": true
+    },
+    "llm_train.py": {
+      "filePath": "llm_train.py",
+      "contentHash": "4adef0bb0ef6cb553510992c26839b816c217e707b9ff875a51776511cdfb881",
+      "functions": [
+        {
+          "name": "get_batch",
+          "params": [
+            "split"
+          ],
+          "exported": true,
+          "lineCount": 41
+        },
+        {
+          "name": "estimate_loss",
+          "params": [],
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPTConfig",
+            "GPT",
+            "Block",
+            "LayerNorm"
+          ]
+        },
+        {
+          "source": "llm_train_utils",
+          "specifiers": [
+            "get_lr",
+            "save_cfg_accuracy_log",
+            "save_training_metadata",
+            "evaluate_cfg_accuracy",
+            "load_cfg_from_dataset"
+          ]
+        },
+        {
+          "source": "data.context_free_grammar.CFG_data_generation",
+          "specifiers": [
+            "CFG"
+          ]
+        }
+      ],
+      "exports": [
+        "get_batch",
+        "estimate_loss"
+      ],
+      "totalLines": 574,
+      "hasStructuralAnalysis": true
+    },
+    "llm_train_utils.py": {
+      "filePath": "llm_train_utils.py",
+      "contentHash": "1dc231d6b32b955b64f10a5c344831115f578795a508a86849b2136c9e249f92",
+      "functions": [
+        {
+          "name": "get_lr",
+          "params": [
+            "it",
+            "warmup_iters",
+            "lr_decay_iters",
+            "learning_rate",
+            "min_lr"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "save_training_metadata",
+          "params": [
+            "config",
+            "model_args",
+            "out_dir"
+          ],
+          "exported": true,
+          "lineCount": 65
+        },
+        {
+          "name": "evaluate_cfg_accuracy",
+          "params": [
+            "model",
+            "cfg",
+            "device",
+            "num_samples",
+            "temperature",
+            "batch_size",
+            "save_samples"
+          ],
+          "exported": true,
+          "lineCount": 179
+        },
+        {
+          "name": "save_cfg_accuracy_log",
+          "params": [
+            "out_dir",
+            "iter_num",
+            "accuracy_results",
+            "cfg"
+          ],
+          "exported": true,
+          "lineCount": 57
+        },
+        {
+          "name": "load_cfg_from_dataset",
+          "params": [
+            "dataset_path"
+          ],
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "datetime",
+          "specifiers": [
+            "datetime"
+          ]
+        },
+        {
+          "source": "tqdm.auto",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "concurrent.futures",
+          "specifiers": [
+            "ThreadPoolExecutor",
+            "as_completed"
+          ]
+        }
+      ],
+      "exports": [
+        "get_lr",
+        "save_training_metadata",
+        "evaluate_cfg_accuracy",
+        "save_cfg_accuracy_log",
+        "load_cfg_from_dataset"
+      ],
+      "totalLines": 356,
+      "hasStructuralAnalysis": true
+    },
+    "mi_calc_full_path.py": {
+      "filePath": "mi_calc_full_path.py",
+      "contentHash": "c6db60bf037b62aa47b185c46c93d81c3bae987f22700a9a5fcb905c56338640",
+      "functions": [
+        {
+          "name": "normalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "denormalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "sync_and_update_streaming_info",
+          "params": [
+            "local_samples",
+            "smi_dict",
+            "processed_samples_count"
+          ],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "calculate_and_report_metrics",
+          "params": [
+            "smi_dict",
+            "processed_samples_count",
+            "batch_idx",
+            "total_batches"
+          ],
+          "exported": true,
+          "lineCount": 36
+        },
+        {
+          "name": "create_plots_and_save",
+          "params": [
+            "results",
+            "output_dir",
+            "processed_samples_count",
+            "master_process",
+            "logger",
+            "batch_idx",
+            "is_final"
+          ],
+          "exported": true,
+          "lineCount": 122
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn",
+            "crop_prompt_and_attention_mask"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        },
+        {
+          "source": "information_theory_utils",
+          "specifiers": [
+            "StreamingInfo"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "dist"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        }
+      ],
+      "exports": [
+        "normalize_first_stage",
+        "denormalize_first_stage",
+        "sync_and_update_streaming_info",
+        "calculate_and_report_metrics",
+        "create_plots_and_save"
+      ],
+      "totalLines": 1072,
+      "hasStructuralAnalysis": true
+    },
+    "mi_calc_full_path_long2_61.py": {
+      "filePath": "mi_calc_full_path_long2_61.py",
+      "contentHash": "ce16b6f69d4716a915f89da07f3c5cb8a35b2097a612c7460246100ab4985ff7",
+      "functions": [
+        {
+          "name": "sync_and_update_streaming_info",
+          "params": [
+            "local_samples",
+            "smi_dict",
+            "processed_samples_count"
+          ],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "calculate_and_report_metrics",
+          "params": [
+            "smi_dict",
+            "processed_samples_count",
+            "batch_idx",
+            "total_batches"
+          ],
+          "exported": true,
+          "lineCount": 36
+        },
+        {
+          "name": "create_plots_and_save",
+          "params": [
+            "results",
+            "output_dir",
+            "processed_samples_count",
+            "master_process",
+            "logger",
+            "batch_idx",
+            "is_final"
+          ],
+          "exported": true,
+          "lineCount": 122
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn",
+            "skip_time_steps"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        },
+        {
+          "source": "information_theory_utils",
+          "specifiers": [
+            "StreamingInfo"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "dist"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        }
+      ],
+      "exports": [
+        "sync_and_update_streaming_info",
+        "calculate_and_report_metrics",
+        "create_plots_and_save"
+      ],
+      "totalLines": 1182,
+      "hasStructuralAnalysis": true
+    },
+    "mi_calc_minimal.py": {
+      "filePath": "mi_calc_minimal.py",
+      "contentHash": "d20db04c7dce0638ae6c867fabd6abb8ec8b85ee845536cff05cfafdaecc9447",
+      "functions": [
+        {
+          "name": "normalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "denormalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "normalize_single_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "denormalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "sync_and_update_streaming_info",
+          "params": [
+            "local_samples",
+            "smi_dict",
+            "processed_samples_count"
+          ],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "calculate_and_report_metrics",
+          "params": [
+            "smi_dict",
+            "processed_samples_count",
+            "batch_idx",
+            "total_batches"
+          ],
+          "exported": true,
+          "lineCount": 36
+        },
+        {
+          "name": "create_plots_and_save",
+          "params": [
+            "results",
+            "output_dir",
+            "processed_samples_count",
+            "master_process",
+            "logger",
+            "batch_idx",
+            "is_final"
+          ],
+          "exported": true,
+          "lineCount": 117
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "information_theory_utils",
+          "specifiers": [
+            "StreamingInfo"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "dist"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        }
+      ],
+      "exports": [
+        "normalize_first_stage",
+        "denormalize_first_stage",
+        "normalize_single_stage",
+        "denormalize_first_stage",
+        "sync_and_update_streaming_info",
+        "calculate_and_report_metrics",
+        "create_plots_and_save"
+      ],
+      "totalLines": 961,
+      "hasStructuralAnalysis": true
+    },
+    "minimal_VQVAEs.py": {
+      "filePath": "minimal_VQVAEs.py",
+      "contentHash": "924fbbc17507e93431252c97bc70eb9aacf03ac0261ca1f26a2ba7fe0236d288",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ResidualBlock",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 57
+        },
+        {
+          "name": "CustomSequential",
+          "methods": [
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "VQVAE_single",
+          "methods": [
+            "__init__",
+            "normalize_codebook_vectors",
+            "compute_cosine_push_loss",
+            "compute_soft_entropy_loss",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_codebook_similarities",
+            "apply_stochastic_mask",
+            "normalize",
+            "denormalize",
+            "_compute_normalization_value",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 553
+        },
+        {
+          "name": "VQVAE1",
+          "methods": [
+            "__init__",
+            "normalize_codebook_vectors",
+            "compute_cosine_push_loss",
+            "compute_soft_entropy_loss",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_codebook_similarities",
+            "apply_stochastic_mask",
+            "normalize",
+            "denormalize",
+            "_compute_normalization_values",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 562
+        },
+        {
+          "name": "Encoder1",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 90
+        },
+        {
+          "name": "Decoder1",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 97
+        },
+        {
+          "name": "Encoder3",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 82
+        },
+        {
+          "name": "Decoder3",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 92
+        },
+        {
+          "name": "VQVAE3",
+          "methods": [
+            "__init__",
+            "normalize_codebook_vectors",
+            "compute_cosine_push_loss",
+            "compute_soft_entropy_loss",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_codebook_similarities",
+            "apply_stochastic_mask",
+            "normalize",
+            "denormalize",
+            "_compute_normalization_values",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 507
+        },
+        {
+          "name": "VQVAE2",
+          "methods": [
+            "__init__",
+            "normalize_codebook_vectors",
+            "compute_cosine_push_loss",
+            "compute_soft_entropy_loss",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_codebook_similarities",
+            "apply_stochastic_mask",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 460
+        },
+        {
+          "name": "Encoder2",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 73
+        },
+        {
+          "name": "Decoder2",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 81
+        },
+        {
+          "name": "VQVAELastToken",
+          "methods": [
+            "__init__",
+            "_get_activation",
+            "_build_encoder",
+            "_build_decoder",
+            "forward",
+            "normalize_codebook_vectors",
+            "compute_cosine_push_loss",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_codebook_similarities"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 431
+        },
+        {
+          "name": "VQVAE3_Modified",
+          "methods": [
+            "__init__",
+            "compute_cosine_push_loss",
+            "_compute_cosine_push_loss_log_scaling",
+            "_compute_cosine_push_loss_count_division"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 130
+        },
+        {
+          "name": "Path_Encoder",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 32
+        },
+        {
+          "name": "Path_Decoder",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 42
+        },
+        {
+          "name": "Path_VQVAE",
+          "methods": [
+            "__init__",
+            "normalize_codebook_vectors",
+            "compute_soft_entropy_loss",
+            "apply_stochastic_mask",
+            "compute_codebook_similarities",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_cosine_push_loss",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 269
+        },
+        {
+          "name": "Encoder3v2",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 57
+        },
+        {
+          "name": "Decoder3v2",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 68
+        },
+        {
+          "name": "VQVAE3v2",
+          "methods": [
+            "__init__",
+            "normalize_codebook_vectors",
+            "compute_cosine_push_loss",
+            "compute_soft_entropy_loss",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_codebook_similarities",
+            "apply_stochastic_mask",
+            "normalize",
+            "denormalize",
+            "_compute_normalization_values",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 274
+        },
+        {
+          "name": "Encoder_layer",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 71
+        },
+        {
+          "name": "Decoder_layer",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 69
+        },
+        {
+          "name": "VQVAE_layer",
+          "methods": [
+            "__init__",
+            "normalize_codebook_vectors",
+            "compute_cosine_push_loss",
+            "compute_soft_entropy_loss",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_codebook_similarities",
+            "apply_stochastic_mask",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 341
+        },
+        {
+          "name": "Encoder61",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 71
+        },
+        {
+          "name": "Decoder61",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 91
+        },
+        {
+          "name": "VQVAE61",
+          "methods": [
+            "__init__",
+            "normalize_codebook_vectors",
+            "compute_cosine_push_loss",
+            "compute_soft_entropy_loss",
+            "update_usage_tracking",
+            "get_usage_statistics",
+            "compute_codebook_similarities",
+            "apply_stochastic_mask",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 257
+        }
+      ],
+      "imports": [
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.nn.functional",
+          "specifiers": [
+            "F"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "modules",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "ResidualBlock",
+        "CustomSequential",
+        "VQVAE_single",
+        "VQVAE1",
+        "Encoder1",
+        "Decoder1",
+        "Encoder3",
+        "Decoder3",
+        "VQVAE3",
+        "VQVAE2",
+        "Encoder2",
+        "Decoder2",
+        "VQVAELastToken",
+        "VQVAE3_Modified",
+        "Path_Encoder",
+        "Path_Decoder",
+        "Path_VQVAE",
+        "Encoder3v2",
+        "Decoder3v2",
+        "VQVAE3v2",
+        "Encoder_layer",
+        "Decoder_layer",
+        "VQVAE_layer",
+        "Encoder61",
+        "Decoder61",
+        "VQVAE61"
+      ],
+      "totalLines": 4910,
+      "hasStructuralAnalysis": true
+    },
+    "model.py": {
+      "filePath": "model.py",
+      "contentHash": "d34ba2024121b35423379e577db3970e92fde8fbfea29a259b94a0ec2d5362f5",
+      "functions": [
+        {
+          "name": "rotate_every_two",
+          "params": [
+            "x"
+          ],
+          "returnType": "torch.Tensor",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "apply_rotary_pos_emb",
+          "params": [
+            "x",
+            "cos",
+            "sin"
+          ],
+          "returnType": "torch.Tensor",
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "classes": [
+        {
+          "name": "LayerNorm",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "CausalSelfAttention",
+          "methods": [
+            "__init__",
+            "forward",
+            "_create_merged_mask"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 120
+        },
+        {
+          "name": "MLP",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "Block",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "GPTConfig",
+          "methods": [],
+          "properties": [
+            "block_size",
+            "vocab_size",
+            "n_layer",
+            "n_head",
+            "n_embd",
+            "dropout",
+            "bias",
+            "rope_theta"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "GPT",
+          "methods": [
+            "__init__",
+            "get_num_params",
+            "_init_weights",
+            "forward",
+            "crop_block_size",
+            "configure_optimizers",
+            "estimate_mfu",
+            "generate",
+            "hidden_states",
+            "iter_hidden_states"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 351
+        }
+      ],
+      "imports": [
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "inspect",
+          "specifiers": [
+            "inspect"
+          ]
+        },
+        {
+          "source": "dataclasses",
+          "specifiers": [
+            "dataclass"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "F"
+          ]
+        }
+      ],
+      "exports": [
+        "rotate_every_two",
+        "apply_rotary_pos_emb",
+        "LayerNorm",
+        "CausalSelfAttention",
+        "MLP",
+        "Block",
+        "GPTConfig",
+        "GPT"
+      ],
+      "totalLines": 556,
+      "hasStructuralAnalysis": true
+    },
+    "modules.py": {
+      "filePath": "modules.py",
+      "contentHash": "d5c93f6a54374a24423d10498912930c0b75735b617e436c593bd46f060cc23a",
+      "functions": [
+        {
+          "name": "test_attention_combinations",
+          "params": [],
+          "exported": true,
+          "lineCount": 52
+        },
+        {
+          "name": "test_rotary_norm_preservation",
+          "params": [],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "test_gpu_flash",
+          "params": [],
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "classes": [
+        {
+          "name": "LayerNorm",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "RotaryPositionalEmbedding",
+          "methods": [
+            "__init__",
+            "forward",
+            "rotate_half"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "RotarySelfAttention",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 134
+        },
+        {
+          "name": "MLP",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "TransformerBlock",
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "imports": [
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.nn.functional",
+          "specifiers": [
+            "F"
+          ]
+        }
+      ],
+      "exports": [
+        "LayerNorm",
+        "RotaryPositionalEmbedding",
+        "RotarySelfAttention",
+        "MLP",
+        "TransformerBlock",
+        "test_attention_combinations",
+        "test_rotary_norm_preservation",
+        "test_gpu_flash"
+      ],
+      "totalLines": 470,
+      "hasStructuralAnalysis": true
+    },
+    "path_finding_llm_train.py": {
+      "filePath": "path_finding_llm_train.py",
+      "contentHash": "271e1526ffbfddd415612ca90a9d644d1a7d2ddcb3a21f627a41eb50a647a41f",
+      "functions": [
+        {
+          "name": "get_batch",
+          "params": [
+            "split"
+          ],
+          "exported": true,
+          "lineCount": 52
+        },
+        {
+          "name": "estimate_loss",
+          "params": [],
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "estimate_loss_consistent",
+          "params": [],
+          "exported": true,
+          "lineCount": 51
+        },
+        {
+          "name": "evaluate_accuracies",
+          "params": [
+            "iter_num"
+          ],
+          "exported": true,
+          "lineCount": 33
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader",
+            "Subset"
+          ]
+        },
+        {
+          "source": "torch.utils.data.distributed",
+          "specifiers": [
+            "DistributedSampler"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPTConfig",
+            "GPT",
+            "Block",
+            "LayerNorm"
+          ]
+        },
+        {
+          "source": "llm_train_utils",
+          "specifiers": [
+            "get_lr",
+            "save_training_metadata"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn"
+          ]
+        },
+        {
+          "source": "path_finding_llm_evaluation",
+          "specifiers": [
+            "evaluate_path_accuracy"
+          ]
+        }
+      ],
+      "exports": [
+        "get_batch",
+        "estimate_loss",
+        "estimate_loss_consistent",
+        "evaluate_accuracies"
+      ],
+      "totalLines": 961,
+      "hasStructuralAnalysis": true
+    },
+    "path_finding_llm_utilities.py": {
+      "filePath": "path_finding_llm_utilities.py",
+      "contentHash": "1137fe145445a680efd4a200bc406ae793df40661d10c50aba774be1e0679ea4",
+      "functions": [
+        {
+          "name": "custom_collate_fn",
+          "params": [
+            "batch"
+          ],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "compute_loss",
+          "params": [
+            "logits",
+            "labels"
+          ],
+          "returnType": "torch.Tensor",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "crop_prompt_and_attention_mask",
+          "params": [
+            "prompt_ids",
+            "prompt_attention_mask"
+          ],
+          "returnType": "Tuple[torch.Tensor, torch.Tensor]",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "skip_time_steps",
+          "params": [
+            "prompt_ids",
+            "prompt_attention_mask",
+            "H",
+            "max_nodes"
+          ],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "classes": [
+        {
+          "name": "PathFindingDataset",
+          "methods": [
+            "__init__",
+            "_build_vocab",
+            "tokenize_text",
+            "__len__",
+            "__getitem__"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 275
+        }
+      ],
+      "imports": [
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "torch.nn.functional",
+          "specifiers": [
+            "F"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "Dataset",
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "random",
+          "specifiers": [
+            "random"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "List",
+            "Dict",
+            "Any",
+            "Tuple",
+            "Optional"
+          ]
+        }
+      ],
+      "exports": [
+        "PathFindingDataset",
+        "custom_collate_fn",
+        "compute_loss",
+        "crop_prompt_and_attention_mask",
+        "skip_time_steps"
+      ],
+      "totalLines": 394,
+      "hasStructuralAnalysis": true
+    },
+    "path_finding_mi_calc.py": {
+      "filePath": "path_finding_mi_calc.py",
+      "contentHash": "04f9428cea545d940de22e35a8f5d54503156f64b6c76386d7831dde8ab988f9",
+      "functions": [
+        {
+          "name": "normalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "denormalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "normalize_single_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "denormalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "sync_and_update_streaming_info",
+          "params": [
+            "local_samples",
+            "smi_dict",
+            "processed_samples_count",
+            "local_samples_correct",
+            "smi_dict_correct",
+            "local_samples_false",
+            "smi_dict_false"
+          ],
+          "exported": true,
+          "lineCount": 85
+        },
+        {
+          "name": "calculate_and_report_metrics",
+          "params": [
+            "smi_dict",
+            "processed_samples_count",
+            "batch_idx",
+            "total_batches",
+            "smi_dict_correct",
+            "smi_dict_false",
+            "logger_correct",
+            "logger_false"
+          ],
+          "exported": true,
+          "lineCount": 101
+        },
+        {
+          "name": "create_plots_and_save",
+          "params": [
+            "results",
+            "output_dir",
+            "processed_samples_count",
+            "master_process",
+            "logger",
+            "batch_idx",
+            "is_final"
+          ],
+          "exported": true,
+          "lineCount": 117
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn",
+            "crop_prompt_and_attention_mask"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        },
+        {
+          "source": "information_theory_utils",
+          "specifiers": [
+            "StreamingInfo"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "dist"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        }
+      ],
+      "exports": [
+        "normalize_first_stage",
+        "denormalize_first_stage",
+        "normalize_single_stage",
+        "denormalize_first_stage",
+        "sync_and_update_streaming_info",
+        "calculate_and_report_metrics",
+        "create_plots_and_save"
+      ],
+      "totalLines": 1452,
+      "hasStructuralAnalysis": true
+    },
+    "path_finding_mi_calc_61.py": {
+      "filePath": "path_finding_mi_calc_61.py",
+      "contentHash": "543e4571b8962695675d0528a7d48ca54c9a923a1ba7ec76828cfeb78ab004dd",
+      "functions": [
+        {
+          "name": "normalize_single_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "denormalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "sync_and_update_streaming_info",
+          "params": [
+            "local_samples",
+            "smi_dict",
+            "processed_samples_count",
+            "local_samples_correct",
+            "smi_dict_correct",
+            "local_samples_false",
+            "smi_dict_false"
+          ],
+          "exported": true,
+          "lineCount": 85
+        },
+        {
+          "name": "calculate_and_report_metrics",
+          "params": [
+            "smi_dict",
+            "processed_samples_count",
+            "batch_idx",
+            "total_batches",
+            "smi_dict_correct",
+            "smi_dict_false",
+            "logger_correct",
+            "logger_false"
+          ],
+          "exported": true,
+          "lineCount": 101
+        },
+        {
+          "name": "create_plots_and_save",
+          "params": [
+            "results",
+            "output_dir",
+            "processed_samples_count",
+            "master_process",
+            "logger",
+            "batch_idx",
+            "is_final"
+          ],
+          "exported": true,
+          "lineCount": 117
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "tqdm",
+          "specifiers": [
+            "tqdm"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn",
+            "skip_time_steps"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        },
+        {
+          "source": "information_theory_utils",
+          "specifiers": [
+            "StreamingInfo"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "dist"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        }
+      ],
+      "exports": [
+        "normalize_single_stage",
+        "denormalize_first_stage",
+        "sync_and_update_streaming_info",
+        "calculate_and_report_metrics",
+        "create_plots_and_save"
+      ],
+      "totalLines": 1359,
+      "hasStructuralAnalysis": true
+    },
+    "path_finding_vqvae1_train.py": {
+      "filePath": "path_finding_vqvae1_train.py",
+      "contentHash": "5acee201fdb5a5fb42501c19e632d22c41faf8a729a59852551414efeb49a1cb",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "atexit",
+          "specifiers": [
+            "atexit"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn",
+            "skip_time_steps"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 857,
+      "hasStructuralAnalysis": true
+    },
+    "path_finding_vqvae2_train.py": {
+      "filePath": "path_finding_vqvae2_train.py",
+      "contentHash": "38fce0cf1c2948ae89c0c26e48fae95ffb0f7a19ccce311a05a9d92d268e0095",
+      "functions": [
+        {
+          "name": "normalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "denormalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "count_params",
+          "params": [
+            "model"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "atexit",
+          "specifiers": [
+            "atexit"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn",
+            "skip_time_steps"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        }
+      ],
+      "exports": [
+        "normalize_first_stage",
+        "denormalize_first_stage",
+        "count_params"
+      ],
+      "totalLines": 990,
+      "hasStructuralAnalysis": true
+    },
+    "path_finding_vqvae61_train.py": {
+      "filePath": "path_finding_vqvae61_train.py",
+      "contentHash": "c9a618a2372bce3eb3a35435ed1e96fb4a6cf5452f7d60529f2fd7052ec1b3e0",
+      "functions": [
+        {
+          "name": "count_params",
+          "params": [
+            "model"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "atexit",
+          "specifiers": [
+            "atexit"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn",
+            "skip_time_steps"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        }
+      ],
+      "exports": [
+        "count_params"
+      ],
+      "totalLines": 863,
+      "hasStructuralAnalysis": true
+    },
+    "path_finding_vqvae_single_train.py": {
+      "filePath": "path_finding_vqvae_single_train.py",
+      "contentHash": "648bc4fd676660fd7023724a95e6ebcc0e067914a13762f2c0451002c71a340f",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "atexit",
+          "specifiers": [
+            "atexit"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn",
+            "crop_prompt_and_attention_mask"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 755,
+      "hasStructuralAnalysis": true
+    },
+    "path_vqvae_train.py": {
+      "filePath": "path_vqvae_train.py",
+      "contentHash": "df89a12c93ca23b82b0f24da9431fcf978e5109620fc44e99354f7b46bbf1817",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "atexit",
+          "specifiers": [
+            "atexit"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "path_finding_llm_utilities",
+          "specifiers": [
+            "PathFindingDataset",
+            "custom_collate_fn"
+          ]
+        },
+        {
+          "source": "torch.utils.data",
+          "specifiers": [
+            "DataLoader"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 682,
+      "hasStructuralAnalysis": true
+    },
+    "train_minimal_vqvae1.py": {
+      "filePath": "train_minimal_vqvae1.py",
+      "contentHash": "0acc8c5777722c3994ca45c5b7cb2ea70b1d26af2aa4e52a18306461a0708390",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "atexit",
+          "specifiers": [
+            "atexit"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 789,
+      "hasStructuralAnalysis": true
+    },
+    "train_minimal_vqvae2.py": {
+      "filePath": "train_minimal_vqvae2.py",
+      "contentHash": "19066bfa6bbd316f6cc78cf7b2837782f54ae9d224c75f2cbbcd75a5aceb1bda",
+      "functions": [
+        {
+          "name": "normalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "denormalize_first_stage",
+          "params": [
+            "x"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "count_params",
+          "params": [
+            "model"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        }
+      ],
+      "exports": [
+        "normalize_first_stage",
+        "denormalize_first_stage",
+        "count_params"
+      ],
+      "totalLines": 919,
+      "hasStructuralAnalysis": true
+    },
+    "train_minimal_vqvae_single.py": {
+      "filePath": "train_minimal_vqvae_single.py",
+      "contentHash": "820bf77c127e4efe86afc99ac90487c4e90451c0b480bb443f161880d5d1bc10",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "contextlib",
+          "specifiers": [
+            "nullcontext"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "transformers",
+          "specifiers": [
+            "AutoTokenizer",
+            "AutoModelForCausalLM"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "nn"
+          ]
+        },
+        {
+          "source": "torch.optim",
+          "specifiers": [
+            "optim"
+          ]
+        },
+        {
+          "source": "torch.nn.parallel",
+          "specifiers": [
+            "DDP"
+          ]
+        },
+        {
+          "source": "torch.distributed",
+          "specifiers": [
+            "init_process_group",
+            "destroy_process_group"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "gc",
+          "specifiers": [
+            "gc"
+          ]
+        },
+        {
+          "source": "vqvae_utils",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "atexit",
+          "specifiers": [
+            "atexit"
+          ]
+        },
+        {
+          "source": "minimal_VQVAEs",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 678,
+      "hasStructuralAnalysis": true
+    },
+    "vqvae_utils.py": {
+      "filePath": "vqvae_utils.py",
+      "contentHash": "7acf458fad0b5d8452e60678e69f45ac0a8f559fee89f95035c67141cec4e1c7",
+      "functions": [
+        {
+          "name": "get_logger",
+          "params": [
+            "save_logs_flag",
+            "print_logs",
+            "experiment_dir"
+          ],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "configure_optimizers",
+          "params": [
+            "model",
+            "weight_decay",
+            "learning_rate",
+            "betas",
+            "device_type"
+          ],
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "get_lr",
+          "params": [
+            "it",
+            "warmup_iters",
+            "lr_decay_iters",
+            "learning_rate",
+            "min_lr"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "get_beta",
+          "params": [
+            "it",
+            "warmup_iters",
+            "beta_start",
+            "beta_max"
+          ],
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "compute_masked_nrmse",
+          "params": [
+            "H",
+            "output",
+            "attention_mask",
+            "eps"
+          ],
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "compute_masked_nrmse_per_vector",
+          "params": [
+            "H",
+            "output",
+            "attention_mask",
+            "eps"
+          ],
+          "exported": true,
+          "lineCount": 38
+        },
+        {
+          "name": "compute_masked_nrmse_per_element",
+          "params": [
+            "H",
+            "output",
+            "attention_mask",
+            "eps"
+          ],
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "checkModelLoadCorrect",
+          "params": [
+            "model",
+            "param_dict"
+          ],
+          "exported": true,
+          "lineCount": 39
+        },
+        {
+          "name": "create_cfg_dataloader",
+          "params": [
+            "data_path",
+            "batch_size",
+            "seq_length",
+            "pad_token_id",
+            "shuffle",
+            "num_workers"
+          ],
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "convert_left_to_right_padding",
+          "params": [
+            "x",
+            "mask"
+          ],
+          "exported": true,
+          "lineCount": 41
+        },
+        {
+          "name": "convert_right_to_left_padding",
+          "params": [
+            "x",
+            "mask"
+          ],
+          "exported": true,
+          "lineCount": 41
+        },
+        {
+          "name": "test_padding_conversions",
+          "params": [],
+          "exported": true,
+          "lineCount": 71
+        },
+        {
+          "name": "path_finding_generate",
+          "params": [
+            "model",
+            "idx",
+            "max_new_tokens",
+            "temperature",
+            "top_k",
+            "eos_token",
+            "attention_mask"
+          ],
+          "exported": true,
+          "lineCount": 83
+        },
+        {
+          "name": "path_finding_generate_with_hidden_states",
+          "params": [
+            "model",
+            "idx",
+            "max_new_tokens",
+            "temperature",
+            "top_k",
+            "eos_token",
+            "attention_mask"
+          ],
+          "exported": true,
+          "lineCount": 135
+        },
+        {
+          "name": "log_and_plot_usage_for_model",
+          "params": [
+            "model",
+            "model_key",
+            "output_dir",
+            "wandb_flag"
+          ],
+          "exported": true,
+          "lineCount": 57
+        }
+      ],
+      "classes": [
+        {
+          "name": "nanoLLM",
+          "methods": [
+            "__init__",
+            "compile",
+            "to",
+            "eval",
+            "train",
+            "generate_prefix_hidden_states",
+            "generate"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 206
+        },
+        {
+          "name": "CFGDataset",
+          "methods": [
+            "__init__",
+            "__len__",
+            "__getitem__"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 51
+        }
+      ],
+      "imports": [
+        {
+          "source": "torch",
+          "specifiers": [
+            "torch"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "matplotlib.pyplot",
+          "specifiers": [
+            "plt"
+          ]
+        },
+        {
+          "source": "logging",
+          "specifiers": [
+            "logging"
+          ]
+        },
+        {
+          "source": "inspect",
+          "specifiers": [
+            "inspect"
+          ]
+        },
+        {
+          "source": "h5py",
+          "specifiers": [
+            "h5py"
+          ]
+        },
+        {
+          "source": "math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "pickle",
+          "specifiers": [
+            "pickle"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "model",
+          "specifiers": [
+            "GPT",
+            "GPTConfig"
+          ]
+        },
+        {
+          "source": "torch.nn",
+          "specifiers": [
+            "F"
+          ]
+        }
+      ],
+      "exports": [
+        "get_logger",
+        "configure_optimizers",
+        "nanoLLM",
+        "get_lr",
+        "get_beta",
+        "compute_masked_nrmse",
+        "compute_masked_nrmse_per_vector",
+        "compute_masked_nrmse_per_element",
+        "checkModelLoadCorrect",
+        "CFGDataset",
+        "create_cfg_dataloader",
+        "convert_left_to_right_padding",
+        "convert_right_to_left_padding",
+        "test_padding_conversions",
+        "path_finding_generate",
+        "path_finding_generate_with_hidden_states",
+        "log_and_plot_usage_for_model"
+      ],
+      "totalLines": 1001,
+      "hasStructuralAnalysis": true
+    },
+    "22188_Internal_Planning_in_Lan.md": {
+      "filePath": "22188_Internal_Planning_in_Lan.md",
+      "contentHash": "01a05dce9ca5151bafe9ffebe1561a4222a26cc509d2d60e5e0e57878b56018a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1014,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

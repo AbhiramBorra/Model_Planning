@@ -1,0 +1,2216 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 83,
+  "totalBatches": 12,
+  "exportsByPath": {
+    "NLP_llm_train.py": [
+      "get_batch",
+      "estimate_loss"
+    ],
+    "NLP_mi_calc_v6 2.py": [
+      "load_state_dict_remove_ddp_prefix",
+      "build_vqvae3v2_from_config",
+      "compute_vq3v2_index",
+      "compute_vq3v2_index_batch",
+      "get_batch",
+      "save_streaming_info_counts",
+      "collect_block_mi",
+      "load_vqvae_last_token_model",
+      "sync_and_update_streaming_info",
+      "calculate_and_report_metrics",
+      "main"
+    ],
+    "NLP_openwebtext/configGPT3Xsmall.py": [],
+    "NLP_vqvae_last_train.py": [
+      "get_batch",
+      "get_lr",
+      "process_hidden_states_for_vqvae_last"
+    ],
+    "NLP_vqvae_layer_and_block_train.py": [
+      "get_batch",
+      "get_lr",
+      "process_hidden_states_for_vqvae3v2_layer",
+      "process_hidden_states_for_vqvae3v2_block"
+    ],
+    "PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py": [],
+    "PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py": [],
+    "PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py": [],
+    "PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py": [],
+    "data/context_free_grammar/CFG_data_generation.py": [
+      "CFG",
+      "plot_simple_tree",
+      "main"
+    ],
+    "data/context_free_grammar/CFG_full_sequence_data_generation.py": [],
+    "data/context_free_grammar/CFG_prefix_data_generation.py": [],
+    "data/context_free_grammar/check_CGF_implementation.py": [
+      "run_cfg_test",
+      "main"
+    ],
+    "data/context_free_grammar/peeking_dataset.py": [],
+    "data/openwentext/prepare.py": [],
+    "data/path_finding/path_finding_generate.py": [
+      "import_visualization_functions",
+      "run_block_size_analysis",
+      "Graph",
+      "sample_path",
+      "build_graph",
+      "load_cfg",
+      "write_dataset",
+      "main"
+    ],
+    "data/path_finding/path_finding_generate_multi_cpu.py": [
+      "import_visualization_functions",
+      "run_block_size_analysis",
+      "Graph",
+      "sample_path",
+      "generate_single_graph_record",
+      "build_graph",
+      "load_cfg",
+      "write_dataset",
+      "append_records_to_dataset",
+      "init_dataset_file",
+      "worker_process",
+      "merge_worker_files",
+      "get_optimal_worker_count",
+      "main"
+    ],
+    "data/path_finding/visualize_saved_graphs.py": [
+      "load_dataset",
+      "reconstruct_graph_from_record",
+      "enhanced_visualise_graph",
+      "visualize_graphs",
+      "main"
+    ],
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py": [],
+    "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py": [],
+    "information_theory_utils.py": [
+      "StreamingInfo",
+      "approx_equal",
+      "test_independent_uniform",
+      "test_copy_variable",
+      "test_three_variables",
+      "test_no_samples"
+    ],
+    "llm_train.py": [
+      "get_batch",
+      "estimate_loss"
+    ],
+    "llm_train_utils.py": [
+      "get_lr",
+      "save_training_metadata",
+      "evaluate_cfg_accuracy",
+      "save_cfg_accuracy_log",
+      "load_cfg_from_dataset"
+    ],
+    "mi_calc_full_path.py": [
+      "normalize_first_stage",
+      "denormalize_first_stage",
+      "sync_and_update_streaming_info",
+      "calculate_and_report_metrics",
+      "create_plots_and_save"
+    ],
+    "mi_calc_full_path_long2_61.py": [
+      "sync_and_update_streaming_info",
+      "calculate_and_report_metrics",
+      "create_plots_and_save"
+    ],
+    "mi_calc_minimal.py": [
+      "normalize_first_stage",
+      "denormalize_first_stage",
+      "normalize_single_stage",
+      "denormalize_first_stage",
+      "sync_and_update_streaming_info",
+      "calculate_and_report_metrics",
+      "create_plots_and_save"
+    ],
+    "minimal_VQVAEs.py": [
+      "ResidualBlock",
+      "CustomSequential",
+      "VQVAE_single",
+      "VQVAE1",
+      "Encoder1",
+      "Decoder1",
+      "Encoder3",
+      "Decoder3",
+      "VQVAE3",
+      "VQVAE2",
+      "Encoder2",
+      "Decoder2",
+      "VQVAELastToken",
+      "VQVAE3_Modified",
+      "Path_Encoder",
+      "Path_Decoder",
+      "Path_VQVAE",
+      "Encoder3v2",
+      "Decoder3v2",
+      "VQVAE3v2",
+      "Encoder_layer",
+      "Decoder_layer",
+      "VQVAE_layer",
+      "Encoder61",
+      "Decoder61",
+      "VQVAE61"
+    ],
+    "model.py": [
+      "rotate_every_two",
+      "apply_rotary_pos_emb",
+      "LayerNorm",
+      "CausalSelfAttention",
+      "MLP",
+      "Block",
+      "GPTConfig",
+      "GPT"
+    ],
+    "modules.py": [
+      "LayerNorm",
+      "RotaryPositionalEmbedding",
+      "RotarySelfAttention",
+      "MLP",
+      "TransformerBlock",
+      "test_attention_combinations",
+      "test_rotary_norm_preservation",
+      "test_gpu_flash"
+    ],
+    "path_finding_llm_train.py": [
+      "get_batch",
+      "estimate_loss",
+      "estimate_loss_consistent",
+      "evaluate_accuracies"
+    ],
+    "path_finding_llm_utilities.py": [
+      "PathFindingDataset",
+      "custom_collate_fn",
+      "compute_loss",
+      "crop_prompt_and_attention_mask",
+      "skip_time_steps"
+    ],
+    "path_finding_mi_calc.py": [
+      "normalize_first_stage",
+      "denormalize_first_stage",
+      "normalize_single_stage",
+      "denormalize_first_stage",
+      "sync_and_update_streaming_info",
+      "calculate_and_report_metrics",
+      "create_plots_and_save"
+    ],
+    "path_finding_mi_calc_61.py": [
+      "normalize_single_stage",
+      "denormalize_first_stage",
+      "sync_and_update_streaming_info",
+      "calculate_and_report_metrics",
+      "create_plots_and_save"
+    ],
+    "path_finding_vqvae1_train.py": [],
+    "path_finding_vqvae2_train.py": [
+      "normalize_first_stage",
+      "denormalize_first_stage",
+      "count_params"
+    ],
+    "path_finding_vqvae61_train.py": [
+      "count_params"
+    ],
+    "path_finding_vqvae_single_train.py": [],
+    "path_vqvae_train.py": [],
+    "train_minimal_vqvae1.py": [],
+    "train_minimal_vqvae2.py": [
+      "normalize_first_stage",
+      "denormalize_first_stage",
+      "count_params"
+    ],
+    "train_minimal_vqvae_single.py": [],
+    "vqvae_utils.py": [
+      "get_logger",
+      "configure_optimizers",
+      "nanoLLM",
+      "get_lr",
+      "get_beta",
+      "compute_masked_nrmse",
+      "compute_masked_nrmse_per_vector",
+      "compute_masked_nrmse_per_element",
+      "checkModelLoadCorrect",
+      "CFGDataset",
+      "create_cfg_dataloader",
+      "convert_left_to_right_padding",
+      "convert_right_to_left_padding",
+      "test_padding_conversions",
+      "path_finding_generate",
+      "path_finding_generate_with_hidden_states",
+      "log_and_plot_usage_for_model"
+    ]
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "NLP_mi_calc_v6 2.py",
+          "language": "python",
+          "sizeLines": 1020,
+          "fileCategory": "code"
+        },
+        {
+          "path": "information_theory_utils.py",
+          "language": "python",
+          "sizeLines": 987,
+          "fileCategory": "code"
+        },
+        {
+          "path": "mi_calc_full_path.py",
+          "language": "python",
+          "sizeLines": 1071,
+          "fileCategory": "code"
+        },
+        {
+          "path": "mi_calc_full_path_long2_61.py",
+          "language": "python",
+          "sizeLines": 1181,
+          "fileCategory": "code"
+        },
+        {
+          "path": "mi_calc_minimal.py",
+          "language": "python",
+          "sizeLines": 960,
+          "fileCategory": "code"
+        },
+        {
+          "path": "minimal_VQVAEs.py",
+          "language": "python",
+          "sizeLines": 4909,
+          "fileCategory": "code"
+        },
+        {
+          "path": "modules.py",
+          "language": "python",
+          "sizeLines": 469,
+          "fileCategory": "code"
+        },
+        {
+          "path": "path_finding_mi_calc.py",
+          "language": "python",
+          "sizeLines": 1451,
+          "fileCategory": "code"
+        },
+        {
+          "path": "path_finding_mi_calc_61.py",
+          "language": "python",
+          "sizeLines": 1358,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "NLP_mi_calc_v6 2.py": [
+          "information_theory_utils.py",
+          "minimal_VQVAEs.py",
+          "model.py"
+        ],
+        "information_theory_utils.py": [],
+        "mi_calc_full_path.py": [
+          "information_theory_utils.py",
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ],
+        "mi_calc_full_path_long2_61.py": [
+          "information_theory_utils.py",
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ],
+        "mi_calc_minimal.py": [
+          "information_theory_utils.py",
+          "minimal_VQVAEs.py",
+          "vqvae_utils.py"
+        ],
+        "minimal_VQVAEs.py": [
+          "modules.py"
+        ],
+        "modules.py": [],
+        "path_finding_mi_calc.py": [
+          "information_theory_utils.py",
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ],
+        "path_finding_mi_calc_61.py": [
+          "information_theory_utils.py",
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ]
+      },
+      "neighborMap": {
+        "NLP_mi_calc_v6 2.py": [
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          }
+        ],
+        "mi_calc_full_path.py": [
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "path_finding_llm_utilities.py",
+            "batchIndex": 4,
+            "symbols": [
+              "PathFindingDataset",
+              "custom_collate_fn",
+              "compute_loss",
+              "crop_prompt_and_attention_mask",
+              "skip_time_steps"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "mi_calc_full_path_long2_61.py": [
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "path_finding_llm_utilities.py",
+            "batchIndex": 4,
+            "symbols": [
+              "PathFindingDataset",
+              "custom_collate_fn",
+              "compute_loss",
+              "crop_prompt_and_attention_mask",
+              "skip_time_steps"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "mi_calc_minimal.py": [
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "minimal_VQVAEs.py": [
+          {
+            "path": "NLP_vqvae_last_train.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_batch",
+              "get_lr",
+              "process_hidden_states_for_vqvae_last"
+            ]
+          },
+          {
+            "path": "NLP_vqvae_layer_and_block_train.py",
+            "batchIndex": 2,
+            "symbols": [
+              "get_batch",
+              "get_lr",
+              "process_hidden_states_for_vqvae3v2_layer",
+              "process_hidden_states_for_vqvae3v2_block"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae1_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "path_finding_vqvae2_train.py",
+            "batchIndex": 4,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "count_params"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae61_train.py",
+            "batchIndex": 3,
+            "symbols": [
+              "count_params"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae_single_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "path_vqvae_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "train_minimal_vqvae1.py",
+            "batchIndex": 3,
+            "symbols": []
+          },
+          {
+            "path": "train_minimal_vqvae2.py",
+            "batchIndex": 3,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "count_params"
+            ]
+          },
+          {
+            "path": "train_minimal_vqvae_single.py",
+            "batchIndex": 3,
+            "symbols": []
+          }
+        ],
+        "path_finding_mi_calc.py": [
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "path_finding_llm_utilities.py",
+            "batchIndex": 4,
+            "symbols": [
+              "PathFindingDataset",
+              "custom_collate_fn",
+              "compute_loss",
+              "crop_prompt_and_attention_mask",
+              "skip_time_steps"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "path_finding_mi_calc_61.py": [
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "path_finding_llm_utilities.py",
+            "batchIndex": 4,
+            "symbols": [
+              "PathFindingDataset",
+              "custom_collate_fn",
+              "compute_loss",
+              "crop_prompt_and_attention_mask",
+              "skip_time_steps"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "NLP_llm_train.py",
+          "language": "python",
+          "sizeLines": 343,
+          "fileCategory": "code"
+        },
+        {
+          "path": "NLP_vqvae_layer_and_block_train.py",
+          "language": "python",
+          "sizeLines": 1009,
+          "fileCategory": "code"
+        },
+        {
+          "path": "llm_train.py",
+          "language": "python",
+          "sizeLines": 573,
+          "fileCategory": "code"
+        },
+        {
+          "path": "llm_train_utils.py",
+          "language": "python",
+          "sizeLines": 355,
+          "fileCategory": "code"
+        },
+        {
+          "path": "model.py",
+          "language": "python",
+          "sizeLines": 555,
+          "fileCategory": "code"
+        },
+        {
+          "path": "path_finding_llm_train.py",
+          "language": "python",
+          "sizeLines": 960,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "NLP_llm_train.py": [
+          "llm_train_utils.py",
+          "model.py"
+        ],
+        "NLP_vqvae_layer_and_block_train.py": [
+          "minimal_VQVAEs.py",
+          "model.py",
+          "vqvae_utils.py"
+        ],
+        "llm_train.py": [
+          "data/context_free_grammar/CFG_data_generation.py",
+          "llm_train_utils.py",
+          "model.py"
+        ],
+        "llm_train_utils.py": [],
+        "model.py": [],
+        "path_finding_llm_train.py": [
+          "llm_train_utils.py",
+          "model.py",
+          "path_finding_llm_utilities.py"
+        ]
+      },
+      "neighborMap": {
+        "NLP_vqvae_layer_and_block_train.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "llm_train.py": [
+          {
+            "path": "data/context_free_grammar/CFG_data_generation.py",
+            "batchIndex": 5,
+            "symbols": [
+              "CFG",
+              "plot_simple_tree",
+              "main"
+            ]
+          }
+        ],
+        "model.py": [
+          {
+            "path": "NLP_mi_calc_v6 2.py",
+            "batchIndex": 1,
+            "symbols": [
+              "load_state_dict_remove_ddp_prefix",
+              "build_vqvae3v2_from_config",
+              "compute_vq3v2_index",
+              "compute_vq3v2_index_batch",
+              "get_batch",
+              "save_streaming_info_counts",
+              "collect_block_mi",
+              "load_vqvae_last_token_model",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "main"
+            ]
+          },
+          {
+            "path": "NLP_vqvae_last_train.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_batch",
+              "get_lr",
+              "process_hidden_states_for_vqvae_last"
+            ]
+          },
+          {
+            "path": "mi_calc_full_path.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "mi_calc_full_path_long2_61.py",
+            "batchIndex": 1,
+            "symbols": [
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_mi_calc.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "normalize_single_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_mi_calc_61.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_single_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae1_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "path_finding_vqvae2_train.py",
+            "batchIndex": 4,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "count_params"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae61_train.py",
+            "batchIndex": 3,
+            "symbols": [
+              "count_params"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae_single_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "path_vqvae_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "path_finding_llm_train.py": [
+          {
+            "path": "path_finding_llm_utilities.py",
+            "batchIndex": 4,
+            "symbols": [
+              "PathFindingDataset",
+              "custom_collate_fn",
+              "compute_loss",
+              "crop_prompt_and_attention_mask",
+              "skip_time_steps"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "NLP_vqvae_last_train.py",
+          "language": "python",
+          "sizeLines": 663,
+          "fileCategory": "code"
+        },
+        {
+          "path": "path_finding_vqvae61_train.py",
+          "language": "python",
+          "sizeLines": 862,
+          "fileCategory": "code"
+        },
+        {
+          "path": "train_minimal_vqvae1.py",
+          "language": "python",
+          "sizeLines": 788,
+          "fileCategory": "code"
+        },
+        {
+          "path": "train_minimal_vqvae2.py",
+          "language": "python",
+          "sizeLines": 918,
+          "fileCategory": "code"
+        },
+        {
+          "path": "train_minimal_vqvae_single.py",
+          "language": "python",
+          "sizeLines": 677,
+          "fileCategory": "code"
+        },
+        {
+          "path": "vqvae_utils.py",
+          "language": "python",
+          "sizeLines": 1000,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "NLP_vqvae_last_train.py": [
+          "minimal_VQVAEs.py",
+          "model.py",
+          "vqvae_utils.py"
+        ],
+        "path_finding_vqvae61_train.py": [
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ],
+        "train_minimal_vqvae1.py": [
+          "minimal_VQVAEs.py",
+          "vqvae_utils.py"
+        ],
+        "train_minimal_vqvae2.py": [
+          "minimal_VQVAEs.py",
+          "vqvae_utils.py"
+        ],
+        "train_minimal_vqvae_single.py": [
+          "minimal_VQVAEs.py",
+          "vqvae_utils.py"
+        ],
+        "vqvae_utils.py": [
+          "model.py"
+        ]
+      },
+      "neighborMap": {
+        "NLP_vqvae_last_train.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          },
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          }
+        ],
+        "path_finding_vqvae61_train.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          },
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "path_finding_llm_utilities.py",
+            "batchIndex": 4,
+            "symbols": [
+              "PathFindingDataset",
+              "custom_collate_fn",
+              "compute_loss",
+              "crop_prompt_and_attention_mask",
+              "skip_time_steps"
+            ]
+          }
+        ],
+        "train_minimal_vqvae1.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          }
+        ],
+        "train_minimal_vqvae2.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          }
+        ],
+        "train_minimal_vqvae_single.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          }
+        ],
+        "vqvae_utils.py": [
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "NLP_vqvae_layer_and_block_train.py",
+            "batchIndex": 2,
+            "symbols": [
+              "get_batch",
+              "get_lr",
+              "process_hidden_states_for_vqvae3v2_layer",
+              "process_hidden_states_for_vqvae3v2_block"
+            ]
+          },
+          {
+            "path": "mi_calc_full_path.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "mi_calc_full_path_long2_61.py",
+            "batchIndex": 1,
+            "symbols": [
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "mi_calc_minimal.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "normalize_single_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_mi_calc.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "normalize_single_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_mi_calc_61.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_single_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae1_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "path_finding_vqvae2_train.py",
+            "batchIndex": 4,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "count_params"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae_single_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          },
+          {
+            "path": "path_vqvae_train.py",
+            "batchIndex": 4,
+            "symbols": []
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "path_finding_llm_utilities.py",
+          "language": "python",
+          "sizeLines": 393,
+          "fileCategory": "code"
+        },
+        {
+          "path": "path_finding_vqvae1_train.py",
+          "language": "python",
+          "sizeLines": 856,
+          "fileCategory": "code"
+        },
+        {
+          "path": "path_finding_vqvae2_train.py",
+          "language": "python",
+          "sizeLines": 989,
+          "fileCategory": "code"
+        },
+        {
+          "path": "path_finding_vqvae_single_train.py",
+          "language": "python",
+          "sizeLines": 754,
+          "fileCategory": "code"
+        },
+        {
+          "path": "path_vqvae_train.py",
+          "language": "python",
+          "sizeLines": 681,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "path_finding_llm_utilities.py": [],
+        "path_finding_vqvae1_train.py": [
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ],
+        "path_finding_vqvae2_train.py": [
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ],
+        "path_finding_vqvae_single_train.py": [
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ],
+        "path_vqvae_train.py": [
+          "minimal_VQVAEs.py",
+          "model.py",
+          "path_finding_llm_utilities.py",
+          "vqvae_utils.py"
+        ]
+      },
+      "neighborMap": {
+        "path_finding_llm_utilities.py": [
+          {
+            "path": "mi_calc_full_path.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "mi_calc_full_path_long2_61.py",
+            "batchIndex": 1,
+            "symbols": [
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_llm_train.py",
+            "batchIndex": 2,
+            "symbols": [
+              "get_batch",
+              "estimate_loss",
+              "estimate_loss_consistent",
+              "evaluate_accuracies"
+            ]
+          },
+          {
+            "path": "path_finding_mi_calc.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_first_stage",
+              "denormalize_first_stage",
+              "normalize_single_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_mi_calc_61.py",
+            "batchIndex": 1,
+            "symbols": [
+              "normalize_single_stage",
+              "denormalize_first_stage",
+              "sync_and_update_streaming_info",
+              "calculate_and_report_metrics",
+              "create_plots_and_save"
+            ]
+          },
+          {
+            "path": "path_finding_vqvae61_train.py",
+            "batchIndex": 3,
+            "symbols": [
+              "count_params"
+            ]
+          }
+        ],
+        "path_finding_vqvae1_train.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          },
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "path_finding_vqvae2_train.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          },
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "path_finding_vqvae_single_train.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          },
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ],
+        "path_vqvae_train.py": [
+          {
+            "path": "minimal_VQVAEs.py",
+            "batchIndex": 1,
+            "symbols": [
+              "ResidualBlock",
+              "CustomSequential",
+              "VQVAE_single",
+              "VQVAE1",
+              "Encoder1",
+              "Decoder1",
+              "Encoder3",
+              "Decoder3",
+              "VQVAE3",
+              "VQVAE2",
+              "Encoder2",
+              "Decoder2",
+              "VQVAELastToken",
+              "VQVAE3_Modified",
+              "Path_Encoder",
+              "Path_Decoder",
+              "Path_VQVAE",
+              "Encoder3v2",
+              "Decoder3v2",
+              "VQVAE3v2",
+              "Encoder_layer",
+              "Decoder_layer",
+              "VQVAE_layer",
+              "Encoder61",
+              "Decoder61",
+              "VQVAE61"
+            ]
+          },
+          {
+            "path": "model.py",
+            "batchIndex": 2,
+            "symbols": [
+              "rotate_every_two",
+              "apply_rotary_pos_emb",
+              "LayerNorm",
+              "CausalSelfAttention",
+              "MLP",
+              "Block",
+              "GPTConfig",
+              "GPT"
+            ]
+          },
+          {
+            "path": "vqvae_utils.py",
+            "batchIndex": 3,
+            "symbols": [
+              "get_logger",
+              "configure_optimizers",
+              "nanoLLM",
+              "get_lr",
+              "get_beta",
+              "compute_masked_nrmse",
+              "compute_masked_nrmse_per_vector",
+              "compute_masked_nrmse_per_element",
+              "checkModelLoadCorrect",
+              "CFGDataset",
+              "create_cfg_dataloader",
+              "convert_left_to_right_padding",
+              "convert_right_to_left_padding",
+              "test_padding_conversions",
+              "path_finding_generate",
+              "path_finding_generate_with_hidden_states",
+              "log_and_plot_usage_for_model"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": "data/context_free_grammar/CFG_data_generation.py",
+          "language": "python",
+          "sizeLines": 567,
+          "fileCategory": "code"
+        },
+        {
+          "path": "data/context_free_grammar/CFG_full_sequence_data_generation.py",
+          "language": "python",
+          "sizeLines": 91,
+          "fileCategory": "code"
+        },
+        {
+          "path": "data/context_free_grammar/CFG_prefix_data_generation.py",
+          "language": "python",
+          "sizeLines": 128,
+          "fileCategory": "code"
+        },
+        {
+          "path": "data/context_free_grammar/check_CGF_implementation.py",
+          "language": "python",
+          "sizeLines": 117,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "data/context_free_grammar/CFG_data_generation.py": [],
+        "data/context_free_grammar/CFG_full_sequence_data_generation.py": [
+          "data/context_free_grammar/CFG_data_generation.py"
+        ],
+        "data/context_free_grammar/CFG_prefix_data_generation.py": [
+          "data/context_free_grammar/CFG_data_generation.py"
+        ],
+        "data/context_free_grammar/check_CGF_implementation.py": [
+          "data/context_free_grammar/CFG_data_generation.py"
+        ]
+      },
+      "neighborMap": {
+        "data/context_free_grammar/CFG_data_generation.py": [
+          {
+            "path": "llm_train.py",
+            "batchIndex": 2,
+            "symbols": [
+              "get_batch",
+              "estimate_loss"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 6,
+      "files": [
+        {
+          "path": "NLP_openwebtext/VQVAE_last_train_config07s.json",
+          "language": "json",
+          "sizeLines": 65,
+          "fileCategory": "config"
+        },
+        {
+          "path": "NLP_openwebtext/layer_and_block_config_256.json",
+          "language": "json",
+          "sizeLines": 129,
+          "fileCategory": "config"
+        },
+        {
+          "path": "NLP_openwebtext/mi_calc_v6_config 2.json",
+          "language": "json",
+          "sizeLines": 20,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "NLP_openwebtext/VQVAE_last_train_config07s.json": [],
+        "NLP_openwebtext/layer_and_block_config_256.json": [],
+        "NLP_openwebtext/mi_calc_v6_config 2.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 7,
+      "files": [
+        {
+          "path": "PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+          "language": "json",
+          "sizeLines": 76,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+          "language": "json",
+          "sizeLines": 84,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+          "language": "json",
+          "sizeLines": 58,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+          "language": "json",
+          "sizeLines": 76,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+          "language": "json",
+          "sizeLines": 84,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+          "language": "json",
+          "sizeLines": 63,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+          "language": "json",
+          "sizeLines": 58,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json": [],
+        "PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json": [],
+        "PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json": [],
+        "PF_15XL/seed11_configs/vqvae1_config_seed11.json": [],
+        "PF_15XL/seed11_configs/vqvae2_config_seed11.json": [],
+        "PF_15XL/seed11_configs/vqvae_path_config_seed11.json": [],
+        "PF_15XL/seed11_configs/vqvae_single_config_seed11.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 8,
+      "files": [
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json",
+          "language": "json",
+          "sizeLines": 78,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json",
+          "language": "json",
+          "sizeLines": 79,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json",
+          "language": "json",
+          "sizeLines": 80,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json",
+          "language": "json",
+          "sizeLines": 53,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json",
+          "language": "json",
+          "sizeLines": 78,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json",
+          "language": "json",
+          "sizeLines": 79,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json",
+          "language": "json",
+          "sizeLines": 80,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json",
+          "language": "json",
+          "sizeLines": 59,
+          "fileCategory": "config"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json",
+          "language": "json",
+          "sizeLines": 53,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json": [],
+        "PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json": [],
+        "PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json": [],
+        "PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json": [],
+        "PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json": [],
+        "PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json": [],
+        "PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json": [],
+        "PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json": [],
+        "PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 9,
+      "files": [
+        {
+          "path": "data/path_finding/PF_15XL_config.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_15XL_config_mi.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_15XL_config_train.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_15XL_config_train_small.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_15XL_config_train_vocab.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_15XL_config_vqvae.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_long1decoy_easier_config.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_long1decoy_easier_config_mi.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_long1decoy_easier_config_observe.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_long1decoy_easier_config_train.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_long1decoy_easier_config_train_small.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_long1decoy_easier_config_val.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        },
+        {
+          "path": "data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+          "language": "json",
+          "sizeLines": 15,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "data/path_finding/PF_15XL_config.json": [],
+        "data/path_finding/PF_15XL_config_mi.json": [],
+        "data/path_finding/PF_15XL_config_train.json": [],
+        "data/path_finding/PF_15XL_config_train_small.json": [],
+        "data/path_finding/PF_15XL_config_train_vocab.json": [],
+        "data/path_finding/PF_15XL_config_vqvae.json": [],
+        "data/path_finding/PF_long1decoy_easier_config.json": [],
+        "data/path_finding/PF_long1decoy_easier_config_mi.json": [],
+        "data/path_finding/PF_long1decoy_easier_config_observe.json": [],
+        "data/path_finding/PF_long1decoy_easier_config_train.json": [],
+        "data/path_finding/PF_long1decoy_easier_config_train_small.json": [],
+        "data/path_finding/PF_long1decoy_easier_config_train_vocab.json": [],
+        "data/path_finding/PF_long1decoy_easier_config_val.json": [],
+        "data/path_finding/PF_long1decoy_easier_config_vqvae.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 10,
+      "files": [
+        {
+          "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+          "language": "json",
+          "sizeLines": 75,
+          "fileCategory": "config"
+        },
+        {
+          "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+          "language": "json",
+          "sizeLines": 84,
+          "fileCategory": "config"
+        },
+        {
+          "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+          "language": "json",
+          "sizeLines": 56,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json": [],
+        "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json": [],
+        "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 11,
+      "files": [
+        {
+          "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json",
+          "language": "json",
+          "sizeLines": 75,
+          "fileCategory": "config"
+        },
+        {
+          "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json",
+          "language": "json",
+          "sizeLines": 84,
+          "fileCategory": "config"
+        },
+        {
+          "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json",
+          "language": "json",
+          "sizeLines": 56,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json": [],
+        "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json": [],
+        "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 12,
+      "files": [
+        {
+          "path": "NLP_openwebtext/configGPT3Xsmall.py",
+          "language": "python",
+          "sizeLines": 50,
+          "fileCategory": "code"
+        },
+        {
+          "path": "PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+          "language": "python",
+          "sizeLines": 52,
+          "fileCategory": "code"
+        },
+        {
+          "path": "PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+          "language": "python",
+          "sizeLines": 58,
+          "fileCategory": "code"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+          "language": "python",
+          "sizeLines": 55,
+          "fileCategory": "code"
+        },
+        {
+          "path": "PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+          "language": "python",
+          "sizeLines": 59,
+          "fileCategory": "code"
+        },
+        {
+          "path": "README.txt",
+          "language": "txt",
+          "sizeLines": 72,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "data/context_free_grammar/peeking_dataset.py",
+          "language": "python",
+          "sizeLines": 105,
+          "fileCategory": "code"
+        },
+        {
+          "path": "data/openwentext/prepare.py",
+          "language": "python",
+          "sizeLines": 82,
+          "fileCategory": "code"
+        },
+        {
+          "path": "data/openwentext/readme.md",
+          "language": "markdown",
+          "sizeLines": 15,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "data/path_finding/path_finding_generate.py",
+          "language": "python",
+          "sizeLines": 480,
+          "fileCategory": "code"
+        },
+        {
+          "path": "data/path_finding/path_finding_generate_multi_cpu.py",
+          "language": "python",
+          "sizeLines": 702,
+          "fileCategory": "code"
+        },
+        {
+          "path": "data/path_finding/visualize_saved_graphs.py",
+          "language": "python",
+          "sizeLines": 401,
+          "fileCategory": "code"
+        },
+        {
+          "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+          "language": "python",
+          "sizeLines": 42,
+          "fileCategory": "code"
+        },
+        {
+          "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py",
+          "language": "python",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "NLP_openwebtext/configGPT3Xsmall.py": [],
+        "PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py": [],
+        "PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py": [],
+        "PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py": [],
+        "PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py": [],
+        "README.txt": [],
+        "data/context_free_grammar/peeking_dataset.py": [],
+        "data/openwentext/prepare.py": [],
+        "data/openwentext/readme.md": [],
+        "data/path_finding/path_finding_generate.py": [],
+        "data/path_finding/path_finding_generate_multi_cpu.py": [],
+        "data/path_finding/visualize_saved_graphs.py": [
+          "data/path_finding/path_finding_generate.py"
+        ],
+        "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py": [],
+        "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

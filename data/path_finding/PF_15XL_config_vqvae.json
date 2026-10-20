@@ -1,0 +1,16 @@
+{
+  "max_nodes": 28,
+  "output_dir": "PF_15XL/samples",
+  "dataset_name": "vqvae",
+  "seed": 61,
+  "dataset_size": 16000000,
+  "n_paths": 2,
+  "n_decoy": 2,
+  "min_path_len": 2,
+  "max_path_len": 2,
+  "branch_lambda": [
+    1.0
+  ],
+  "max_children": 2,
+  "visualize": true
+}

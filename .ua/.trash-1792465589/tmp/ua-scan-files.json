@@ -1,0 +1,571 @@
+{
+  "scriptCompleted": true,
+  "contentDigest": "de6aeead630da0fdf63741a7612e9dfaf0aec01b2dbd1ccfea14a2dbd4a43d62",
+  "files": [
+    {
+      "path": ".DS_Store",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "sizeLines": 1,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/tmp/scan-err.txt",
+      "language": "txt",
+      "sizeLines": 1,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "NLP_llm_train.py",
+      "language": "python",
+      "sizeLines": 343,
+      "fileCategory": "code"
+    },
+    {
+      "path": "NLP_mi_calc_v6 2.py",
+      "language": "python",
+      "sizeLines": 1020,
+      "fileCategory": "code"
+    },
+    {
+      "path": "NLP_openwebtext/VQVAE_last_train_config07s.json",
+      "language": "json",
+      "sizeLines": 65,
+      "fileCategory": "config"
+    },
+    {
+      "path": "NLP_openwebtext/configGPT3Xsmall.py",
+      "language": "python",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "NLP_openwebtext/layer_and_block_config_256.json",
+      "language": "json",
+      "sizeLines": 129,
+      "fileCategory": "config"
+    },
+    {
+      "path": "NLP_openwebtext/mi_calc_v6_config 2.json",
+      "language": "json",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    },
+    {
+      "path": "NLP_vqvae_last_train.py",
+      "language": "python",
+      "sizeLines": 663,
+      "fileCategory": "code"
+    },
+    {
+      "path": "NLP_vqvae_layer_and_block_train.py",
+      "language": "python",
+      "sizeLines": 1009,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_15XL/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+      "language": "python",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "language": "json",
+      "sizeLines": 76,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "language": "json",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "language": "json",
+      "sizeLines": 58,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+      "language": "json",
+      "sizeLines": 76,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+      "language": "json",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+      "language": "json",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+      "language": "json",
+      "sizeLines": 58,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "language": "python",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "language": "python",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "language": "json",
+      "sizeLines": 78,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "language": "json",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json",
+      "language": "json",
+      "sizeLines": 80,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "language": "json",
+      "sizeLines": 53,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json",
+      "language": "json",
+      "sizeLines": 78,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json",
+      "language": "json",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json",
+      "language": "json",
+      "sizeLines": 80,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json",
+      "language": "json",
+      "sizeLines": 59,
+      "fileCategory": "config"
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json",
+      "language": "json",
+      "sizeLines": 53,
+      "fileCategory": "config"
+    },
+    {
+      "path": "README.txt",
+      "language": "txt",
+      "sizeLines": 72,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "data/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/context_free_grammar/CFG_data_generation.py",
+      "language": "python",
+      "sizeLines": 567,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/context_free_grammar/CFG_full_sequence_data_generation.py",
+      "language": "python",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/context_free_grammar/CFG_prefix_data_generation.py",
+      "language": "python",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/context_free_grammar/check_CGF_implementation.py",
+      "language": "python",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/context_free_grammar/peeking_dataset.py",
+      "language": "python",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/openwentext/prepare.py",
+      "language": "python",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/openwentext/readme.md",
+      "language": "markdown",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_mi.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_train.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_train_small.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_train_vocab.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_15XL_config_vqvae.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_mi.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_observe.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_train.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_train_small.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_val.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+      "language": "json",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "data/path_finding/path_finding_generate.py",
+      "language": "python",
+      "sizeLines": 480,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/path_finding/path_finding_generate_multi_cpu.py",
+      "language": "python",
+      "sizeLines": 702,
+      "fileCategory": "code"
+    },
+    {
+      "path": "data/path_finding/visualize_saved_graphs.py",
+      "language": "python",
+      "sizeLines": 401,
+      "fileCategory": "code"
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+      "language": "python",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+      "language": "json",
+      "sizeLines": 75,
+      "fileCategory": "config"
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+      "language": "json",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+      "language": "json",
+      "sizeLines": 56,
+      "fileCategory": "config"
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py",
+      "language": "python",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json",
+      "language": "json",
+      "sizeLines": 75,
+      "fileCategory": "config"
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json",
+      "language": "json",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json",
+      "language": "json",
+      "sizeLines": 56,
+      "fileCategory": "config"
+    },
+    {
+      "path": "information_theory_utils.py",
+      "language": "python",
+      "sizeLines": 987,
+      "fileCategory": "code"
+    },
+    {
+      "path": "llm_train.py",
+      "language": "python",
+      "sizeLines": 573,
+      "fileCategory": "code"
+    },
+    {
+      "path": "llm_train_utils.py",
+      "language": "python",
+      "sizeLines": 355,
+      "fileCategory": "code"
+    },
+    {
+      "path": "mi_calc_full_path.py",
+      "language": "python",
+      "sizeLines": 1071,
+      "fileCategory": "code"
+    },
+    {
+      "path": "mi_calc_full_path_long2_61.py",
+      "language": "python",
+      "sizeLines": 1181,
+      "fileCategory": "code"
+    },
+    {
+      "path": "mi_calc_minimal.py",
+      "language": "python",
+      "sizeLines": 960,
+      "fileCategory": "code"
+    },
+    {
+      "path": "minimal_VQVAEs.py",
+      "language": "python",
+      "sizeLines": 4909,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model.py",
+      "language": "python",
+      "sizeLines": 555,
+      "fileCategory": "code"
+    },
+    {
+      "path": "modules.py",
+      "language": "python",
+      "sizeLines": 469,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_finding_llm_train.py",
+      "language": "python",
+      "sizeLines": 960,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_finding_llm_utilities.py",
+      "language": "python",
+      "sizeLines": 393,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_finding_mi_calc.py",
+      "language": "python",
+      "sizeLines": 1451,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_finding_mi_calc_61.py",
+      "language": "python",
+      "sizeLines": 1358,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_finding_vqvae1_train.py",
+      "language": "python",
+      "sizeLines": 856,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_finding_vqvae2_train.py",
+      "language": "python",
+      "sizeLines": 989,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_finding_vqvae61_train.py",
+      "language": "python",
+      "sizeLines": 862,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_finding_vqvae_single_train.py",
+      "language": "python",
+      "sizeLines": 754,
+      "fileCategory": "code"
+    },
+    {
+      "path": "path_vqvae_train.py",
+      "language": "python",
+      "sizeLines": 681,
+      "fileCategory": "code"
+    },
+    {
+      "path": "train_minimal_vqvae1.py",
+      "language": "python",
+      "sizeLines": 788,
+      "fileCategory": "code"
+    },
+    {
+      "path": "train_minimal_vqvae2.py",
+      "language": "python",
+      "sizeLines": 918,
+      "fileCategory": "code"
+    },
+    {
+      "path": "train_minimal_vqvae_single.py",
+      "language": "python",
+      "sizeLines": 677,
+      "fileCategory": "code"
+    },
+    {
+      "path": "vqvae_utils.py",
+      "language": "python",
+      "sizeLines": 1000,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 91,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "moderate",
+  "failures": [],
+  "stats": {
+    "filesScanned": 91,
+    "byCategory": {
+      "code": 48,
+      "config": 40,
+      "docs": 3
+    },
+    "byLanguage": {
+      "unknown": 6,
+      "json": 40,
+      "txt": 2,
+      "python": 42,
+      "markdown": 1
+    }
+  }
+}

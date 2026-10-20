@@ -1,0 +1,1178 @@
+{
+ "nodes": [
+  {
+   "id": "file:NLP_openwebtext/configGPT3Xsmall.py",
+   "type": "file",
+   "name": "configGPT3Xsmall.py",
+   "filePath": "NLP_openwebtext/configGPT3Xsmall.py",
+   "summary": "nanoGPT-style training config for the OpenWebText NLP experiment: an 8-layer, 8-head, 512-dim GPT with block size 256, a Chinchilla-derived 2.5B-token horizon, decaying LR schedule and wandb logging.",
+   "tags": [
+    "config",
+    "training-config",
+    "nlp",
+    "gpt",
+    "hyperparameters"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+   "type": "file",
+   "name": "final_config_path_finding_GPT3small_128_longer_train.py",
+   "filePath": "PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+   "summary": "Training config for the short path-finding task (PF-15XL) with next-token loss: GPT3-small (12 layers, 768 dim), block size 128, 20B-token horizon and wandb logging.",
+   "tags": [
+    "config",
+    "training-config",
+    "path-finding",
+    "ntp",
+    "hyperparameters"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+   "type": "file",
+   "name": "mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+   "filePath": "PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+   "summary": "Multi-token-loss variant of the PF-15XL path-finding training config, enabling shared-heads MTL with mtl_length=2 over the last 2 transformer blocks.",
+   "tags": [
+    "config",
+    "training-config",
+    "path-finding",
+    "multi-token-loss",
+    "hyperparameters"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "type": "file",
+   "name": "final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "filePath": "PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "summary": "Seed-11 training config for the long path-finding task (PF-Long, one decoy) with next-token loss: GPT3-small, block size 128, 2000 iterations while keeping the LR schedule of the original long horizon.",
+   "tags": [
+    "config",
+    "training-config",
+    "path-finding",
+    "ntp",
+    "hyperparameters"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "type": "file",
+   "name": "mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "filePath": "PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "summary": "Multi-token-loss variant of the seed-11 PF-Long training config, enabling shared-heads MTL prediction of future tokens.",
+   "tags": [
+    "config",
+    "training-config",
+    "path-finding",
+    "multi-token-loss",
+    "hyperparameters"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "document:README.txt",
+   "type": "document",
+   "name": "README.txt",
+   "filePath": "README.txt",
+   "summary": "Top-level run guide listing the commands to generate CFG, OpenWebText and path-finding datasets, and the train-model / train-VQ-VAEs / compute-MI pipelines for CFG, PF-Short, PF-Long and OpenWebText experiments in NTP and MTP variants.",
+   "tags": [
+    "documentation",
+    "entry-point",
+    "overview",
+    "usage-guide"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:data/context_free_grammar/peeking_dataset.py",
+   "type": "file",
+   "name": "peeking_dataset.py",
+   "filePath": "data/context_free_grammar/peeking_dataset.py",
+   "summary": "Debugging script that memory-maps a CFG binary dataset (e.g. train_prefixes8_24.bin), prints the first tokens, and optionally plots the distribution of sequence lengths.",
+   "tags": [
+    "utility",
+    "debugging",
+    "dataset",
+    "inspection",
+    "script"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:data/openwentext/prepare.py",
+   "type": "file",
+   "name": "prepare.py",
+   "filePath": "data/openwentext/prepare.py",
+   "summary": "Downloads OpenWebText via HuggingFace datasets, splits off a small validation set, tokenizes with tiktoken GPT-2 BPE in parallel, and writes train.bin/val.bin uint16 token files.",
+   "tags": [
+    "data-preparation",
+    "tokenization",
+    "nlp",
+    "dataset",
+    "script"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Uses datasets.map with num_proc and np.memmap to stream tokens into a single binary file in shards."
+  },
+  {
+   "id": "document:data/openwentext/readme.md",
+   "type": "document",
+   "name": "readme.md",
+   "filePath": "data/openwentext/readme.md",
+   "summary": "Short note describing the OpenWebText binary outputs of prepare.py (about 9B train tokens and 4M val tokens from 8M documents) with references to GPT-2 and OpenWebText.",
+   "tags": [
+    "documentation",
+    "dataset",
+    "nlp"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:data/path_finding/path_finding_generate.py",
+   "type": "file",
+   "name": "path_finding_generate.py",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "Single-process synthetic path-finding dataset generator: builds random tree-like graphs with correct and decoy paths from a JSON/YAML config, serialises them to JSONL records, and optionally runs block-size analysis and visualisation.",
+   "tags": [
+    "data-generation",
+    "path-finding",
+    "graph",
+    "entry-point",
+    "dataset"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:data/path_finding/path_finding_generate.py:Graph",
+   "type": "class",
+   "name": "Graph",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "Minimal directed graph container with node creation, edge addition, edge listing and conversion to networkx.",
+   "tags": [
+    "data-model",
+    "graph"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    155,
+    200
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate.py:import_visualization_functions",
+   "type": "function",
+   "name": "import_visualization_functions",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "Lazily imports visualisation helpers from visualize_saved_graphs to avoid circular imports.",
+   "tags": [
+    "utility",
+    "lazy-import"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    68,
+    75
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate.py:run_block_size_analysis",
+   "type": "function",
+   "name": "run_block_size_analysis",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "Analyses tokenised lengths of generated samples to recommend a model block size.",
+   "tags": [
+    "analysis",
+    "utility",
+    "path-finding"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    81,
+    149
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate.py:sample_path",
+   "type": "function",
+   "name": "sample_path",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "Samples a random path of the given length from a pool of node ids.",
+   "tags": [
+    "utility",
+    "sampling"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    206,
+    211
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate.py:build_graph",
+   "type": "function",
+   "name": "build_graph",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "Builds one random graph instance with a start node, correct and decoy paths of sampled lengths, and Poisson-distributed extra branches, returning a dataset record.",
+   "tags": [
+    "graph",
+    "generator",
+    "path-finding"
+   ],
+   "complexity": "complex",
+   "lineRange": [
+    213,
+    339
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate.py:load_cfg",
+   "type": "function",
+   "name": "load_cfg",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "Loads a JSON or YAML generator config file.",
+   "tags": [
+    "config",
+    "utility"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    345,
+    349
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate.py:write_dataset",
+   "type": "function",
+   "name": "write_dataset",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "Writes generated records to a JSONL dataset file.",
+   "tags": [
+    "serialization",
+    "utility"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    355,
+    361
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate.py:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "data/path_finding/path_finding_generate.py",
+   "summary": "CLI entry that loads the config, generates train/val/test records, writes JSONL datasets and triggers optional analysis and visualisation.",
+   "tags": [
+    "entry-point",
+    "cli",
+    "data-generation"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    367,
+    478
+   ]
+  },
+  {
+   "id": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "file",
+   "name": "path_finding_generate_multi_cpu.py",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Multi-process version of the path-finding dataset generator that splits graph generation across worker processes writing temp JSONL files, then merges them into the final train/val/test datasets; this is the generator referenced in the README.",
+   "tags": [
+    "data-generation",
+    "path-finding",
+    "parallel-processing",
+    "entry-point",
+    "dataset"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:data/path_finding/path_finding_generate_multi_cpu.py:Graph",
+   "type": "class",
+   "name": "Graph",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Minimal directed graph container with node creation, edge addition, edge listing and networkx conversion (duplicate of the single-process version).",
+   "tags": [
+    "data-model",
+    "graph"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    159,
+    204
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:import_visualization_functions",
+   "type": "function",
+   "name": "import_visualization_functions",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Lazily imports visualisation helpers from visualize_saved_graphs.",
+   "tags": [
+    "utility",
+    "lazy-import"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    72,
+    79
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:run_block_size_analysis",
+   "type": "function",
+   "name": "run_block_size_analysis",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Analyses sample lengths to recommend a model block size.",
+   "tags": [
+    "analysis",
+    "utility"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    85,
+    153
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:sample_path",
+   "type": "function",
+   "name": "sample_path",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Samples a random path of given length from a node pool.",
+   "tags": [
+    "utility",
+    "sampling"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    210,
+    215
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:generate_single_graph_record",
+   "type": "function",
+   "name": "generate_single_graph_record",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Builds and serialises one graph record, used as the per-sample work unit for workers.",
+   "tags": [
+    "generator",
+    "path-finding",
+    "serialization"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    217,
+    257
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:build_graph",
+   "type": "function",
+   "name": "build_graph",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Builds one random graph with correct and decoy paths and random branching per the config.",
+   "tags": [
+    "graph",
+    "generator",
+    "path-finding"
+   ],
+   "complexity": "complex",
+   "lineRange": [
+    260,
+    386
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:load_cfg",
+   "type": "function",
+   "name": "load_cfg",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Loads a JSON or YAML config.",
+   "tags": [
+    "config",
+    "utility"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    392,
+    396
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:write_dataset",
+   "type": "function",
+   "name": "write_dataset",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Writes records to a JSONL dataset file.",
+   "tags": [
+    "serialization",
+    "utility"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    402,
+    409
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:append_records_to_dataset",
+   "type": "function",
+   "name": "append_records_to_dataset",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Appends records to an existing JSONL dataset file.",
+   "tags": [
+    "serialization",
+    "utility"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    412,
+    418
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:init_dataset_file",
+   "type": "function",
+   "name": "init_dataset_file",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Creates or truncates an output dataset file.",
+   "tags": [
+    "utility",
+    "io"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    421,
+    426
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:worker_process",
+   "type": "function",
+   "name": "worker_process",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Worker routine generating a range of graph records into a temporary file.",
+   "tags": [
+    "worker",
+    "parallel-processing"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    432,
+    452
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:merge_worker_files",
+   "type": "function",
+   "name": "merge_worker_files",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Merges worker temp files into the final dataset and cleans them up.",
+   "tags": [
+    "io",
+    "parallel-processing",
+    "merge"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    455,
+    498
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:get_optimal_worker_count",
+   "type": "function",
+   "name": "get_optimal_worker_count",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "Chooses the number of worker processes from the CPU count.",
+   "tags": [
+    "utility",
+    "parallel-processing"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    501,
+    507
+   ]
+  },
+  {
+   "id": "function:data/path_finding/path_finding_generate_multi_cpu.py:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "data/path_finding/path_finding_generate_multi_cpu.py",
+   "summary": "CLI entry that loads the config, dispatches multi-process generation for each split, merges outputs, and runs optional analysis and visualisation.",
+   "tags": [
+    "entry-point",
+    "cli",
+    "data-generation"
+   ],
+   "complexity": "complex",
+   "lineRange": [
+    513,
+    700
+   ]
+  },
+  {
+   "id": "file:data/path_finding/visualize_saved_graphs.py",
+   "type": "file",
+   "name": "visualize_saved_graphs.py",
+   "filePath": "data/path_finding/visualize_saved_graphs.py",
+   "summary": "CLI tool that loads saved path-finding JSONL datasets, reconstructs Graph objects from records, and renders annotated images highlighting start, goal, correct and decoy paths.",
+   "tags": [
+    "visualization",
+    "path-finding",
+    "cli",
+    "graph",
+    "utility"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:data/path_finding/visualize_saved_graphs.py:load_dataset",
+   "type": "function",
+   "name": "load_dataset",
+   "filePath": "data/path_finding/visualize_saved_graphs.py",
+   "summary": "Loads JSONL records from a dataset file.",
+   "tags": [
+    "io",
+    "utility"
+   ],
+   "complexity": "simple",
+   "lineRange": [
+    50,
+    62
+   ]
+  },
+  {
+   "id": "function:data/path_finding/visualize_saved_graphs.py:reconstruct_graph_from_record",
+   "type": "function",
+   "name": "reconstruct_graph_from_record",
+   "filePath": "data/path_finding/visualize_saved_graphs.py",
+   "summary": "Rebuilds a Graph and path metadata from a serialised dataset record.",
+   "tags": [
+    "deserialization",
+    "graph"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    65,
+    113
+   ]
+  },
+  {
+   "id": "function:data/path_finding/visualize_saved_graphs.py:enhanced_visualise_graph",
+   "type": "function",
+   "name": "enhanced_visualise_graph",
+   "filePath": "data/path_finding/visualize_saved_graphs.py",
+   "summary": "Draws a graph with networkx/matplotlib, colouring correct and decoy paths and saving the figure.",
+   "tags": [
+    "visualization",
+    "graph"
+   ],
+   "complexity": "complex",
+   "lineRange": [
+    116,
+    275
+   ]
+  },
+  {
+   "id": "function:data/path_finding/visualize_saved_graphs.py:visualize_graphs",
+   "type": "function",
+   "name": "visualize_graphs",
+   "filePath": "data/path_finding/visualize_saved_graphs.py",
+   "summary": "Visualises a range or explicit list of graph records from a dataset.",
+   "tags": [
+    "visualization",
+    "batch"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    278,
+    336
+   ]
+  },
+  {
+   "id": "function:data/path_finding/visualize_saved_graphs.py:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "data/path_finding/visualize_saved_graphs.py",
+   "summary": "Parses CLI arguments and runs visualize_graphs.",
+   "tags": [
+    "entry-point",
+    "cli"
+   ],
+   "complexity": "moderate",
+   "lineRange": [
+    339,
+    398
+   ]
+  },
+  {
+   "id": "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+   "type": "file",
+   "name": "llmconfig_CFG_GPT3small.py",
+   "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+   "summary": "Seed-11 GPT3-small training config for the CFG experiment with multi-token loss (shared heads, mtl_length=4), block size 512, 200k iterations on the cfg_s1444-64-_rd3456_rl23_4000k dataset.",
+   "tags": [
+    "config",
+    "training-config",
+    "context-free-grammar",
+    "multi-token-loss",
+    "hyperparameters"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py",
+   "type": "file",
+   "name": "llmconfig_CFG_GPT3small.py",
+   "filePath": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py",
+   "summary": "Seed-11 GPT3-small training config for the CFG experiment with standard next-token loss on the cfg_s1444-64-_rd3456_rl23_4000k dataset.",
+   "tags": [
+    "config",
+    "training-config",
+    "context-free-grammar",
+    "ntp",
+    "hyperparameters"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "class:data/path_finding/path_finding_generate.py:Graph",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "class:data/path_finding/path_finding_generate.py:Graph",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:import_visualization_functions",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:import_visualization_functions",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:run_block_size_analysis",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:run_block_size_analysis",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:sample_path",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:sample_path",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:build_graph",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:build_graph",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:load_cfg",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:load_cfg",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:write_dataset",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:write_dataset",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:main",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "function:data/path_finding/path_finding_generate.py:main",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "class:data/path_finding/path_finding_generate_multi_cpu.py:Graph",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "class:data/path_finding/path_finding_generate_multi_cpu.py:Graph",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:import_visualization_functions",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:import_visualization_functions",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:run_block_size_analysis",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:run_block_size_analysis",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:sample_path",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:sample_path",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:generate_single_graph_record",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:generate_single_graph_record",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:build_graph",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:build_graph",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:load_cfg",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:load_cfg",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:write_dataset",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:write_dataset",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:append_records_to_dataset",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:append_records_to_dataset",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:init_dataset_file",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:init_dataset_file",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:worker_process",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:worker_process",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:merge_worker_files",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:merge_worker_files",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:get_optimal_worker_count",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:get_optimal_worker_count",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:main",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "function:data/path_finding/path_finding_generate_multi_cpu.py:main",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:load_dataset",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:load_dataset",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:reconstruct_graph_from_record",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:reconstruct_graph_from_record",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:enhanced_visualise_graph",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:enhanced_visualise_graph",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:visualize_graphs",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:visualize_graphs",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:main",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:main",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "file:data/path_finding/path_finding_generate.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:data/path_finding/visualize_saved_graphs.py",
+   "target": "class:data/path_finding/path_finding_generate.py:Graph",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "function:data/path_finding/visualize_saved_graphs.py:reconstruct_graph_from_record",
+   "target": "class:data/path_finding/path_finding_generate.py:Graph",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate.py",
+   "target": "file:data/path_finding/visualize_saved_graphs.py",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "file:data/path_finding/visualize_saved_graphs.py",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "function:data/path_finding/path_finding_generate.py:import_visualization_functions",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:enhanced_visualise_graph",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:data/path_finding/path_finding_generate_multi_cpu.py:import_visualization_functions",
+   "target": "function:data/path_finding/visualize_saved_graphs.py:enhanced_visualise_graph",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:data/openwentext/prepare.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:README.txt",
+   "target": "file:NLP_openwebtext/configGPT3Xsmall.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "document:data/openwentext/readme.md",
+   "target": "file:data/openwentext/prepare.py",
+   "type": "documents",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+   "target": "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py",
+   "type": "related",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "file:PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+   "target": "file:PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+   "type": "related",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "file:PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "target": "file:PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+   "type": "related",
+   "direction": "forward",
+   "weight": 0.5
+  },
+  {
+   "source": "file:data/path_finding/path_finding_generate_multi_cpu.py",
+   "target": "file:data/path_finding/path_finding_generate.py",
+   "type": "related",
+   "direction": "forward",
+   "weight": 0.5
+  }
+ ]
+}

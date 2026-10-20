@@ -1,0 +1,1211 @@
+{
+ "nodes": [
+  {
+   "id": "file:NLP_llm_train.py",
+   "type": "file",
+   "name": "NLP_llm_train.py",
+   "filePath": "NLP_llm_train.py",
+   "summary": "Script-style training loop for a GPT model on memmapped OpenWebText token bins, supporting DDP, mixed precision, gradient accumulation, cosine LR schedule and checkpointing.",
+   "tags": [
+    "entry-point",
+    "training",
+    "nlp",
+    "distributed",
+    "gpt"
+   ],
+   "complexity": "complex",
+   "languageNotes": "nanoGPT-style module-level training script: configuration via globals, DDP setup through torchrun environment variables."
+  },
+  {
+   "id": "function:NLP_llm_train.py:get_batch",
+   "type": "function",
+   "name": "get_batch",
+   "filePath": "NLP_llm_train.py",
+   "lineRange": [
+    123,
+    139
+   ],
+   "summary": "Samples random contiguous windows from train/val uint16 memmap token files and returns pinned input/target tensors shifted by one token.",
+   "tags": [
+    "data-loading",
+    "batching",
+    "memmap"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_llm_train.py:estimate_loss",
+   "type": "function",
+   "name": "estimate_loss",
+   "filePath": "NLP_llm_train.py",
+   "lineRange": [
+    211,
+    223
+   ],
+   "summary": "Evaluates mean loss over eval_iters batches for both train and val splits with the model in eval mode.",
+   "tags": [
+    "evaluation",
+    "loss",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:NLP_vqvae_layer_and_block_train.py",
+   "type": "file",
+   "name": "NLP_vqvae_layer_and_block_train.py",
+   "filePath": "NLP_vqvae_layer_and_block_train.py",
+   "summary": "Trains VQVAE3v2 models on hidden states of a frozen pretrained NLP GPT, either per layer or per block of layers, with cosine LR, masked NRMSE reconstruction metrics and codebook-usage logging/plots.",
+   "tags": [
+    "entry-point",
+    "training",
+    "vq-vae",
+    "hidden-states",
+    "nlp"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:NLP_vqvae_layer_and_block_train.py:get_batch",
+   "type": "function",
+   "name": "get_batch",
+   "filePath": "NLP_vqvae_layer_and_block_train.py",
+   "lineRange": [
+    252,
+    267
+   ],
+   "summary": "Samples random max_attention_window-length token windows from the memmapped train/val bins for feeding the frozen GPT.",
+   "tags": [
+    "data-loading",
+    "batching",
+    "memmap"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_vqvae_layer_and_block_train.py:get_lr",
+   "type": "function",
+   "name": "get_lr",
+   "filePath": "NLP_vqvae_layer_and_block_train.py",
+   "lineRange": [
+    271,
+    285
+   ],
+   "summary": "Cosine learning-rate schedule with linear warmup for the VQ-VAE optimizer.",
+   "tags": [
+    "scheduler",
+    "learning-rate",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_vqvae_layer_and_block_train.py:process_hidden_states_for_vqvae3v2_layer",
+   "type": "function",
+   "name": "process_hidden_states_for_vqvae3v2_layer",
+   "filePath": "NLP_vqvae_layer_and_block_train.py",
+   "lineRange": [
+    444,
+    469
+   ],
+   "summary": "Reshapes GPT hidden states into per-layer vectors (optionally normalized) as VQVAE3v2 inputs.",
+   "tags": [
+    "preprocessing",
+    "hidden-states",
+    "tensor-reshape"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:NLP_vqvae_layer_and_block_train.py:process_hidden_states_for_vqvae3v2_block",
+   "type": "function",
+   "name": "process_hidden_states_for_vqvae3v2_block",
+   "filePath": "NLP_vqvae_layer_and_block_train.py",
+   "lineRange": [
+    471,
+    514
+   ],
+   "summary": "Groups consecutive layers (delta_b per block) of GPT hidden states into stacked block tensors with norm-based normalization for block-level VQVAE3v2 training.",
+   "tags": [
+    "preprocessing",
+    "hidden-states",
+    "tensor-reshape"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:llm_train.py",
+   "type": "file",
+   "name": "llm_train.py",
+   "filePath": "llm_train.py",
+   "summary": "Main training script for GPT models on context-free-grammar sequences with next-token or multi-token (MTL) targets, DDP support, periodic CFG accuracy evaluation and metadata/checkpoint saving.",
+   "tags": [
+    "entry-point",
+    "training",
+    "cfg",
+    "multi-token-prediction",
+    "distributed"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:llm_train.py:get_batch",
+   "type": "function",
+   "name": "get_batch",
+   "filePath": "llm_train.py",
+   "lineRange": [
+    151,
+    191
+   ],
+   "summary": "Samples memmapped CFG token windows and builds either a single shifted target or a list of multi-token-ahead targets for MTL training.",
+   "tags": [
+    "data-loading",
+    "batching",
+    "multi-token-prediction"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:llm_train.py:estimate_loss",
+   "type": "function",
+   "name": "estimate_loss",
+   "filePath": "llm_train.py",
+   "lineRange": [
+    376,
+    391
+   ],
+   "summary": "Estimates average train/val loss over eval_iters batches with gradients disabled.",
+   "tags": [
+    "evaluation",
+    "loss",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:llm_train_utils.py",
+   "type": "file",
+   "name": "llm_train_utils.py",
+   "filePath": "llm_train_utils.py",
+   "summary": "Shared training helpers: cosine LR schedule with warmup, human-readable training metadata export, parallel CFG validity evaluation of model completions, accuracy logging and CFG loading from dataset pickles.",
+   "tags": [
+    "utility",
+    "training",
+    "evaluation",
+    "cfg",
+    "logging"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:llm_train_utils.py:get_lr",
+   "type": "function",
+   "name": "get_lr",
+   "filePath": "llm_train_utils.py",
+   "lineRange": [
+    12,
+    23
+   ],
+   "summary": "Returns learning rate for an iteration using linear warmup followed by cosine decay to min_lr.",
+   "tags": [
+    "scheduler",
+    "learning-rate",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:llm_train_utils.py:save_training_metadata",
+   "type": "function",
+   "name": "save_training_metadata",
+   "filePath": "llm_train_utils.py",
+   "lineRange": [
+    25,
+    89
+   ],
+   "summary": "Writes model architecture, training parameters and system config to JSON and readable text files in the output directory.",
+   "tags": [
+    "serialization",
+    "metadata",
+    "logging"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:llm_train_utils.py:evaluate_cfg_accuracy",
+   "type": "function",
+   "name": "evaluate_cfg_accuracy",
+   "filePath": "llm_train_utils.py",
+   "lineRange": [
+    92,
+    270
+   ],
+   "summary": "Generates CFG sequences, completes zero-cut and half-cut prefixes with the model in batches, and checks grammatical validity in a thread pool to report accuracy.",
+   "tags": [
+    "evaluation",
+    "cfg",
+    "generation",
+    "concurrency"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:llm_train_utils.py:save_cfg_accuracy_log",
+   "type": "function",
+   "name": "save_cfg_accuracy_log",
+   "filePath": "llm_train_utils.py",
+   "lineRange": [
+    272,
+    328
+   ],
+   "summary": "Appends CFG accuracy results and sample completions for an iteration to a log file.",
+   "tags": [
+    "logging",
+    "evaluation",
+    "cfg"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:llm_train_utils.py:load_cfg_from_dataset",
+   "type": "function",
+   "name": "load_cfg_from_dataset",
+   "filePath": "llm_train_utils.py",
+   "lineRange": [
+    330,
+    355
+   ],
+   "summary": "Loads the pickled CFG object stored alongside a dataset directory, adjusting sys.path for unpickling.",
+   "tags": [
+    "io",
+    "cfg",
+    "deserialization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:model.py",
+   "type": "file",
+   "name": "model.py",
+   "filePath": "model.py",
+   "summary": "GPT transformer implementation with rotary positional embeddings, optional attention masks, multi-token-prediction (mtl) heads/losses, generation with EOS handling, and hidden-state extraction APIs used by VQ-VAE and MI scripts.",
+   "tags": [
+    "data-model",
+    "transformer",
+    "gpt",
+    "rotary-embedding",
+    "core"
+   ],
+   "complexity": "complex",
+   "languageNotes": "Uses a @dataclass GPTConfig and PyTorch nn.Module subclasses; falls back to manual attention when flash attention (scaled_dot_product_attention) is unavailable."
+  },
+  {
+   "id": "function:model.py:rotate_every_two",
+   "type": "function",
+   "name": "rotate_every_two",
+   "filePath": "model.py",
+   "lineRange": [
+    12,
+    16
+   ],
+   "summary": "Rotates adjacent value pairs (x0,x1)->(-x1,x0) along the last dim for rotary embeddings.",
+   "tags": [
+    "rotary-embedding",
+    "utility",
+    "tensor-op"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:model.py:apply_rotary_pos_emb",
+   "type": "function",
+   "name": "apply_rotary_pos_emb",
+   "filePath": "model.py",
+   "lineRange": [
+    18,
+    28
+   ],
+   "summary": "Applies precomputed rotary cos/sin embeddings to query/key tensors.",
+   "tags": [
+    "rotary-embedding",
+    "utility",
+    "attention"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:model.py:LayerNorm",
+   "type": "class",
+   "name": "LayerNorm",
+   "filePath": "model.py",
+   "lineRange": [
+    32,
+    41
+   ],
+   "summary": "LayerNorm variant with optional bias.",
+   "tags": [
+    "layer",
+    "normalization",
+    "nn-module"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:model.py:CausalSelfAttention",
+   "type": "class",
+   "name": "CausalSelfAttention",
+   "filePath": "model.py",
+   "lineRange": [
+    43,
+    162
+   ],
+   "summary": "Multi-head causal self-attention with rotary embeddings, merged causal/padding masks and flash-attention fallback.",
+   "tags": [
+    "attention",
+    "nn-module",
+    "transformer"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:model.py:MLP",
+   "type": "class",
+   "name": "MLP",
+   "filePath": "model.py",
+   "lineRange": [
+    164,
+    178
+   ],
+   "summary": "Transformer feed-forward block: linear, GELU, projection and dropout.",
+   "tags": [
+    "layer",
+    "nn-module",
+    "feed-forward"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:model.py:Block",
+   "type": "class",
+   "name": "Block",
+   "filePath": "model.py",
+   "lineRange": [
+    180,
+    192
+   ],
+   "summary": "Pre-norm transformer block combining attention and MLP with residual connections.",
+   "tags": [
+    "layer",
+    "nn-module",
+    "transformer"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:model.py:GPTConfig",
+   "type": "class",
+   "name": "GPTConfig",
+   "filePath": "model.py",
+   "lineRange": [
+    195,
+    203
+   ],
+   "summary": "Dataclass holding GPT hyperparameters such as block size, vocab size, layers, heads, embedding dim and dropout.",
+   "tags": [
+    "config",
+    "data-model",
+    "dataclass"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:model.py:GPT",
+   "type": "class",
+   "name": "GPT",
+   "filePath": "model.py",
+   "lineRange": [
+    205,
+    555
+   ],
+   "summary": "Full GPT language model with weight-tied embeddings, NTP/MTL loss computation, optimizer configuration, MFU estimation, autoregressive generation and hidden-state extraction.",
+   "tags": [
+    "model",
+    "transformer",
+    "generation",
+    "multi-token-prediction"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "file:path_finding_llm_train.py",
+   "type": "file",
+   "name": "path_finding_llm_train.py",
+   "filePath": "path_finding_llm_train.py",
+   "summary": "Training script for GPT models on graph path-finding datasets via DataLoader/DistributedSampler, supporting NTP and multi-token targets, consistent validation loss and periodic path accuracy evaluation.",
+   "tags": [
+    "entry-point",
+    "training",
+    "path-finding",
+    "multi-token-prediction",
+    "distributed"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:path_finding_llm_train.py:get_batch",
+   "type": "function",
+   "name": "get_batch",
+   "filePath": "path_finding_llm_train.py",
+   "lineRange": [
+    218,
+    269
+   ],
+   "summary": "Pulls the next batch from persistent train/val DataLoader iterators (resetting epochs via samplers) and builds single or multi-token shifted targets.",
+   "tags": [
+    "data-loading",
+    "batching",
+    "multi-token-prediction"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:path_finding_llm_train.py:estimate_loss",
+   "type": "function",
+   "name": "estimate_loss",
+   "filePath": "path_finding_llm_train.py",
+   "lineRange": [
+    439,
+    454
+   ],
+   "summary": "Estimates average train/val loss over random batches with gradients disabled.",
+   "tags": [
+    "evaluation",
+    "loss",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:path_finding_llm_train.py:estimate_loss_consistent",
+   "type": "function",
+   "name": "estimate_loss_consistent",
+   "filePath": "path_finding_llm_train.py",
+   "lineRange": [
+    458,
+    508
+   ],
+   "summary": "Computes validation loss over a fixed, deterministic set of validation batches so loss is comparable across iterations.",
+   "tags": [
+    "evaluation",
+    "loss",
+    "reproducibility"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:path_finding_llm_train.py:evaluate_accuracies",
+   "type": "function",
+   "name": "evaluate_accuracies",
+   "filePath": "path_finding_llm_train.py",
+   "lineRange": [
+    588,
+    620
+   ],
+   "summary": "Runs path-finding accuracy evaluation on the model, records it in an accuracy history and prints results.",
+   "tags": [
+    "evaluation",
+    "path-finding",
+    "accuracy"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "function:NLP_llm_train.py:get_batch",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "function:NLP_llm_train.py:get_batch",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "function:NLP_llm_train.py:estimate_loss",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "function:NLP_llm_train.py:estimate_loss",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:NLP_llm_train.py:estimate_loss",
+   "target": "function:NLP_llm_train.py:get_batch",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:NLP_vqvae_layer_and_block_train.py:get_batch",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:NLP_vqvae_layer_and_block_train.py:get_batch",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:NLP_vqvae_layer_and_block_train.py:get_lr",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:NLP_vqvae_layer_and_block_train.py:get_lr",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:NLP_vqvae_layer_and_block_train.py:process_hidden_states_for_vqvae3v2_layer",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:NLP_vqvae_layer_and_block_train.py:process_hidden_states_for_vqvae3v2_layer",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:NLP_vqvae_layer_and_block_train.py:process_hidden_states_for_vqvae3v2_block",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:NLP_vqvae_layer_and_block_train.py:process_hidden_states_for_vqvae3v2_block",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE3v2",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "class:minimal_VQVAEs.py:Encoder3v2",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "class:minimal_VQVAEs.py:Decoder3v2",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:vqvae_utils.py:log_and_plot_usage_for_model",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "function:vqvae_utils.py:compute_masked_nrmse",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "class:model.py:GPT",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train.py:get_batch",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train.py:get_batch",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train.py:estimate_loss",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train.py:estimate_loss",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:llm_train.py:estimate_loss",
+   "target": "function:llm_train.py:get_batch",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train_utils.py:get_lr",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train_utils.py:save_cfg_accuracy_log",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train_utils.py:save_training_metadata",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train_utils.py:evaluate_cfg_accuracy",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "function:llm_train_utils.py:load_cfg_from_dataset",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "class:data/context_free_grammar/CFG_data_generation.py:CFG",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:get_lr",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:get_lr",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:save_training_metadata",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:save_training_metadata",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:evaluate_cfg_accuracy",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:evaluate_cfg_accuracy",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:save_cfg_accuracy_log",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:save_cfg_accuracy_log",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:load_cfg_from_dataset",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:llm_train_utils.py",
+   "target": "function:llm_train_utils.py:load_cfg_from_dataset",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:model.py",
+   "target": "function:model.py:rotate_every_two",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:model.py",
+   "target": "function:model.py:rotate_every_two",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:model.py",
+   "target": "function:model.py:apply_rotary_pos_emb",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:model.py",
+   "target": "function:model.py:apply_rotary_pos_emb",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:LayerNorm",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:LayerNorm",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:CausalSelfAttention",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:CausalSelfAttention",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:MLP",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:MLP",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:Block",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:Block",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:GPTConfig",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:GPTConfig",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:GPT",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:model.py",
+   "target": "class:model.py:GPT",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:model.py:apply_rotary_pos_emb",
+   "target": "function:model.py:rotate_every_two",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:model.py:CausalSelfAttention",
+   "target": "function:model.py:apply_rotary_pos_emb",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:model.py:Block",
+   "target": "class:model.py:CausalSelfAttention",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:model.py:Block",
+   "target": "class:model.py:MLP",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:model.py:Block",
+   "target": "class:model.py:LayerNorm",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:model.py:GPT",
+   "target": "class:model.py:Block",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:model.py:GPT",
+   "target": "class:model.py:LayerNorm",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:model.py:GPT",
+   "target": "class:model.py:GPTConfig",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_train.py:get_batch",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_train.py:get_batch",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_train.py:estimate_loss",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_train.py:estimate_loss",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_train.py:estimate_loss_consistent",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_train.py:estimate_loss_consistent",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_train.py:evaluate_accuracies",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_train.py:evaluate_accuracies",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:path_finding_llm_train.py:estimate_loss",
+   "target": "function:path_finding_llm_train.py:get_batch",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:path_finding_llm_train.py:estimate_loss_consistent",
+   "target": "function:path_finding_llm_train.py:get_batch",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "class:path_finding_llm_utilities.py:PathFindingDataset",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:path_finding_llm_utilities.py:custom_collate_fn",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:llm_train_utils.py:get_lr",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "function:llm_train_utils.py:save_training_metadata",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "class:model.py:GPT",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "class:model.py:GPTConfig",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "class:model.py:GPT",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "class:model.py:GPTConfig",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "class:model.py:GPT",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "class:model.py:GPTConfig",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "class:model.py:GPTConfig",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "function:llm_train_utils.py:get_lr",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "function:llm_train_utils.py:save_training_metadata",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "file:llm_train_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_llm_train.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:NLP_vqvae_layer_and_block_train.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "file:data/context_free_grammar/CFG_data_generation.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "file:llm_train_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:llm_train.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "file:llm_train_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_llm_train.py",
+   "target": "file:path_finding_llm_utilities.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  }
+ ]
+}

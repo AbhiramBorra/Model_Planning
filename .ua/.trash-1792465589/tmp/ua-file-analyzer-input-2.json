@@ -1,0 +1,8 @@
+{"projectRoot":"/Users/abhi/Desktop/Masters/ModelPlanning","batchFiles":[
+{"path":"NLP_llm_train.py","language":"python","sizeLines":343,"fileCategory":"code"},
+{"path":"NLP_vqvae_layer_and_block_train.py","language":"python","sizeLines":1009,"fileCategory":"code"},
+{"path":"llm_train.py","language":"python","sizeLines":573,"fileCategory":"code"},
+{"path":"llm_train_utils.py","language":"python","sizeLines":355,"fileCategory":"code"},
+{"path":"model.py","language":"python","sizeLines":555,"fileCategory":"code"},
+{"path":"path_finding_llm_train.py","language":"python","sizeLines":960,"fileCategory":"code"}],
+"batchImportData":{"NLP_llm_train.py": ["llm_train_utils.py", "model.py"], "NLP_vqvae_layer_and_block_train.py": ["minimal_VQVAEs.py", "model.py", "vqvae_utils.py"], "llm_train.py": ["data/context_free_grammar/CFG_data_generation.py", "llm_train_utils.py", "model.py"], "llm_train_utils.py": [], "model.py": [], "path_finding_llm_train.py": ["llm_train_utils.py", "model.py", "path_finding_llm_utilities.py"]}}

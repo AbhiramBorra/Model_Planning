@@ -1,0 +1,1853 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 9,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 9
+    }
+  },
+  "results": [
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 79,
+      "nonEmptyLines": 79,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "skip_every_timestep",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "skip_every_layer",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "vqvae1_config",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 70
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 71
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 73
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 74
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 75
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 76
+        },
+        {
+          "heading": "vq_compile",
+          "level": 1,
+          "line": 77
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 38
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 80,
+      "nonEmptyLines": 80,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "first_stage_ckpt_path",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "first_stage_model_compile",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "skip_every_timestep",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "skip_every_layer",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 31
+        },
+        {
+          "heading": "vqvae2_config",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "vqvae2_compile",
+          "level": 1,
+          "line": 71
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 73
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 74
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 75
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 76
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 77
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 78
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 40
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 81,
+      "nonEmptyLines": 81,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "skip_every_timestep",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "skip_every_layer",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "vqvae61_config",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "vqvae61_compile",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 73
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 74
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 75
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 76
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 77
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 78
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 79
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 38
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 54,
+      "nonEmptyLines": 54,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "max_new_tokens",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "vqvae_single_config",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 45
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 46
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 47
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 48
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 49
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 50
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "vq_compile",
+          "level": 1,
+          "line": 52
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 37
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 79,
+      "nonEmptyLines": 79,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "skip_every_timestep",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "skip_every_layer",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "vqvae1_config",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 70
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 71
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 73
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 74
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 75
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 76
+        },
+        {
+          "heading": "vq_compile",
+          "level": 1,
+          "line": 77
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 38
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 80,
+      "nonEmptyLines": 80,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "first_stage_ckpt_path",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "first_stage_model_compile",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "skip_every_timestep",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "skip_every_layer",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 31
+        },
+        {
+          "heading": "vqvae2_config",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "vqvae2_compile",
+          "level": 1,
+          "line": 71
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 73
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 74
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 75
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 76
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 77
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 78
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 40
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 81,
+      "nonEmptyLines": 81,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "skip_every_timestep",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "skip_every_layer",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "vqvae61_config",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "vqvae61_compile",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 73
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 74
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 75
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 76
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 77
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 78
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 79
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 38
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 60,
+      "nonEmptyLines": 60,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "vqvae_path_config",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 52
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 53
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 54
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 55
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 56
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 57
+        },
+        {
+          "heading": "vq_compile",
+          "level": 1,
+          "line": 58
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 32
+      }
+    },
+    {
+      "path": "PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 54,
+      "nonEmptyLines": 54,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "max_seq_length",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "max_nodes",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "max_new_tokens",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "vqvae_single_config",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 45
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 46
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 47
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 48
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 49
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 50
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "vq_compile",
+          "level": 1,
+          "line": 52
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 37
+      }
+    }
+  ]
+}

@@ -1,0 +1,1593 @@
+{
+ "nodes": [
+  {
+   "id": "file:path_finding_mi_calc.py",
+   "type": "file",
+   "name": "path_finding_mi_calc.py",
+   "filePath": "path_finding_mi_calc.py",
+   "summary": "Path-finding MI script that generates sequences from a GPT, quantizes hidden states with two-stage VQVAE1/VQVAE2 and a VQVAE_single model, and computes streaming mutual information between codes with metrics reporting and plots.",
+   "tags": [
+    "entry-point",
+    "mutual-information",
+    "path-finding",
+    "vqvae",
+    "script"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:path_finding_mi_calc.py:sync_and_update_streaming_info",
+   "type": "function",
+   "name": "sync_and_update_streaming_info",
+   "filePath": "path_finding_mi_calc.py",
+   "lineRange": [
+    524,
+    608
+   ],
+   "summary": "Gathers per-rank code samples across DDP processes and updates multiple StreamingInfo trackers (including conditional combos) on the master rank.",
+   "tags": [
+    "distributed",
+    "mutual-information",
+    "synchronization"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:path_finding_mi_calc.py:calculate_and_report_metrics",
+   "type": "function",
+   "name": "calculate_and_report_metrics",
+   "filePath": "path_finding_mi_calc.py",
+   "lineRange": [
+    610,
+    710
+   ],
+   "summary": "Computes entropy, MI and conditional MI estimates (plug-in and bias-corrected) from the trackers and logs a formatted report.",
+   "tags": [
+    "metrics",
+    "logging",
+    "mutual-information"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:path_finding_mi_calc.py:create_plots_and_save",
+   "type": "function",
+   "name": "create_plots_and_save",
+   "filePath": "path_finding_mi_calc.py",
+   "lineRange": [
+    712,
+    828
+   ],
+   "summary": "Generates matplotlib plots of mutual information results (e.g. MI vs. time offset / code pairs) and saves figures plus raw results to the output directory.",
+   "tags": [
+    "visualization",
+    "plotting",
+    "serialization"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:path_finding_mi_calc_61.py",
+   "type": "file",
+   "name": "path_finding_mi_calc_61.py",
+   "filePath": "path_finding_mi_calc_61.py",
+   "summary": "Path-finding MI script combining a VQVAE61 hidden-state quantizer with a VQVAE_single model on GPT generations, computing streaming entropy and mutual information between codes with time-step skipping and plotting.",
+   "tags": [
+    "entry-point",
+    "mutual-information",
+    "path-finding",
+    "vqvae",
+    "script"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:path_finding_mi_calc_61.py:sync_and_update_streaming_info",
+   "type": "function",
+   "name": "sync_and_update_streaming_info",
+   "filePath": "path_finding_mi_calc_61.py",
+   "lineRange": [
+    426,
+    510
+   ],
+   "summary": "Gathers per-rank code samples across DDP processes and updates multiple StreamingInfo trackers (including conditional combos) on the master rank.",
+   "tags": [
+    "distributed",
+    "mutual-information",
+    "synchronization"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:path_finding_mi_calc_61.py:calculate_and_report_metrics",
+   "type": "function",
+   "name": "calculate_and_report_metrics",
+   "filePath": "path_finding_mi_calc_61.py",
+   "lineRange": [
+    512,
+    612
+   ],
+   "summary": "Computes entropy, MI and conditional MI estimates (plug-in and bias-corrected) from the trackers and logs a formatted report.",
+   "tags": [
+    "metrics",
+    "logging",
+    "mutual-information"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:path_finding_mi_calc_61.py:create_plots_and_save",
+   "type": "function",
+   "name": "create_plots_and_save",
+   "filePath": "path_finding_mi_calc_61.py",
+   "lineRange": [
+    614,
+    730
+   ],
+   "summary": "Generates matplotlib plots of mutual information results (e.g. MI vs. time offset / code pairs) and saves figures plus raw results to the output directory.",
+   "tags": [
+    "visualization",
+    "plotting",
+    "serialization"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:minimal_VQVAEs.py",
+   "type": "file",
+   "name": "minimal_VQVAEs.py",
+   "filePath": "minimal_VQVAEs.py",
+   "summary": "Large model library defining many VQ-VAE variants (single, two-stage, layer/block, last-token, path, 3v2, 61) with transformer-based encoders/decoders, codebook usage tracking, cosine push and soft-entropy regularizers, and input normalization, used to quantize LLM hidden states.",
+   "tags": [
+    "data-model",
+    "vqvae",
+    "model-library",
+    "quantization",
+    "core-library"
+   ],
+   "complexity": "complex",
+   "languageNotes": "Many classes duplicate the same method set (normalize_codebook_vectors, compute_cosine_push_loss, update_usage_tracking, ...) instead of sharing a base class."
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:ResidualBlock",
+   "type": "class",
+   "name": "ResidualBlock",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    7,
+    63
+   ],
+   "summary": "Residual MLP block (output = x + MLP(x)) with optional LayerNorm used inside VQVAE encoders/decoders.",
+   "tags": [
+    "component",
+    "neural-network",
+    "residual"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:CustomSequential",
+   "type": "class",
+   "name": "CustomSequential",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    65,
+    69
+   ],
+   "summary": "Thin nn.Sequential subclass that forwards extra arguments through its transformer blocks.",
+   "tags": [
+    "component",
+    "neural-network",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAE_single",
+   "type": "class",
+   "name": "VQVAE_single",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    71,
+    623
+   ],
+   "summary": "Implements a single-stage VQ-VAE over flattened hidden states, including codebook normalization, cosine push and soft-entropy losses, codebook usage tracking, stochastic masking, input normalization and a forward pass returning reconstruction, quantization indices and losses.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "neural-network"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAE1",
+   "type": "class",
+   "name": "VQVAE1",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    626,
+    1187
+   ],
+   "summary": "Implements the first-stage VQ-VAE that quantizes per-layer hidden states via Encoder1/Decoder1, including codebook normalization, cosine push and soft-entropy losses, codebook usage tracking, stochastic masking, per-layer normalization and a forward pass returning reconstruction, quantization indices and losses.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "two-stage"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Encoder1",
+   "type": "class",
+   "name": "Encoder1",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    1189,
+    1278
+   ],
+   "summary": "Layerwise transformer encoder that processes each layer's hidden state with its own TransformerBlock stack and aggregates across layers.",
+   "tags": [
+    "encoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Decoder1",
+   "type": "class",
+   "name": "Decoder1",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    1280,
+    1376
+   ],
+   "summary": "Transformer decoder that expands an aggregate latent back into per-layer hidden-state reconstructions.",
+   "tags": [
+    "decoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Encoder3",
+   "type": "class",
+   "name": "Encoder3",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    1378,
+    1459
+   ],
+   "summary": "Layerwise-plus-aggregate transformer encoder for the VQVAE3 model.",
+   "tags": [
+    "encoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Decoder3",
+   "type": "class",
+   "name": "Decoder3",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    1461,
+    1552
+   ],
+   "summary": "Aggregate-then-layerwise transformer decoder for the VQVAE3 model.",
+   "tags": [
+    "decoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAE3",
+   "type": "class",
+   "name": "VQVAE3",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    1554,
+    2060
+   ],
+   "summary": "Implements the VQVAE3 model built from Encoder3/Decoder3, including codebook normalization, cosine push and soft-entropy losses, codebook usage tracking, stochastic masking, normalization and a forward pass returning reconstruction, quantization indices and losses.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "neural-network"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAE2",
+   "type": "class",
+   "name": "VQVAE2",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    2063,
+    2522
+   ],
+   "summary": "Implements the second-stage VQ-VAE that quantizes sequences of first-stage codes/latents via Encoder2/Decoder2, including codebook normalization, cosine push and soft-entropy losses, codebook usage tracking, stochastic masking and a forward pass returning reconstruction, quantization indices and losses.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "two-stage"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Encoder2",
+   "type": "class",
+   "name": "Encoder2",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    2524,
+    2596
+   ],
+   "summary": "Transformer encoder for second-stage VQVAE2 over temporal sequences of first-stage latents.",
+   "tags": [
+    "encoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Decoder2",
+   "type": "class",
+   "name": "Decoder2",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    2598,
+    2678
+   ],
+   "summary": "Transformer decoder reconstructing first-stage latent sequences for VQVAE2.",
+   "tags": [
+    "decoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAELastToken",
+   "type": "class",
+   "name": "VQVAELastToken",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    2681,
+    3111
+   ],
+   "summary": "VQ-VAE specialised for the last-token hidden state, with configurable MLP encoder/decoder builders, activation selection, cosine push loss and usage tracking.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "nlp"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAE3_Modified",
+   "type": "class",
+   "name": "VQVAE3_Modified",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    3113,
+    3242
+   ],
+   "summary": "Subclass of VQVAE3 overriding the cosine push loss with log-scaling and count-division variants.",
+   "tags": [
+    "vqvae",
+    "regularization",
+    "subclass"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Path_Encoder",
+   "type": "class",
+   "name": "Path_Encoder",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    3244,
+    3275
+   ],
+   "summary": "Simple encoder for path-level VQ-VAE inputs.",
+   "tags": [
+    "encoder",
+    "path-finding",
+    "vqvae"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Path_Decoder",
+   "type": "class",
+   "name": "Path_Decoder",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    3277,
+    3318
+   ],
+   "summary": "Simple decoder for path-level VQ-VAE reconstructions.",
+   "tags": [
+    "decoder",
+    "path-finding",
+    "vqvae"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Path_VQVAE",
+   "type": "class",
+   "name": "Path_VQVAE",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    3321,
+    3589
+   ],
+   "summary": "Implements a VQ-VAE over path-finding sequence representations, including codebook normalization, cosine push and soft-entropy losses, codebook usage tracking, stochastic masking and a forward pass returning reconstruction, quantization indices and losses.",
+   "tags": [
+    "vqvae",
+    "path-finding",
+    "quantization"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Encoder3v2",
+   "type": "class",
+   "name": "Encoder3v2",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    3595,
+    3651
+   ],
+   "summary": "Revised encoder for VQVAE3v2 operating on transformer block hidden states.",
+   "tags": [
+    "encoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Decoder3v2",
+   "type": "class",
+   "name": "Decoder3v2",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    3654,
+    3721
+   ],
+   "summary": "Revised decoder for VQVAE3v2 reconstructing block hidden states.",
+   "tags": [
+    "decoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAE3v2",
+   "type": "class",
+   "name": "VQVAE3v2",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    3724,
+    3997
+   ],
+   "summary": "Implements the VQVAE3v2 block-level model, including codebook normalization, cosine push and soft-entropy losses, codebook usage tracking, stochastic masking, normalization and a forward pass returning reconstruction, quantization indices and losses.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "neural-network"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Encoder_layer",
+   "type": "class",
+   "name": "Encoder_layer",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    4004,
+    4074
+   ],
+   "summary": "Encoder for the layer-wise VQVAE_layer model.",
+   "tags": [
+    "encoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Decoder_layer",
+   "type": "class",
+   "name": "Decoder_layer",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    4077,
+    4145
+   ],
+   "summary": "Decoder for the layer-wise VQVAE_layer model.",
+   "tags": [
+    "decoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAE_layer",
+   "type": "class",
+   "name": "VQVAE_layer",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    4148,
+    4488
+   ],
+   "summary": "Implements a VQ-VAE over a single transformer layer's hidden states, including codebook normalization, cosine push and soft-entropy losses, codebook usage tracking, stochastic masking and a forward pass returning reconstruction, quantization indices and losses.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "neural-network"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Encoder61",
+   "type": "class",
+   "name": "Encoder61",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    4490,
+    4560
+   ],
+   "summary": "Encoder for the VQVAE61 model used in path-finding experiments.",
+   "tags": [
+    "encoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:Decoder61",
+   "type": "class",
+   "name": "Decoder61",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    4562,
+    4652
+   ],
+   "summary": "Decoder for the VQVAE61 model used in path-finding experiments.",
+   "tags": [
+    "decoder",
+    "transformer",
+    "vqvae"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:minimal_VQVAEs.py:VQVAE61",
+   "type": "class",
+   "name": "VQVAE61",
+   "filePath": "minimal_VQVAEs.py",
+   "lineRange": [
+    4654,
+    4910
+   ],
+   "summary": "Implements the VQVAE61 model for path-finding hidden states, including codebook normalization, cosine push and soft-entropy losses, codebook usage tracking, stochastic masking and a forward pass returning reconstruction, quantization indices and losses.",
+   "tags": [
+    "vqvae",
+    "quantization",
+    "path-finding"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "file:modules.py",
+   "type": "file",
+   "name": "modules.py",
+   "filePath": "modules.py",
+   "summary": "Core transformer building blocks (LayerNorm, rotary positional embeddings, rotary self-attention with flash attention support, MLP, TransformerBlock) used by the VQ-VAE encoders/decoders, plus self-tests.",
+   "tags": [
+    "component",
+    "transformer",
+    "neural-network",
+    "attention"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:modules.py:LayerNorm",
+   "type": "class",
+   "name": "LayerNorm",
+   "filePath": "modules.py",
+   "lineRange": [
+    11,
+    19
+   ],
+   "summary": "LayerNorm with optional bias.",
+   "tags": [
+    "component",
+    "normalization",
+    "neural-network"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:modules.py:RotaryPositionalEmbedding",
+   "type": "class",
+   "name": "RotaryPositionalEmbedding",
+   "filePath": "modules.py",
+   "lineRange": [
+    25,
+    59
+   ],
+   "summary": "Computes rotary positional embeddings (RoPE) and applies rotate-half rotation to query/key tensors.",
+   "tags": [
+    "component",
+    "positional-encoding",
+    "attention"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:modules.py:RotarySelfAttention",
+   "type": "class",
+   "name": "RotarySelfAttention",
+   "filePath": "modules.py",
+   "lineRange": [
+    65,
+    198
+   ],
+   "summary": "Multi-head self-attention with rotary embeddings, optional causal/padding masks and PyTorch flash attention fallback.",
+   "tags": [
+    "component",
+    "attention",
+    "transformer"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:modules.py:MLP",
+   "type": "class",
+   "name": "MLP",
+   "filePath": "modules.py",
+   "lineRange": [
+    204,
+    218
+   ],
+   "summary": "Feed-forward GELU MLP sub-layer of a transformer block.",
+   "tags": [
+    "component",
+    "neural-network",
+    "feed-forward"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:modules.py:TransformerBlock",
+   "type": "class",
+   "name": "TransformerBlock",
+   "filePath": "modules.py",
+   "lineRange": [
+    224,
+    241
+   ],
+   "summary": "Pre-norm transformer block composing LayerNorm, RotarySelfAttention and MLP with residual connections.",
+   "tags": [
+    "component",
+    "transformer",
+    "neural-network"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:modules.py:test_attention_combinations",
+   "type": "function",
+   "name": "test_attention_combinations",
+   "filePath": "modules.py",
+   "lineRange": [
+    264,
+    315
+   ],
+   "summary": "Tests RotarySelfAttention outputs across causal and padding-mask combinations.",
+   "tags": [
+    "test",
+    "attention",
+    "sanity-check"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:modules.py:test_rotary_norm_preservation",
+   "type": "function",
+   "name": "test_rotary_norm_preservation",
+   "filePath": "modules.py",
+   "lineRange": [
+    317,
+    346
+   ],
+   "summary": "Verifies rotary embeddings preserve vector norms.",
+   "tags": [
+    "test",
+    "attention",
+    "sanity-check"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:modules.py:test_gpu_flash",
+   "type": "function",
+   "name": "test_gpu_flash",
+   "filePath": "modules.py",
+   "lineRange": [
+    348,
+    393
+   ],
+   "summary": "Compares flash-attention and manual attention outputs on GPU.",
+   "tags": [
+    "test",
+    "attention",
+    "sanity-check"
+   ],
+   "complexity": "moderate"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "file:information_theory_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "file:path_finding_llm_utilities.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "function:path_finding_mi_calc.py:sync_and_update_streaming_info",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "function:path_finding_mi_calc.py:sync_and_update_streaming_info",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "function:path_finding_mi_calc.py:calculate_and_report_metrics",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "function:path_finding_mi_calc.py:calculate_and_report_metrics",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "function:path_finding_mi_calc.py:create_plots_and_save",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "function:path_finding_mi_calc.py:create_plots_and_save",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:path_finding_mi_calc.py:sync_and_update_streaming_info",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE_single",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE1",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE2",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "class:model.py:GPT",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "class:path_finding_llm_utilities.py:PathFindingDataset",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "function:vqvae_utils.py:path_finding_generate_with_hidden_states",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc.py",
+   "target": "function:vqvae_utils.py:get_logger",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "file:information_theory_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "file:minimal_VQVAEs.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "file:model.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "file:path_finding_llm_utilities.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "file:vqvae_utils.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:path_finding_mi_calc_61.py:sync_and_update_streaming_info",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:path_finding_mi_calc_61.py:sync_and_update_streaming_info",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:path_finding_mi_calc_61.py:calculate_and_report_metrics",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:path_finding_mi_calc_61.py:calculate_and_report_metrics",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:path_finding_mi_calc_61.py:create_plots_and_save",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:path_finding_mi_calc_61.py:create_plots_and_save",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:path_finding_mi_calc_61.py:sync_and_update_streaming_info",
+   "target": "class:information_theory_utils.py:StreamingInfo",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE61",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE_single",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "class:model.py:GPT",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "class:path_finding_llm_utilities.py:PathFindingDataset",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:path_finding_llm_utilities.py:skip_time_steps",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:vqvae_utils.py:path_finding_generate_with_hidden_states",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:path_finding_mi_calc_61.py",
+   "target": "function:vqvae_utils.py:get_logger",
+   "type": "depends_on",
+   "direction": "forward",
+   "weight": 0.6
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "file:modules.py",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:ResidualBlock",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:ResidualBlock",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:CustomSequential",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:CustomSequential",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE_single",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE_single",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE1",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE1",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder1",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder1",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder1",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder1",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder3",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder3",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder3",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder3",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE3",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE3",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE2",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE2",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder2",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder2",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder2",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder2",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAELastToken",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAELastToken",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE3_Modified",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE3_Modified",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Path_Encoder",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Path_Encoder",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Path_Decoder",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Path_Decoder",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Path_VQVAE",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Path_VQVAE",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder3v2",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder3v2",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder3v2",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder3v2",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE3v2",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE3v2",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder_layer",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder_layer",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder_layer",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder_layer",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE_layer",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE_layer",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder61",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Encoder61",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder61",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:Decoder61",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE61",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:minimal_VQVAEs.py",
+   "target": "class:minimal_VQVAEs.py:VQVAE61",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:minimal_VQVAEs.py:VQVAE3_Modified",
+   "target": "class:minimal_VQVAEs.py:VQVAE3",
+   "type": "inherits",
+   "direction": "forward",
+   "weight": 0.9
+  },
+  {
+   "source": "class:minimal_VQVAEs.py:Encoder1",
+   "target": "class:modules.py:TransformerBlock",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:minimal_VQVAEs.py:Decoder1",
+   "target": "class:modules.py:TransformerBlock",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:minimal_VQVAEs.py:Encoder3",
+   "target": "class:modules.py:TransformerBlock",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:minimal_VQVAEs.py:Decoder3",
+   "target": "class:modules.py:TransformerBlock",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:minimal_VQVAEs.py:Encoder1",
+   "target": "class:minimal_VQVAEs.py:CustomSequential",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:minimal_VQVAEs.py:Encoder3",
+   "target": "class:minimal_VQVAEs.py:CustomSequential",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:LayerNorm",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:LayerNorm",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:RotaryPositionalEmbedding",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:RotaryPositionalEmbedding",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:RotarySelfAttention",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:RotarySelfAttention",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:MLP",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:MLP",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:TransformerBlock",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:modules.py",
+   "target": "class:modules.py:TransformerBlock",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:modules.py:RotarySelfAttention",
+   "target": "class:modules.py:RotaryPositionalEmbedding",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:modules.py:TransformerBlock",
+   "target": "class:modules.py:RotarySelfAttention",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:modules.py:TransformerBlock",
+   "target": "class:modules.py:MLP",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:modules.py:TransformerBlock",
+   "target": "class:modules.py:LayerNorm",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:modules.py",
+   "target": "function:modules.py:test_attention_combinations",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:modules.py",
+   "target": "function:modules.py:test_attention_combinations",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:modules.py:test_attention_combinations",
+   "target": "class:modules.py:RotarySelfAttention",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:modules.py",
+   "target": "function:modules.py:test_rotary_norm_preservation",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:modules.py",
+   "target": "function:modules.py:test_rotary_norm_preservation",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:modules.py:test_rotary_norm_preservation",
+   "target": "class:modules.py:RotarySelfAttention",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:modules.py",
+   "target": "function:modules.py:test_gpu_flash",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:modules.py",
+   "target": "function:modules.py:test_gpu_flash",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:modules.py:test_gpu_flash",
+   "target": "class:modules.py:RotarySelfAttention",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  }
+ ]
+}

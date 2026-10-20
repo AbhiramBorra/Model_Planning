@@ -1,0 +1,141 @@
+[
+  {
+    "id": "layer:data-generation",
+    "name": "Dataset Generation",
+    "description": "Synthetic CFG and path-finding graph generators, OpenWebText tokenization, dataset inspection tools, and the PF_15XL / PF_long1decoy_easier dataset-generation JSON configs under data/.",
+    "nodeIds": [
+      "file:data/context_free_grammar/CFG_data_generation.py",
+      "file:data/context_free_grammar/CFG_full_sequence_data_generation.py",
+      "file:data/context_free_grammar/CFG_prefix_data_generation.py",
+      "file:data/context_free_grammar/check_CGF_implementation.py",
+      "config:data/path_finding/PF_15XL_config.json",
+      "config:data/path_finding/PF_15XL_config_mi.json",
+      "config:data/path_finding/PF_15XL_config_train.json",
+      "config:data/path_finding/PF_15XL_config_train_small.json",
+      "config:data/path_finding/PF_15XL_config_train_vocab.json",
+      "config:data/path_finding/PF_15XL_config_vqvae.json",
+      "config:data/path_finding/PF_long1decoy_easier_config.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_mi.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_observe.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train_small.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_train_vocab.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_val.json",
+      "config:data/path_finding/PF_long1decoy_easier_config_vqvae.json",
+      "file:data/context_free_grammar/peeking_dataset.py",
+      "file:data/openwentext/prepare.py",
+      "file:data/path_finding/path_finding_generate.py",
+      "file:data/path_finding/path_finding_generate_multi_cpu.py",
+      "file:data/path_finding/visualize_saved_graphs.py"
+    ]
+  },
+  {
+    "id": "layer:model-library",
+    "name": "Model Library",
+    "description": "Shared PyTorch model definitions: the rotary-attention GPT (model.py), its transformer building blocks (modules.py), and the many VQ-VAE variants in minimal_VQVAEs.py.",
+    "nodeIds": [
+      "file:minimal_VQVAEs.py",
+      "file:modules.py",
+      "file:model.py"
+    ]
+  },
+  {
+    "id": "layer:shared-utilities",
+    "name": "Shared Utilities",
+    "description": "Cross-stage helpers for LR schedules and training metadata, VQ-VAE logging/optimizers, the JSONL path-finding dataset, and streaming entropy/MI count tables.",
+    "nodeIds": [
+      "file:information_theory_utils.py",
+      "file:llm_train_utils.py",
+      "file:vqvae_utils.py",
+      "file:path_finding_llm_utilities.py"
+    ]
+  },
+  {
+    "id": "layer:llm-training",
+    "name": "LLM Training",
+    "description": "Training entry scripts for GPT models with next-token or multi-token loss on CFG, path-finding, and OpenWebText data.",
+    "nodeIds": [
+      "file:NLP_llm_train.py",
+      "file:llm_train.py",
+      "file:path_finding_llm_train.py"
+    ]
+  },
+  {
+    "id": "layer:vqvae-training",
+    "name": "VQ-VAE Training",
+    "description": "Scripts that train single, two-stage, per-layer/block, last-token, 61-position and path VQ-VAEs on hidden states of frozen trained GPTs.",
+    "nodeIds": [
+      "file:NLP_vqvae_layer_and_block_train.py",
+      "file:NLP_vqvae_last_train.py",
+      "file:path_finding_vqvae61_train.py",
+      "file:train_minimal_vqvae1.py",
+      "file:train_minimal_vqvae2.py",
+      "file:train_minimal_vqvae_single.py",
+      "file:path_finding_vqvae1_train.py",
+      "file:path_finding_vqvae2_train.py",
+      "file:path_finding_vqvae_single_train.py",
+      "file:path_vqvae_train.py"
+    ]
+  },
+  {
+    "id": "layer:mi-analysis",
+    "name": "MI Analysis",
+    "description": "Scripts that run trained GPTs, quantize their hidden states with trained VQ-VAEs, and compute mutual information between the learned codes and path/sequence targets.",
+    "nodeIds": [
+      "file:NLP_mi_calc_v6 2.py",
+      "file:mi_calc_full_path.py",
+      "file:mi_calc_full_path_long2_61.py",
+      "file:mi_calc_minimal.py",
+      "file:path_finding_mi_calc.py",
+      "file:path_finding_mi_calc_61.py"
+    ]
+  },
+  {
+    "id": "layer:experiment-config",
+    "name": "Experiment Configs",
+    "description": "Per-experiment GPT and VQ-VAE/MI configuration files (Python and JSON) for the OpenWebText, PF-Short, PF-Long and CFG NTP/MTL seed-11 runs.",
+    "nodeIds": [
+      "config:NLP_openwebtext/VQVAE_last_train_config07s.json",
+      "config:NLP_openwebtext/layer_and_block_config_256.json",
+      "config:NLP_openwebtext/mi_calc_v6_config 2.json",
+      "config:PF_15XL/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "config:PF_15XL/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "config:PF_15XL/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae1_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae2_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae_path_config_seed11.json",
+      "config:PF_15XL/seed11_configs/vqvae_single_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae1_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae2_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae61_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/mtl_vqvae_single_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae1_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae2_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae61_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae_path_config_seed11.json",
+      "config:PF_long1decoy_easier/seed11_configs/vqvae_single_config_seed11.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae1_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae2_config.json",
+      "config:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_config.json",
+      "file:NLP_openwebtext/configGPT3Xsmall.py",
+      "file:PF_15XL/seed11_configs/final_config_path_finding_GPT3small_128_longer_train.py",
+      "file:PF_15XL/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train.py",
+      "file:PF_long1decoy_easier/seed11_configs/final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "file:PF_long1decoy_easier/seed11_configs/mtl_final_config_path_finding_GPT3small_128_longer_train_seed11.py",
+      "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/llmconfig_CFG_GPT3small.py",
+      "file:exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/llmconfig_CFG_GPT3small.py"
+    ]
+  },
+  {
+    "id": "layer:documentation",
+    "name": "Documentation",
+    "description": "The top-level README run guide with pipeline commands and the OpenWebText output note.",
+    "nodeIds": [
+      "document:README.txt",
+      "document:data/openwentext/readme.md"
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+{
+    "output_dir": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/vqvae_single_out",
+    "save_logs_flag": true,
+    "print_logs": true,
+    "log_interval": 1,
+    "save_interval": 1000,
+    "plot_interval": -1,
+    
+    "base_seed": 11,
+    
+    "language_model_ckpt_folder_path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_seed11/LLMout/LLMtrain_CFG_GPT",    
+    "LM_compile": true,
+
+    "gradient_accumulation_steps": 1,
+    "batch_size": 32,
+
+    "dataset_dir": "data/context_free_grammar/cfg_s1444-64-_rd3456_rl23_4000k",
+    "min_max_prefix_len": [8,24],
+    "split": "train",
+    "init_from": "scratch",
+
+    "learning_rate": 0.0001,
+    "max_iters": 20000,
+    "weight_decay": 0.1,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "grad_clip": 1.0,
+    "decay_lr": true,
+    "warmup_iters": 100,
+    "lr_decay_iters": 10000,
+    "min_lr": 1e-05,
+    "vqvae_single_config": {
+        "grow_beta": false,
+        "betainit": 0.25,
+        "betafinal": 1.0,
+        "warmup_iters_beta": 1000,
+        "codebook_size": 64,
+        "codebook_reset_counter_multiplier": 1000,
+        "beta": 0.25,
+        "d": 768,
+        "hidden_dim": 1028,
+        "cosine_push_weight": 0.001,
+        "entropy_loss_weight": 0.1,
+        "entropy_temperature": 4,
+        "mask_prob": 0.05,
+        "usage_tracking_window": 2000
+    },
+    "wandb_flag": true,
+    "wandb_project_name": "fullexp_cfg_s1444-64-_rd3456_rl23_4000k_seed11",
+    "wandb_run_name": "vqvae_single_training_layer12_d768_r1000_c64_cp0.001_el0.1_et4.0",
+    "wandb_group": "cfg_experiments",
+    "wandb_entity": "llm_analysis",
+    "backend": "nccl",
+    "device": "cuda",
+    "vq_compile": false,
+    "dtype": "bfloat16"
+}

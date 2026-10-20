@@ -1,0 +1,2 @@
+scan-project: git ls-files unavailable — falling back to recursive walk
+scan-project: filesScanned=91 filteredByIgnore=0 complexity=moderate

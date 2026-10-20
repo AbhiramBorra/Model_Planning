@@ -1,0 +1,597 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae1_config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 76,
+      "nonEmptyLines": 76,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "model_name",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "min_max_prefix_len",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "vqvae1_config",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 67
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 68
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 69
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 70
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 71
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 73
+        },
+        {
+          "heading": "vq_compile",
+          "level": 1,
+          "line": 74
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 35
+      }
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae2_config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 84,
+      "nonEmptyLines": 75,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "first_stage_ckpt_path",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "first_stage_model_compile",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "min_max_prefix_len",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 31
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "vqvae2_config",
+          "level": 1,
+          "line": 34
+        },
+        {
+          "heading": "vqvae2_compile",
+          "level": 1,
+          "line": 73
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 75
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 76
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 77
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 78
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 79
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 81
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 82
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 36
+      }
+    },
+    {
+      "path": "exp_cfg_s1444-64-_rd3456_rl23_4000k_mtl4_seed11/vqvae_single_config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 57,
+      "nonEmptyLines": 52,
+      "sections": [
+        {
+          "heading": "output_dir",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "save_logs_flag",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "print_logs",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "log_interval",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "save_interval",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "plot_interval",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "base_seed",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "language_model_ckpt_folder_path",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "LM_compile",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "gradient_accumulation_steps",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "batch_size",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "dataset_dir",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "min_max_prefix_len",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "split",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "init_from",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "learning_rate",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "max_iters",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "weight_decay",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "beta1",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "beta2",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "grad_clip",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "decay_lr",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "warmup_iters",
+          "level": 1,
+          "line": 29
+        },
+        {
+          "heading": "lr_decay_iters",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "min_lr",
+          "level": 1,
+          "line": 31
+        },
+        {
+          "heading": "vqvae_single_config",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "wandb_flag",
+          "level": 1,
+          "line": 48
+        },
+        {
+          "heading": "wandb_project_name",
+          "level": 1,
+          "line": 49
+        },
+        {
+          "heading": "wandb_run_name",
+          "level": 1,
+          "line": 50
+        },
+        {
+          "heading": "wandb_group",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "wandb_entity",
+          "level": 1,
+          "line": 52
+        },
+        {
+          "heading": "backend",
+          "level": 1,
+          "line": 53
+        },
+        {
+          "heading": "device",
+          "level": 1,
+          "line": 54
+        },
+        {
+          "heading": "vq_compile",
+          "level": 1,
+          "line": 55
+        },
+        {
+          "heading": "dtype",
+          "level": 1,
+          "line": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 35
+      }
+    }
+  ]
+}
